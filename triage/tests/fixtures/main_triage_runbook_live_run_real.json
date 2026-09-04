@@ -1,0 +1,693 @@
+{
+  "note": "REAL -- POST /triage against the persistent uvicorn service, 2026-08-23, thehive_alert_id=~4636880, verifying runbook retrieval (Part 1) and full evidence/reasoning surfacing (Part 2) against real backends, no mocking.",
+  "http_status": 200,
+  "wall_clock_seconds": 139.55781036894768,
+  "response": {
+    "success": true,
+    "result": {
+      "alert_id": "~4636880",
+      "verdict": "false_positive",
+      "recommended_action": "close_fp",
+      "summary": "This alert is a false positive. The observed activity aligns with typical administrative tasks involving PowerShell and external resources, consistent with the host's critical role.",
+      "reasoning": "The alert triggered due to a legitimate PowerShell script execution (`powershell.exe`) interacting with GitHub URLs (`github.com`). While the `Invoke-WebRequest` command was detected, its context within a production asset (`win-kvkmd51ggkq`, criticality high) and historical patterns (TP/FP ratio 1:1) indicate normal behavior. No direct indicators of compromise (IOCs) like C2 traffic or lateral movement were observed.",
+      "likelihood": "unlikely",
+      "impact_if_true": "moderate",
+      "evidence_citations": [
+        "rule_context.title=Suspicious Invoke-WebRequest Execution",
+        "asset_context.criticality=high",
+        "historical_context.tp_count=1",
+        "historical_context.fp_count=1"
+      ],
+      "actionable_observables": [],
+      "stage_3_reasoning": "The alert shares identical observables and severity with an active case (~4464672). No new kill-chain stage observed.",
+      "contextual_modifiers": [],
+      "refined_mitre_mapping": [],
+      "investigation_gaps": [],
+      "extracted_observables": {
+        "process": [
+          {
+            "observable_type": "process-path",
+            "value": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "rationale": "Parent process of the suspicious activity",
+            "confidence": "medium",
+            "source": "behavioral_analysis"
+          }
+        ],
+        "file": [
+          {
+            "observable_type": "file",
+            "value": "C:\\Windows\\Temp\\xordump.exe",
+            "rationale": "Downloaded payload dropped during execution",
+            "confidence": "high",
+            "source": "behavioral_analysis"
+          }
+        ],
+        "external_ips": [],
+        "domains": [],
+        "urls": [],
+        "hash": []
+      },
+      "threat_intel": [
+        {
+          "observable": "1c84c8632c5269f24876ed9f49fa810b49f77e1e92e8918fc164c34b020f9a94",
+          "type": "hash",
+          "verdict": [],
+          "details": "OpenCTI:Search Observable=Not found (info)",
+          "analyzer": "OpenCTI_v6_SearchExactObservable_2_0",
+          "taxonomies": [],
+          "raw": {
+            "taxonomies": [
+              {
+                "level": "info",
+                "namespace": "OpenCTI",
+                "predicate": "Search Observable",
+                "value": "Not found"
+              }
+            ]
+          }
+        },
+        {
+          "observable": "https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe",
+          "type": "url",
+          "verdict": [],
+          "details": "OpenCTI:Search Observable=Not found (info)",
+          "analyzer": "OpenCTI_v6_SearchExactObservable_2_0",
+          "taxonomies": [],
+          "raw": {
+            "taxonomies": [
+              {
+                "level": "info",
+                "namespace": "OpenCTI",
+                "predicate": "Search Observable",
+                "value": "Not found"
+              }
+            ]
+          }
+        },
+        {
+          "observable": "bf7a6e7a62c3f5b2e8e069438ac1dd3d",
+          "type": "hash",
+          "verdict": [],
+          "details": "OpenCTI:Search Observable=Not found (info)",
+          "analyzer": "OpenCTI_v6_SearchExactObservable_2_0",
+          "taxonomies": [],
+          "raw": {
+            "taxonomies": [
+              {
+                "level": "info",
+                "namespace": "OpenCTI",
+                "predicate": "Search Observable",
+                "value": "Not found"
+              }
+            ]
+          }
+        }
+      ],
+      "runbook_matches": [],
+      "gathered_evidence": {
+        "canonical_alert": {
+          "alert_id": "~4636880",
+          "timestamp": "2026-08-03T10:58:05Z",
+          "event_timestamp": "2026-08-03T10:51:54.651271Z",
+          "source_engine": "sigma",
+          "investigation_profile": "endpoint_behavior",
+          "event_dataset": "endpoint.events.process",
+          "risk_score": null,
+          "rule": {
+            "name": "Suspicious Invoke-WebRequest Execution",
+            "uuid": "5e3cc4d8-3e68-43db-8656-eaaeefdec9cc",
+            "native_severity": 4,
+            "level": "high",
+            "product": "windows",
+            "category": "process_creation",
+            "service": null
+          },
+          "host": {
+            "hostname": "win-kvkmd51ggkq",
+            "ip": [
+              "172.20.24.99"
+            ],
+            "mac": [],
+            "os": {
+              "name": null,
+              "family": null,
+              "full": null,
+              "platform": null,
+              "type": "windows",
+              "version": null,
+              "build": null,
+              "kernel": null
+            },
+            "host_id": "c8fc26bf-dc76-4dba-adbb-bf31640d9c9f",
+            "architecture": null
+          },
+          "user": {
+            "name": "Administrator",
+            "id": "S-1-5-21-2509633083-2976797254-1976158143-500",
+            "domain": "WIN-KVKMD51GGKQ",
+            "real_name": null,
+            "real_id": null
+          },
+          "network": null,
+          "process": {
+            "pid": 7568,
+            "name": "powershell.exe",
+            "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "command_line": "\"powershell.exe\" & {[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12\nInvoke-WebRequest \\\"\"https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe\\\"\" -OutFile C:\\Windows\\Temp\\xordump.exe}",
+            "working_directory": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\",
+            "args": [
+              "powershell.exe",
+              "&",
+              "{[Net.ServicePointManager]::SecurityProtocol",
+              "=",
+              "[Net.SecurityProtocolType]::Tls12\nInvoke-WebRequest",
+              "\"https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe\"",
+              "-OutFile",
+              "C:\\Windows\\Temp\\xordump.exe}"
+            ],
+            "entity_id": "uOvTPLNSnmfyuV88qckvUg",
+            "ancestry": [
+              "mkOl+51JIBVNcO24LkoqVw",
+              "2MnF6v+TOezg/GpQ/UUtLQ"
+            ],
+            "parent_pid": 600,
+            "parent_name": "powershell.exe",
+            "parent_path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "parent_command_line": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" ",
+            "parent_entity_id": "mkOl+51JIBVNcO24LkoqVw",
+            "integrity_level": "high",
+            "elevation_level": "default",
+            "logon_type": "Interactive",
+            "authentication_package": "NTLM",
+            "code_signature": {
+              "trusted": true,
+              "subject_name": "Microsoft Windows",
+              "status": "trusted",
+              "exists": true
+            },
+            "parent_code_signature": {
+              "trusted": true,
+              "subject_name": "Microsoft Windows",
+              "status": "trusted",
+              "exists": true
+            },
+            "original_file_name": "PowerShell.EXE",
+            "exit_code": 0,
+            "description": null,
+            "product": null,
+            "company": null,
+            "file_version": null,
+            "architecture": null,
+            "api": null
+          },
+          "target_process": null,
+          "library": null,
+          "file": null,
+          "registry": null,
+          "observables": {
+            "external_ips": [],
+            "domains": [
+              "github.com"
+            ],
+            "urls": [
+              "https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe"
+            ],
+            "hashes": {
+              "md5": [],
+              "sha1": [],
+              "sha256": [
+                "1c84c8632c5269f24876ed9f49fa810b49f77e1e92e8918fc164c34b020f9a94"
+              ],
+              "sha512": [],
+              "imphash": [
+                "bf7a6e7a62c3f5b2e8e069438ac1dd3d"
+              ],
+              "ssdeep": []
+            }
+          },
+          "related_entities": null,
+          "cortex_results": [
+            {
+              "observable": "1c84c8632c5269f24876ed9f49fa810b49f77e1e92e8918fc164c34b020f9a94",
+              "type": "hash",
+              "verdict": [],
+              "details": "OpenCTI:Search Observable=Not found (info)",
+              "analyzer": "OpenCTI_v6_SearchExactObservable_2_0",
+              "taxonomies": [],
+              "raw": {
+                "taxonomies": [
+                  {
+                    "level": "info",
+                    "namespace": "OpenCTI",
+                    "predicate": "Search Observable",
+                    "value": "Not found"
+                  }
+                ]
+              }
+            },
+            {
+              "observable": "https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe",
+              "type": "url",
+              "verdict": [],
+              "details": "OpenCTI:Search Observable=Not found (info)",
+              "analyzer": "OpenCTI_v6_SearchExactObservable_2_0",
+              "taxonomies": [],
+              "raw": {
+                "taxonomies": [
+                  {
+                    "level": "info",
+                    "namespace": "OpenCTI",
+                    "predicate": "Search Observable",
+                    "value": "Not found"
+                  }
+                ]
+              }
+            },
+            {
+              "observable": "bf7a6e7a62c3f5b2e8e069438ac1dd3d",
+              "type": "hash",
+              "verdict": [],
+              "details": "OpenCTI:Search Observable=Not found (info)",
+              "analyzer": "OpenCTI_v6_SearchExactObservable_2_0",
+              "taxonomies": [],
+              "raw": {
+                "taxonomies": [
+                  {
+                    "level": "info",
+                    "namespace": "OpenCTI",
+                    "predicate": "Search Observable",
+                    "value": "Not found"
+                  }
+                ]
+              }
+            }
+          ],
+          "asset_context": {},
+          "thehive_alert_id": "~4636880",
+          "thehive_observable_ids": {
+            "1c84c8632c5269f24876ed9f49fa810b49f77e1e92e8918fc164c34b020f9a94": "~8859648",
+            "https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe": "~4399136",
+            "bf7a6e7a62c3f5b2e8e069438ac1dd3d": "~8593464",
+            "github.com": "~4538608"
+          }
+        },
+        "fp_signal": {
+          "rule_fp_count_24h": 0,
+          "rule_fp_count_30d": 0,
+          "host_fp_count_24h": 0,
+          "host_fp_count_30d": 0
+        },
+        "rule_context": {
+          "found": true,
+          "rule_uuid": "5e3cc4d8-3e68-43db-8656-eaaeefdec9cc",
+          "title": "Suspicious Invoke-WebRequest Execution",
+          "description": "Detects a suspicious call to Invoke-WebRequest cmdlet where the and output is located in a suspicious location",
+          "author": "Nasreddine Bencherchali (Nextron Systems)",
+          "source_engine": "sigma",
+          "execution_engine": "elastalert",
+          "severity": "high",
+          "level": "high",
+          "status": "test",
+          "has_reliable_status": false,
+          "mitre_attack": [
+            "T1105"
+          ],
+          "mitre_tactics": [
+            "command-and-control"
+          ],
+          "mitre_groups": [],
+          "mitre_software": [],
+          "other_tags": [],
+          "falsepositives": [
+            "Unknown"
+          ],
+          "has_known_falsepositives": false,
+          "logsource": {
+            "category": "process_creation",
+            "product": "windows",
+            "service": null,
+            "definition": null
+          },
+          "references": [
+            "https://www.sentinelone.com/blog/living-off-windows-defender-lockbit-ransomware-sideloads-cobalt-strike-through-microsoft-security-tool/"
+          ],
+          "is_enabled": true,
+          "is_reporting": false,
+          "is_community": true,
+          "ruleset": "all_rules",
+          "license": "DRL",
+          "source_created": "2022-08-02T00:00:00Z",
+          "source_updated": "2025-07-18T00:00:00Z",
+          "content_parse_error": null
+        },
+        "open_cases": [
+          {
+            "case_id": "~4464672",
+            "case_number": 4,
+            "title": "[HIGH] Suspicious Invoke-WebRequest Execution - win-kvkmd51ggkq",
+            "severity": 3,
+            "stage": "New",
+            "status": "New",
+            "tags": [
+              "172.20.24.99",
+              "VR_IsolateHost:DRY-RUN-isolated",
+              "VR_IsolateHost:REAL-un-isolated",
+              "agent-id:1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+              "engine:sigma",
+              "rule:Suspicious Invoke-WebRequest Execution",
+              "security-onion",
+              "velociraptor-block-ip",
+              "velociraptor-block-ip-dry-run",
+              "velociraptor-block-ip-executed",
+              "velociraptor-kill-process-dry-run",
+              "velociraptor-kill-process-executed",
+              "vr-debug",
+              "win-kvkmd51ggkq"
+            ],
+            "created_at": "2026-08-21T01:34:07.398000Z",
+            "observables": [
+              "https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe",
+              "github.com",
+              "bf7a6e7a62c3f5b2e8e069438ac1dd3d",
+              "1c84c8632c5269f24876ed9f49fa810b49f77e1e92e8918fc164c34b020f9a94"
+            ],
+            "similar_observable_count": 4
+          }
+        ],
+        "closed_cases_summary": {
+          "tp_count": 1,
+          "fp_count": 1,
+          "other_count": 0,
+          "avg_severity": 3.0,
+          "sample_case_ids": [
+            "~8613944",
+            "~4653208"
+          ],
+          "matched_by": [
+            "rule_tag",
+            "observables"
+          ]
+        },
+        "asset_context": {
+          "found": true,
+          "hostname": "win-kvkmd51ggkq",
+          "criticality": "high",
+          "owner": null,
+          "organization": "IT Department",
+          "services": [],
+          "network_zone": null,
+          "data_sensitivity": [],
+          "asset_type": null,
+          "ip_addresses": [],
+          "asset_number": "c8fc26bf-dc76-4dba-adbb-bf31640d9c9f",
+          "itop_class": "Server",
+          "itop_id": "32",
+          "matched_by": "asset_number",
+          "status": "production",
+          "os_family": "Windows",
+          "os_version": "11",
+          "location": "Bordeaux",
+          "obsolete": false
+        },
+        "related_alerts_24h": [],
+        "process_history_24h": [],
+        "opencti_enrichment": [],
+        "investigation_gaps": [
+          {
+            "source": "opencti",
+            "reason": "HTTP 301 from OpenCTI: <html>\r <head><title>301 Moved Permanently</title></head>\r <body>\r <center><h1>301 Moved Permanently</h1></center>\r <hr><center>nginx</center>\r </body>\r </html>\r ",
+            "tool": "opencti_observable_enrichment",
+            "duration_ms": 223
+          },
+          {
+            "source": "qdrant",
+            "reason": "CVE gate disabled \u2014 no product-identifying field verified against real data yet; see nodes/rag.py::_has_cve_indicators",
+            "tool": "retrieve_cve",
+            "duration_ms": 0
+          }
+        ],
+        "stage_1_duration_ms": 583,
+        "mitre_candidates": [
+          {
+            "technique_id": "T1059.001",
+            "technique_name": "PowerShell",
+            "tactic": [
+              "execution"
+            ],
+            "platforms": [
+              "Windows"
+            ],
+            "is_sub_technique": true,
+            "parent_technique_id": "T1059",
+            "x_mitre_version": "1.5",
+            "detection_strategy_id": "DET0455",
+            "analytic_ids": [
+              "AN1252"
+            ],
+            "log_sources": [
+              "WinEventLog:PowerShell",
+              "WinEventLog:Sysmon"
+            ],
+            "score": 0.6798617
+          },
+          {
+            "technique_id": "T1071.001",
+            "technique_name": "Web Protocols",
+            "tactic": [
+              "command-and-control"
+            ],
+            "platforms": [
+              "ESXi",
+              "Linux",
+              "macOS",
+              "Network Devices",
+              "Windows"
+            ],
+            "is_sub_technique": true,
+            "parent_technique_id": "T1071",
+            "x_mitre_version": "1.5",
+            "detection_strategy_id": "DET0027",
+            "analytic_ids": [
+              "AN0075",
+              "AN0076",
+              "AN0077",
+              "AN0078",
+              "AN0079"
+            ],
+            "log_sources": [
+              "NSM:Flow",
+              "WinEventLog:Sysmon",
+              "auditd:SYSCALL",
+              "esxi:shell",
+              "macos:osquery",
+              "macos:unifiedlog"
+            ],
+            "score": 0.6734153
+          },
+          {
+            "technique_id": "T1218.011",
+            "technique_name": "Rundll32",
+            "tactic": [
+              "stealth"
+            ],
+            "platforms": [
+              "Windows"
+            ],
+            "is_sub_technique": true,
+            "parent_technique_id": "T1218",
+            "x_mitre_version": "3.0",
+            "detection_strategy_id": "DET0475",
+            "analytic_ids": [
+              "AN1308"
+            ],
+            "log_sources": [
+              "WinEventLog:Sysmon"
+            ],
+            "score": 0.6713631
+          },
+          {
+            "technique_id": "T1053.005",
+            "technique_name": "Scheduled Task",
+            "tactic": [
+              "execution",
+              "persistence",
+              "privilege-escalation"
+            ],
+            "platforms": [
+              "Windows"
+            ],
+            "is_sub_technique": true,
+            "parent_technique_id": "T1053",
+            "x_mitre_version": "1.8",
+            "detection_strategy_id": "DET0441",
+            "analytic_ids": [
+              "AN1221"
+            ],
+            "log_sources": [
+              "WinEventLog:Security",
+              "WinEventLog:Sysmon"
+            ],
+            "score": 0.66793764
+          },
+          {
+            "technique_id": "T1218.007",
+            "technique_name": "Msiexec",
+            "tactic": [
+              "stealth"
+            ],
+            "platforms": [
+              "Windows"
+            ],
+            "is_sub_technique": true,
+            "parent_technique_id": "T1218",
+            "x_mitre_version": "3.0",
+            "detection_strategy_id": "DET0158",
+            "analytic_ids": [
+              "AN0445"
+            ],
+            "log_sources": [
+              "WinEventLog:Security",
+              "WinEventLog:Sysmon"
+            ],
+            "score": 0.66595703
+          }
+        ],
+        "cve_matches": [],
+        "incident_matches": [
+          {
+            "incident_id": "~8613944",
+            "case_number": 2,
+            "title": "[HIGH] Suspicious Invoke-WebRequest Execution - win-kvkmd51ggkq",
+            "severity": 3,
+            "status": "TruePositive",
+            "stage": "Closed",
+            "attack_type": "Suspicious Invoke-WebRequest Execution",
+            "tags": [
+              "172.20.24.99",
+              "agent-id:1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+              "engine:sigma",
+              "rule:Suspicious Invoke-WebRequest Execution",
+              "security-onion",
+              "win-kvkmd51ggkq"
+            ],
+            "summary": "this closing is only for test",
+            "end_date": "2026-08-13",
+            "engine": "sigma",
+            "score": 0.87617135
+          },
+          {
+            "incident_id": "~4653208",
+            "case_number": 3,
+            "title": "[HIGH] Suspicious Invoke-WebRequest Execution - win-kvkmd51ggkq",
+            "severity": 3,
+            "status": "FalsePositive",
+            "stage": "Closed",
+            "attack_type": "Suspicious Invoke-WebRequest Execution",
+            "tags": [
+              "172.20.24.99",
+              "agent-id:1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+              "engine:sigma",
+              "rule:Suspicious Invoke-WebRequest Execution",
+              "security-onion",
+              "win-kvkmd51ggkq"
+            ],
+            "summary": "this case is for test",
+            "end_date": "2026-08-13",
+            "engine": "sigma",
+            "score": 0.8670113
+          }
+        ],
+        "stage_2_duration_ms": 2586
+      },
+      "stage_3_assessment": {
+        "refined_mitre_mapping": [],
+        "correlation_decision": {
+          "action": "merge",
+          "merge_into_case_id": "~4464672",
+          "kill_chain_progression_detected": false,
+          "reasoning": "The alert shares identical observables and severity with an active case (~4464672). No new kill-chain stage observed."
+        },
+        "contextual_modifiers": [],
+        "additional_investigation_gaps": [],
+        "confidence": "low",
+        "extracted_observables": {
+          "process": [
+            {
+              "observable_type": "process-path",
+              "value": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+              "rationale": "Parent process of the suspicious activity",
+              "confidence": "medium",
+              "source": "behavioral_analysis"
+            }
+          ],
+          "file": [
+            {
+              "observable_type": "file",
+              "value": "C:\\Windows\\Temp\\xordump.exe",
+              "rationale": "Downloaded payload dropped during execution",
+              "confidence": "high",
+              "source": "behavioral_analysis"
+            }
+          ],
+          "external_ips": [],
+          "domains": [],
+          "urls": [],
+          "hash": []
+        },
+        "llm_criticality_score": 42,
+        "stage_3_duration_ms": 80480
+      },
+      "priority": {
+        "score": 72,
+        "priority": "P2",
+        "base_likelihood": 20,
+        "adjusted_likelihood": 20,
+        "likelihood_modifiers_applied": [],
+        "base_impact": 100,
+        "adjusted_impact": 100,
+        "impact_modifiers_applied": [],
+        "base_confidence": 90,
+        "confidence_gate_applied": false,
+        "velocity_multiplier": 1.15,
+        "llm_criticality_score": 42,
+        "final_score_calculation": "(0.40\u00d720 + 0.35\u00d7100 + 0.25\u00d790 + 0.15\u00d742) / 1.15 \u00d7 1.15 = 72",
+        "components": {
+          "base_likelihood": 20.0,
+          "base_impact": 100.0,
+          "base_confidence": 90.0,
+          "rule_severity_score": 70.0,
+          "threat_intel_adjustment": -40.0,
+          "fp_rate_penalty": -0.0,
+          "rule_status_penalty": -10.0,
+          "historical_pattern_adjustment": 0.0,
+          "asset_criticality_score": 95.0,
+          "mitre_technique_severity": 65.0,
+          "blast_radius_score": 0.0,
+          "data_sensitivity_bonus": 0.0,
+          "evidence_completeness_pct": 75.0,
+          "gap_count": 2.0,
+          "verdict_consistency_bonus": 20.0,
+          "source_reliability_bonus": 15.0
+        }
+      },
+      "stage_5_duration_ms": 0,
+      "case_action": {
+        "success": false,
+        "case_id": "~4464672",
+        "case_number": null,
+        "is_new_case": false,
+        "severity": null,
+        "stage": null,
+        "status": null,
+        "tags": [],
+        "comment_added": false,
+        "observables_written": 0,
+        "observables_failed": 0,
+        "actionable_observables_written": [],
+        "error": "HTTP 400 from TheHive: {\"type\":\"BadRequest\",\"message\":\"Alert is already imported\"}"
+      }
+    },
+    "error": null,
+    "failed_stage": null
+  }
+}

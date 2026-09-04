@@ -1,0 +1,113 @@
+{
+  "_id": "MahB-ZYBy3bp7Al2n_zn",
+  "_index": ".ds-logs-suricata.alerts-so-2025.05.21-000011",
+  "_score": null,
+  "_source": {
+    "metadata": {
+      "pipeline": "suricata.common",
+      "input": {
+        "beats": {
+          "host": {
+            "ip": "192.168.1.100"
+          }
+        }
+      },
+      "raw_index": "logs-suricata-so",
+      "stream_id": "logfile-log.logs-d08eaf9d-db60-4107-8711-186f5eb33d1f",
+      "beat": "filebeat",
+      "type": "_doc",
+      "version": "8.17.3",
+      "input_id": "logfile-logs-d08eaf9d-db60-4107-8711-186f5eb33d1f"
+    },
+    "log": {
+      "file": {
+        "path": "/nsm/suricata/eve-2025-05-22-18:19.json"
+      },
+      "offset": 6228,
+      "id": {
+        "uid": "788739358610233"
+      }
+    },
+    "elastic_agent": {
+      "id": "c8bcdb8e-0b07-4cd8-854b-ce380c3559ed",
+      "version": "8.17.3",
+      "snapshot": false
+    },
+    "destination": {
+      "port": 39391,
+      "ip": "192.168.1.175"
+    },
+    "rule": {
+      "severity": 2,
+      "reference": "https://community.emergingthreats.net",
+      "rev": 7,
+      "metadata": {
+        "updated_at": [
+          "2019_07_26"
+        ],
+        "confidence": [
+          "Medium"
+        ],
+        "created_at": [
+          "2010_09_23"
+        ],
+        "signature_severity": [
+          "Informational"
+        ]
+      },
+      "gid": 1,
+      "name": "GPL ATTACK_RESPONSE id check returned root",
+      "ruleset": "Snort GPL",
+      "action": "allowed",
+      "rule": "alert ip any any -> any any (msg:\"GPL ATTACK_RESPONSE id check returned root\"; content:\"uid=0|28|root|29|\"; classtype:bad-unknown; sid:2100498; rev:7; metadata:created_at 2010_09_23, confidence Medium, signature_severity Informational, updated_at 2019_07_26;)",
+      "category": "Potentially Bad Traffic",
+      "uuid": "2100498"
+    },
+    "source": {
+      "port": 6200,
+      "ip": "192.168.1.11"
+    },
+    "message": "{\"timestamp\":\"2025-05-22T18:28:56.590317+0000\",\"flow_id\":788739358610233,\"in_iface\":\"bond0\",\"event_type\":\"alert\",\"src_ip\":\"192.168.1.11\",\"src_port\":6200,\"dest_ip\":\"192.168.1.175\",\"dest_port\":39391,\"proto\":\"TCP\",\"pkt_src\":\"stream (flow timeout)\",\"community_id\":\"1:4VUkJupYhA6RP+xhGL5c62H+GNQ=\",\"alert\":{\"action\":\"allowed\",\"gid\":1,\"signature_id\":2100498,\"rev\":7,\"signature\":\"GPL ATTACK_RESPONSE id check returned root\",\"category\":\"Potentially Bad Traffic\",\"severity\":2,\"metadata\":{\"confidence\":[\"Medium\"],\"created_at\":[\"2010_09_23\"],\"signature_severity\":[\"Informational\"],\"updated_at\":[\"2019_07_26\"]},\"rule\":\"alert ip any any -> any any (msg:\\\"GPL ATTACK_RESPONSE id check returned root\\\"; content:\\\"uid=0|28|root|29|\\\"; classtype:bad-unknown; sid:2100498; rev:7; metadata:created_at 2010_09_23, confidence Medium, signature_severity Informational, updated_at 2019_07_26;)\"},\"app_proto\":\"failed\",\"direction\":\"to_client\",\"payload_printable\":\"uid=0(root) gid=0(root)\\nrAkAV0vNl0yJBkDK\\nMRKlA1MvSnX3u6HeOiETZdR\\nbin\\nboot\\ncdrom\\ncore\\ndev\\netc\\nhome\\ninitrd\\ninitrd.img\\nlib\\nlost+found\\nmedia\\nmnt\\nnohup.out\\nopt\\nproc\\nroot\\nsbin\\nsrv\\nsys\\ntmp\\nusr\\nvar\\nvmlinuz\\nsh: line 7: .: command not found\\nbin\\nboot\\ncdrom\\ncore\\ndev\\netc\\nhome\\ninitrd\\ninitrd.img\\nlib\\nlost+found\\nmedia\\nmnt\\nnohup.out\\nopt\\nproc\\nroot\\nsbin\\nsrv\\nsys\\ntmp\\nusr\\nvar\\nvmlinuz\\n/\\nftp\\nmsfadmin\\nservice\\nuser\\nftp\\nmsfadmin\\nservice\\nuser\\nsh: line 13: .: command not found\\n\",\"stream\":1,\"packet\":\"RQAAKAAAAABABvbFwKgBC8CoAa8YOJnfGGb8fgAAAABQAAoAWt0AAA==\",\"packet_info\":{\"linktype\":1},\"capture_file\":\"/nsm/suripcap/1/so-pcap.1747934624\"}",
+    "tags": [
+      "alert",
+      "alert"
+    ],
+    "network": {
+      "community_id": "1:4VUkJupYhA6RP+xhGL5c62H+GNQ=",
+      "data": {
+        "decoded": "uid=0(root) gid=0(root)\nrAkAV0vNl0yJBkDK\nMRKlA1MvSnX3u6HeOiETZdR\nbin\nboot\ncdrom\ncore\ndev\netc\nhome\ninitrd\ninitrd.img\nlib\nlost+found\nmedia\nmnt\nnohup.out\nopt\nproc\nroot\nsbin\nsrv\nsys\ntmp\nusr\nvar\nvmlinuz\nsh: line 7: .: command not found\nbin\nboot\ncdrom\ncore\ndev\netc\nhome\ninitrd\ninitrd.img\nlib\nlost+found\nmedia\nmnt\nnohup.out\nopt\nproc\nroot\nsbin\nsrv\nsys\ntmp\nusr\nvar\nvmlinuz\n/\nftp\nmsfadmin\nservice\nuser\nftp\nmsfadmin\nservice\nuser\nsh: line 13: .: command not found\n"
+      },
+      "transport": "TCP",
+      "packet_source": "stream (flow timeout)"
+    },
+    "input": {
+      "type": "log"
+    },
+    "observer": {
+      "ingress": {
+        "interface": {
+          "name": "bond0"
+        }
+      },
+      "name": "securityonion-rtulab"
+    },
+    "@timestamp": "2025-05-22T18:28:56.590Z",
+    "ecs": {
+      "version": "8.0.0"
+    },
+    "data_stream": {
+      "namespace": "so",
+      "type": "logs",
+      "dataset": "suricata"
+    },
+    "@version": "1",
+    "event": {
+      "severity": 2,
+      "ingested": "2025-05-22T18:29:01.509Z",
+      "module": "suricata",
+      "category": "network",
+      "dataset": "suricata.alert",
+      "severity_label": "medium"
+    }
+  }
+}

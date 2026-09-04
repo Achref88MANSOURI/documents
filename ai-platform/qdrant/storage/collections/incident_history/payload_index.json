@@ -1,0 +1,1 @@
+{"schema":{"attack_type":"keyword","status":"keyword","incident_id":"keyword","case_number":"integer","severity":"integer"}}

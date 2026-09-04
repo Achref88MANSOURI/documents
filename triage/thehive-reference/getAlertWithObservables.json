@@ -1,0 +1,10 @@
+{
+  "name": "getAlertWithObservables",
+  "mode": "Enabled",
+  "description": "Return an alert with its observables and analyzer reports",
+  "types": [
+    "api"
+  ],
+  "config": {},
+  "definition": "function handle(input, context) {\n  const alertId = input.alertId;\n\n  if (!alertId) {\n    throw new Error(\"alertId is required\");\n  }\n\n  const alert = context.alert.get(alertId);\n\n  if (!alert) {\n    throw new Error(\"Alert not found: \" + alertId);\n  }\n\n  const observables = context.query.execute([\n    {\n      _name: \"getAlert\",\n      idOrName: alertId\n    },\n    {\n      _name: \"observables\"\n    }\n  ]);\n\n  return {\n    alert: alert,\n    observables: observables\n  };\n}"
+}

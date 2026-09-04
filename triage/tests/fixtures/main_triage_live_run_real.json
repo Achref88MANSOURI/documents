@@ -1,0 +1,75 @@
+{
+  "note": "REAL -- one live POST /triage against a running uvicorn main:app, 2026-08-23, thehive_alert_id=~4636880 (real, already-Imported alert), real ES/TheHive/iTop/OpenCTI/Qdrant/LLM backends, no mocking. Captured for Part B's required live-verification step.",
+  "http_status": 200,
+  "wall_clock_seconds": 135.1632708539255,
+  "response": {
+    "success": true,
+    "result": {
+      "alert_id": "~4636880",
+      "verdict": "needs_review",
+      "recommended_action": "merge_quiet",
+      "summary": "This alert requires further review due to conflicting signals: high-severity rule vs. clean threat intel and behavioral context without conclusive evidence.",
+      "reasoning": "The alert triggers on a high-severity Sigma rule (T1105 command-and-control), but the threat intel shows no known malicious indicators (empty verdicts). Behavioral context includes suspicious PowerShell execution (`powershell.exe`) and dropped executables (`xordump.exe`), but these lack definitive proof of compromise. Asset criticality is high, increasing potential impact, though historical averages suggest moderate severity. No kill chain progression detected.",
+      "likelihood": "unlikely",
+      "impact_if_true": "moderate",
+      "evidence_citations": [
+        "rule_context.severity=high",
+        "threat_intel[].verdict=[]",
+        "extracted_observables.process[].confidence=medium",
+        "asset_context.criticality=high",
+        "historical_context.avg_severity=3.0"
+      ],
+      "actionable_observables": [],
+      "priority": {
+        "score": 62,
+        "priority": "P3",
+        "base_likelihood": 20,
+        "adjusted_likelihood": 20,
+        "likelihood_modifiers_applied": [],
+        "base_impact": 100,
+        "adjusted_impact": 100,
+        "impact_modifiers_applied": [],
+        "base_confidence": 50,
+        "confidence_gate_applied": false,
+        "velocity_multiplier": 1.15,
+        "llm_criticality_score": 42,
+        "final_score_calculation": "(0.40\u00d720 + 0.35\u00d7100 + 0.25\u00d750 + 0.15\u00d742) / 1.15 \u00d7 1.15 = 62",
+        "components": {
+          "base_likelihood": 20.0,
+          "base_impact": 100.0,
+          "base_confidence": 50.0,
+          "rule_severity_score": 70.0,
+          "threat_intel_adjustment": -40.0,
+          "fp_rate_penalty": -0.0,
+          "rule_status_penalty": -10.0,
+          "historical_pattern_adjustment": 0.0,
+          "asset_criticality_score": 95.0,
+          "mitre_technique_severity": 65.0,
+          "blast_radius_score": 0.0,
+          "data_sensitivity_bonus": 0.0,
+          "evidence_completeness_pct": 75.0,
+          "gap_count": 4.0,
+          "verdict_consistency_bonus": 0.0,
+          "source_reliability_bonus": 15.0
+        }
+      },
+      "stage_5_duration_ms": 0,
+      "case_action": {
+        "success": false,
+        "case_id": "~4464672",
+        "case_number": null,
+        "is_new_case": false,
+        "severity": null,
+        "stage": null,
+        "status": null,
+        "tags": [],
+        "comment_added": false,
+        "observables_written": 0,
+        "observables_failed": 0,
+        "error": "HTTP 400 from TheHive: {\"type\":\"BadRequest\",\"message\":\"Alert is already imported\"}"
+      }
+    },
+    "error": null,
+    "failed_stage": null
+  }
+}

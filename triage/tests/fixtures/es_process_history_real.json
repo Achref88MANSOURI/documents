@@ -1,0 +1,887 @@
+{
+  "took": 16,
+  "timed_out": false,
+  "_shards": {
+    "total": 4,
+    "successful": 4,
+    "skipped": 1,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 10000,
+      "relation": "gte"
+    },
+    "max_score": null,
+    "hits": [
+      {
+        "_index": ".ds-logs-endpoint.events.process-default-2026.07.05-000004",
+        "_id": "nELCx58BstL_s-ZWSsI1",
+        "_score": null,
+        "_source": {
+          "agent": {
+            "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+            "type": "endpoint",
+            "version": "9.0.8"
+          },
+          "process": {
+            "Ext": {
+              "mitigation_policies": [
+                "CET dynamic APIs can only be called out of proc",
+                "CF Guard"
+              ],
+              "ancestry": [
+                "iGxTjAOZfTX24oDyyx/2Cw",
+                "s1Lf78Xt+RTGQzKs3+hx8Q",
+                "mPkiOZSUVBHwCJx2m1qyUw",
+                "OEiFel0+BdsaetB+vB9ohA"
+              ],
+              "session_info": {
+                "authentication_package": "NTLM",
+                "relative_logon_time": 1618196.3638711,
+                "id": 0
+              },
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "relative_file_creation_time": 139483186.6569675,
+              "authentication_id": "0x3e7",
+              "relative_file_name_modify_time": 1702753.7235425,
+              "token": {
+                "integrity_level_name": "system",
+                "security_attributes": [
+                  "TSA://ProcUnique"
+                ],
+                "elevation_level": "default"
+              }
+            },
+            "parent": {
+              "args": [
+                "C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-9.0.8-4db6fd\\components\\endpoint-security.exe",
+                "uninstall",
+                "--log",
+                "stderr"
+              ],
+              "Ext": {
+                "code_signature": [
+                  {
+                    "trusted": true,
+                    "subject_name": "Elasticsearch, Inc.",
+                    "exists": true,
+                    "status": "trusted"
+                  },
+                  {
+                    "trusted": true,
+                    "subject_name": "Microsoft Windows Hardware Compatibility Publisher",
+                    "exists": true,
+                    "status": "trusted"
+                  },
+                  {
+                    "trusted": true,
+                    "subject_name": "Elasticsearch B.V.",
+                    "exists": true,
+                    "status": "trusted"
+                  }
+                ]
+              },
+              "code_signature": {
+                "trusted": true,
+                "subject_name": "Elasticsearch, Inc.",
+                "exists": true,
+                "status": "trusted"
+              },
+              "name": "endpoint-security.exe",
+              "pid": 8452,
+              "args_count": 4,
+              "entity_id": "iGxTjAOZfTX24oDyyx/2Cw",
+              "command_line": "\"C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-9.0.8-4db6fd\\components\\endpoint-security.exe\" uninstall --log stderr",
+              "executable": "C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-9.0.8-4db6fd\\components\\endpoint-security.exe"
+            },
+            "working_directory": "C:\\Windows",
+            "pid": 5760,
+            "entity_id": "VxJEeEmdDpQjQbxF3KXoaQ",
+            "executable": "C:\\Windows\\System32\\conhost.exe",
+            "args": [
+              "\\??\\C:\\Windows\\system32\\conhost.exe",
+              "0xffffffff",
+              "-ForceV1"
+            ],
+            "code_signature": {
+              "trusted": true,
+              "subject_name": "Microsoft Windows",
+              "exists": true,
+              "status": "trusted"
+            },
+            "pe": {
+              "imphash": "e6e74c33f84dabf4fd1eafde89d16b87",
+              "original_file_name": "CONHOST.EXE"
+            },
+            "name": "conhost.exe",
+            "args_count": 3,
+            "hash": {
+              "sha256": "6b481d656414c50d8bd0bedcd615aeaf2f5f68576cb6732a9548e0da87729733"
+            },
+            "command_line": "\\??\\C:\\Windows\\system32\\conhost.exe 0xffffffff -ForceV1"
+          },
+          "metadata": {
+            "input": {
+              "beats": {
+                "host": {
+                  "ip": "172.20.24.99"
+                }
+              }
+            },
+            "index": "logs-endpoint.events.process-default"
+          },
+          "message": "Endpoint process event",
+          "tags": [
+            "elastic-agent",
+            "input-nodemanager",
+            "beats_input_codec_plain_applied",
+            "events.process"
+          ],
+          "@timestamp": "2026-08-03T13:13:41.717764200Z",
+          "ecs": {
+            "version": "8.10.0"
+          },
+          "data_stream": {
+            "namespace": "default",
+            "type": "logs",
+            "dataset": "endpoint.events.process"
+          },
+          "elastic": {
+            "agent": {
+              "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a"
+            }
+          },
+          "host": {
+            "os": {
+              "type": "windows"
+            },
+            "name": "win-kvkmd51ggkq",
+            "id": "c8fc26bf-dc76-4dba-adbb-bf31640d9c9f"
+          },
+          "@version": "1",
+          "event": {
+            "sequence": 588015,
+            "ingested": "2026-08-03T13:13:46Z",
+            "kind": "event",
+            "created": "2026-08-03T13:13:41.7215499Z",
+            "module": "endpoint",
+            "action": [
+              "start"
+            ],
+            "id": "OZWc9AbxXaKhFKi++++QiRad",
+            "category": [
+              "process"
+            ],
+            "type": [
+              "start"
+            ],
+            "dataset": "endpoint.events.process",
+            "outcome": "unknown"
+          },
+          "user": {
+            "domain": "NT AUTHORITY",
+            "name": "SYSTEM",
+            "id": "S-1-5-18"
+          }
+        },
+        "sort": [
+          1785762821717
+        ]
+      },
+      {
+        "_index": ".ds-logs-endpoint.events.process-default-2026.07.05-000004",
+        "_id": "m0LCx58BstL_s-ZWSsI1",
+        "_score": null,
+        "_source": {
+          "agent": {
+            "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+            "type": "endpoint",
+            "version": "9.0.8"
+          },
+          "process": {
+            "Ext": {
+              "mitigation_policies": [
+                "CET dynamic APIs can only be called out of proc",
+                "CF Guard"
+              ],
+              "ancestry": [
+                "s1Lf78Xt+RTGQzKs3+hx8Q",
+                "mPkiOZSUVBHwCJx2m1qyUw",
+                "OEiFel0+BdsaetB+vB9ohA"
+              ],
+              "session_info": {
+                "authentication_package": "NTLM",
+                "relative_logon_time": 1618196.3001416,
+                "id": 0
+              },
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Elasticsearch, Inc.",
+                  "exists": true,
+                  "status": "trusted"
+                },
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows Hardware Compatibility Publisher",
+                  "exists": true,
+                  "status": "trusted"
+                },
+                {
+                  "trusted": true,
+                  "subject_name": "Elasticsearch B.V.",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ],
+              "relative_file_creation_time": 1641513.8848373,
+              "authentication_id": "0x3e7",
+              "relative_file_name_modify_time": 1641513.8848373,
+              "token": {
+                "integrity_level_name": "system",
+                "security_attributes": [
+                  "TSA://ProcUnique"
+                ],
+                "elevation_level": "default"
+              }
+            },
+            "parent": {
+              "args": [
+                "C:\\Program Files\\Elastic\\Agent\\elastic-agent.exe"
+              ],
+              "Ext": {
+                "code_signature": [
+                  {
+                    "trusted": true,
+                    "subject_name": "Elasticsearch, Inc.",
+                    "exists": true,
+                    "status": "trusted"
+                  }
+                ]
+              },
+              "code_signature": {
+                "trusted": true,
+                "subject_name": "Elasticsearch, Inc.",
+                "exists": true,
+                "status": "trusted"
+              },
+              "name": "elastic-agent.exe",
+              "pid": 604,
+              "args_count": 1,
+              "entity_id": "s1Lf78Xt+RTGQzKs3+hx8Q",
+              "command_line": "\"C:\\Program Files\\Elastic\\Agent\\elastic-agent.exe\"",
+              "executable": "C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-9.0.8-4db6fd\\elastic-agent.exe"
+            },
+            "working_directory": "C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-9.0.8-4db6fd\\components\\",
+            "pid": 8452,
+            "entity_id": "iGxTjAOZfTX24oDyyx/2Cw",
+            "executable": "C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-9.0.8-4db6fd\\components\\endpoint-security.exe",
+            "args": [
+              "C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-9.0.8-4db6fd\\components\\endpoint-security.exe",
+              "uninstall",
+              "--log",
+              "stderr"
+            ],
+            "code_signature": {
+              "trusted": true,
+              "subject_name": "Elasticsearch, Inc.",
+              "exists": true,
+              "status": "trusted"
+            },
+            "pe": {
+              "imphash": "e221ec658cf3354e043b5aa2d902edf6"
+            },
+            "name": "endpoint-security.exe",
+            "args_count": 4,
+            "hash": {
+              "sha256": "26acb62eed552bfe39a4385432ae15e198b2821a0a9a220298cc60c54dd7246c"
+            },
+            "command_line": "\"C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-9.0.8-4db6fd\\components\\endpoint-security.exe\" uninstall --log stderr"
+          },
+          "metadata": {
+            "input": {
+              "beats": {
+                "host": {
+                  "ip": "172.20.24.99"
+                }
+              }
+            },
+            "index": "logs-endpoint.events.process-default"
+          },
+          "message": "Endpoint process event",
+          "tags": [
+            "elastic-agent",
+            "input-nodemanager",
+            "beats_input_codec_plain_applied",
+            "events.process"
+          ],
+          "@timestamp": "2026-08-03T13:13:41.654034700Z",
+          "ecs": {
+            "version": "8.10.0"
+          },
+          "data_stream": {
+            "namespace": "default",
+            "type": "logs",
+            "dataset": "endpoint.events.process"
+          },
+          "elastic": {
+            "agent": {
+              "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a"
+            }
+          },
+          "host": {
+            "os": {
+              "type": "windows"
+            },
+            "name": "win-kvkmd51ggkq",
+            "id": "c8fc26bf-dc76-4dba-adbb-bf31640d9c9f"
+          },
+          "@version": "1",
+          "event": {
+            "sequence": 588007,
+            "ingested": "2026-08-03T13:13:46Z",
+            "kind": "event",
+            "created": "2026-08-03T13:13:41.6634042Z",
+            "module": "endpoint",
+            "action": [
+              "start"
+            ],
+            "id": "OZWc9AbxXaKhFKi++++QiRaI",
+            "category": [
+              "process"
+            ],
+            "type": [
+              "start"
+            ],
+            "dataset": "endpoint.events.process",
+            "outcome": "unknown"
+          },
+          "user": {
+            "domain": "NT AUTHORITY",
+            "name": "SYSTEM",
+            "id": "S-1-5-18"
+          }
+        },
+        "sort": [
+          1785762821654
+        ]
+      },
+      {
+        "_index": ".ds-logs-endpoint.events.process-default-2026.07.05-000004",
+        "_id": "mkLCx58BstL_s-ZWSsI0",
+        "_score": null,
+        "_source": {
+          "agent": {
+            "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+            "type": "endpoint",
+            "version": "9.0.8"
+          },
+          "process": {
+            "Ext": {
+              "mitigation_policies": [
+                "CET dynamic APIs can only be called out of proc",
+                "CF Guard"
+              ],
+              "ancestry": [
+                "8AEoGs2YXA0wnYwE3Un6SQ",
+                "s1Lf78Xt+RTGQzKs3+hx8Q",
+                "mPkiOZSUVBHwCJx2m1qyUw",
+                "OEiFel0+BdsaetB+vB9ohA"
+              ],
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ]
+            },
+            "parent": {
+              "args": [
+                "C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-9.0.8-4db6fd\\components\\agentbeat.exe",
+                "metricbeat",
+                "-E",
+                "setup.ilm.enabled=false",
+                "-E",
+                "setup.template.enabled=false",
+                "-E",
+                "management.enabled=true",
+                "-E",
+                "management.restart_on_output_change=true",
+                "-E",
+                "logging.level=info",
+                "-E",
+                "logging.to_stderr=true",
+                "-E",
+                "gc_percent=${METRICBEAT_GOGC:100}",
+                "-E",
+                "metricbeat.config.modules.enabled=false",
+                "-E",
+                "logging.event_data.to_stderr=true",
+                "-E",
+                "logging.event_data.to_files=false",
+                "-E",
+                "http.enabled=true",
+                "-E",
+                "http.host=npipe:///ki4i9BXVDXTOmKOWq9gsx_snOoqghjth.sock",
+                "-E",
+                "path.data=C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-9.0.8-4db6fd\\run\\system\\metrics-monitoring"
+              ],
+              "Ext": {
+                "code_signature": [
+                  {
+                    "trusted": true,
+                    "subject_name": "Elasticsearch, Inc.",
+                    "exists": true,
+                    "status": "trusted"
+                  }
+                ]
+              },
+              "code_signature": {
+                "trusted": true,
+                "subject_name": "Elasticsearch, Inc.",
+                "exists": true,
+                "status": "trusted"
+              },
+              "name": "agentbeat.exe",
+              "pid": 440,
+              "args_count": 28,
+              "entity_id": "8AEoGs2YXA0wnYwE3Un6SQ",
+              "command_line": "\"C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-9.0.8-4db6fd\\components\\agentbeat.exe\" metricbeat -E setup.ilm.enabled=false -E setup.template.enabled=false -E management.enabled=true -E management.restart_on_output_change=true -E logging.level=info -E logging.to_stderr=true -E gc_percent=${METRICBEAT_GOGC:100} -E metricbeat.config.modules.enabled=false -E logging.event_data.to_stderr=true -E logging.event_data.to_files=false -E http.enabled=true -E http.host=npipe:///ki4i9BXVDXTOmKOWq9gsx_snOoqghjth.sock -E \"path.data=C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-9.0.8-4db6fd\\run\\system\\metrics-monitoring\"",
+              "executable": "C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-9.0.8-4db6fd\\components\\agentbeat.exe"
+            },
+            "pid": 7856,
+            "entity_id": "zIENGumbYoW9VX3iilc3PA",
+            "executable": "C:\\Windows\\System32\\conhost.exe",
+            "args": [
+              "\\??\\C:\\Windows\\system32\\conhost.exe",
+              "0xffffffff",
+              "-ForceV1"
+            ],
+            "code_signature": {
+              "trusted": true,
+              "subject_name": "Microsoft Windows",
+              "exists": true,
+              "status": "trusted"
+            },
+            "pe": {
+              "imphash": "e6e74c33f84dabf4fd1eafde89d16b87",
+              "original_file_name": "CONHOST.EXE"
+            },
+            "exit_code": 0,
+            "name": "conhost.exe",
+            "args_count": 3,
+            "hash": {
+              "sha256": "6b481d656414c50d8bd0bedcd615aeaf2f5f68576cb6732a9548e0da87729733"
+            },
+            "command_line": "\\??\\C:\\Windows\\system32\\conhost.exe 0xffffffff -ForceV1"
+          },
+          "metadata": {
+            "input": {
+              "beats": {
+                "host": {
+                  "ip": "172.20.24.99"
+                }
+              }
+            },
+            "index": "logs-endpoint.events.process-default"
+          },
+          "message": "Endpoint process event",
+          "tags": [
+            "elastic-agent",
+            "input-nodemanager",
+            "beats_input_codec_plain_applied",
+            "events.process"
+          ],
+          "@timestamp": "2026-08-03T13:13:38.902982100Z",
+          "ecs": {
+            "version": "8.10.0"
+          },
+          "data_stream": {
+            "namespace": "default",
+            "type": "logs",
+            "dataset": "endpoint.events.process"
+          },
+          "elastic": {
+            "agent": {
+              "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a"
+            }
+          },
+          "host": {
+            "os": {
+              "type": "windows"
+            },
+            "name": "win-kvkmd51ggkq",
+            "id": "c8fc26bf-dc76-4dba-adbb-bf31640d9c9f"
+          },
+          "@version": "1",
+          "event": {
+            "sequence": 587987,
+            "ingested": "2026-08-03T13:13:46Z",
+            "kind": "event",
+            "created": "2026-08-03T13:13:38.9029821Z",
+            "module": "endpoint",
+            "action": [
+              "end"
+            ],
+            "id": "OZWc9AbxXaKhFKi++++QiRQ0",
+            "category": [
+              "process"
+            ],
+            "type": [
+              "end"
+            ],
+            "dataset": "endpoint.events.process",
+            "outcome": "unknown"
+          },
+          "user": {
+            "domain": "NT AUTHORITY",
+            "name": "SYSTEM",
+            "id": "S-1-5-18"
+          }
+        },
+        "sort": [
+          1785762818902
+        ]
+      },
+      {
+        "_index": ".ds-logs-endpoint.events.process-default-2026.07.05-000004",
+        "_id": "mULCx58BstL_s-ZWSsI0",
+        "_score": null,
+        "_source": {
+          "agent": {
+            "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+            "type": "endpoint",
+            "version": "9.0.8"
+          },
+          "process": {
+            "Ext": {
+              "mitigation_policies": [
+                "CET dynamic APIs can only be called out of proc"
+              ],
+              "ancestry": [
+                "s1Lf78Xt+RTGQzKs3+hx8Q",
+                "mPkiOZSUVBHwCJx2m1qyUw",
+                "OEiFel0+BdsaetB+vB9ohA"
+              ],
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Elasticsearch, Inc.",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ]
+            },
+            "parent": {
+              "args": [
+                "C:\\Program Files\\Elastic\\Agent\\elastic-agent.exe"
+              ],
+              "Ext": {
+                "code_signature": [
+                  {
+                    "trusted": true,
+                    "subject_name": "Elasticsearch, Inc.",
+                    "exists": true,
+                    "status": "trusted"
+                  }
+                ]
+              },
+              "code_signature": {
+                "trusted": true,
+                "subject_name": "Elasticsearch, Inc.",
+                "exists": true,
+                "status": "trusted"
+              },
+              "name": "elastic-agent.exe",
+              "pid": 604,
+              "args_count": 1,
+              "entity_id": "s1Lf78Xt+RTGQzKs3+hx8Q",
+              "command_line": "\"C:\\Program Files\\Elastic\\Agent\\elastic-agent.exe\"",
+              "executable": "C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-9.0.8-4db6fd\\elastic-agent.exe"
+            },
+            "pid": 440,
+            "entity_id": "8AEoGs2YXA0wnYwE3Un6SQ",
+            "executable": "C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-9.0.8-4db6fd\\components\\agentbeat.exe",
+            "args": [
+              "C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-9.0.8-4db6fd\\components\\agentbeat.exe",
+              "metricbeat",
+              "-E",
+              "setup.ilm.enabled=false",
+              "-E",
+              "setup.template.enabled=false",
+              "-E",
+              "management.enabled=true",
+              "-E",
+              "management.restart_on_output_change=true",
+              "-E",
+              "logging.level=info",
+              "-E",
+              "logging.to_stderr=true",
+              "-E",
+              "gc_percent=${METRICBEAT_GOGC:100}",
+              "-E",
+              "metricbeat.config.modules.enabled=false",
+              "-E",
+              "logging.event_data.to_stderr=true",
+              "-E",
+              "logging.event_data.to_files=false",
+              "-E",
+              "http.enabled=true",
+              "-E",
+              "http.host=npipe:///ki4i9BXVDXTOmKOWq9gsx_snOoqghjth.sock",
+              "-E",
+              "path.data=C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-9.0.8-4db6fd\\run\\system\\metrics-monitoring"
+            ],
+            "code_signature": {
+              "trusted": true,
+              "subject_name": "Elasticsearch, Inc.",
+              "exists": true,
+              "status": "trusted"
+            },
+            "pe": {
+              "imphash": "caa7190c5981590a97e7c28ec12cef8f",
+              "original_file_name": "agentbeat.exe"
+            },
+            "exit_code": 1,
+            "name": "agentbeat.exe",
+            "args_count": 28,
+            "hash": {
+              "sha256": "e09beb54bc91e9056f7f701a22a7cecd10a495d1c75c097c92a05e39d6db743b"
+            },
+            "command_line": "\"C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-9.0.8-4db6fd\\components\\agentbeat.exe\" metricbeat -E setup.ilm.enabled=false -E setup.template.enabled=false -E management.enabled=true -E management.restart_on_output_change=true -E logging.level=info -E logging.to_stderr=true -E gc_percent=${METRICBEAT_GOGC:100} -E metricbeat.config.modules.enabled=false -E logging.event_data.to_stderr=true -E logging.event_data.to_files=false -E http.enabled=true -E http.host=npipe:///ki4i9BXVDXTOmKOWq9gsx_snOoqghjth.sock -E \"path.data=C:\\Program Files\\Elastic\\Agent\\data\\elastic-agent-9.0.8-4db6fd\\run\\system\\metrics-monitoring\""
+          },
+          "metadata": {
+            "input": {
+              "beats": {
+                "host": {
+                  "ip": "172.20.24.99"
+                }
+              }
+            },
+            "index": "logs-endpoint.events.process-default"
+          },
+          "message": "Endpoint process event",
+          "tags": [
+            "elastic-agent",
+            "input-nodemanager",
+            "beats_input_codec_plain_applied",
+            "events.process"
+          ],
+          "@timestamp": "2026-08-03T13:13:38.899364800Z",
+          "ecs": {
+            "version": "8.10.0"
+          },
+          "data_stream": {
+            "namespace": "default",
+            "type": "logs",
+            "dataset": "endpoint.events.process"
+          },
+          "elastic": {
+            "agent": {
+              "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a"
+            }
+          },
+          "host": {
+            "os": {
+              "type": "windows"
+            },
+            "name": "win-kvkmd51ggkq",
+            "id": "c8fc26bf-dc76-4dba-adbb-bf31640d9c9f"
+          },
+          "@version": "1",
+          "event": {
+            "sequence": 587983,
+            "ingested": "2026-08-03T13:13:46Z",
+            "kind": "event",
+            "created": "2026-08-03T13:13:38.8993648Z",
+            "module": "endpoint",
+            "action": [
+              "end"
+            ],
+            "id": "OZWc9AbxXaKhFKi++++QiRPy",
+            "category": [
+              "process"
+            ],
+            "type": [
+              "end"
+            ],
+            "dataset": "endpoint.events.process",
+            "outcome": "unknown"
+          },
+          "user": {
+            "domain": "NT AUTHORITY",
+            "name": "SYSTEM",
+            "id": "S-1-5-18"
+          }
+        },
+        "sort": [
+          1785762818899
+        ]
+      },
+      {
+        "_index": ".ds-logs-endpoint.events.process-default-2026.07.05-000004",
+        "_id": "3UK_x58BstL_s-ZWiqon",
+        "_score": null,
+        "_source": {
+          "agent": {
+            "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+            "type": "endpoint",
+            "version": "9.0.8"
+          },
+          "process": {
+            "Ext": {
+              "mitigation_policies": [
+                "CET dynamic APIs can only be called out of proc",
+                "CF Guard"
+              ],
+              "ancestry": [
+                "TlxYTJdZnJoEMwEXLN3Gpw",
+                "mPkiOZSUVBHwCJx2m1qyUw",
+                "OEiFel0+BdsaetB+vB9ohA"
+              ],
+              "code_signature": [
+                {
+                  "trusted": true,
+                  "subject_name": "Microsoft Windows",
+                  "exists": true,
+                  "status": "trusted"
+                }
+              ]
+            },
+            "parent": {
+              "args": [
+                "C:\\Windows\\system32\\svchost.exe",
+                "-k",
+                "DcomLaunch",
+                "-p"
+              ],
+              "Ext": {
+                "code_signature": [
+                  {
+                    "trusted": true,
+                    "subject_name": "Microsoft Windows Publisher",
+                    "exists": true,
+                    "status": "trusted"
+                  }
+                ]
+              },
+              "code_signature": {
+                "trusted": true,
+                "subject_name": "Microsoft Windows Publisher",
+                "exists": true,
+                "status": "trusted"
+              },
+              "name": "svchost.exe",
+              "pid": 848,
+              "args_count": 4,
+              "entity_id": "TlxYTJdZnJoEMwEXLN3Gpw",
+              "command_line": "C:\\Windows\\system32\\svchost.exe -k DcomLaunch -p",
+              "executable": "C:\\Windows\\System32\\svchost.exe"
+            },
+            "pid": 2036,
+            "entity_id": "LIA6NSIceopXqWhEEAR5oQ",
+            "executable": "C:\\Windows\\System32\\wbem\\WmiPrvSE.exe",
+            "args": [
+              "C:\\Windows\\system32\\wbem\\wmiprvse.exe",
+              "-secured",
+              "-Embedding"
+            ],
+            "code_signature": {
+              "trusted": true,
+              "subject_name": "Microsoft Windows",
+              "exists": true,
+              "status": "trusted"
+            },
+            "pe": {
+              "imphash": "eef7a7fbbc54e78b2a1b262353515ae0",
+              "original_file_name": "Wmiprvse.exe"
+            },
+            "exit_code": 0,
+            "name": "WmiPrvSE.exe",
+            "args_count": 3,
+            "hash": {
+              "sha256": "1792731e030b7fe35a7eb21c9f907eae6e4ac381de918003f2709185c4ce0a5a"
+            },
+            "command_line": "C:\\Windows\\system32\\wbem\\wmiprvse.exe -secured -Embedding"
+          },
+          "metadata": {
+            "input": {
+              "beats": {
+                "host": {
+                  "ip": "172.20.24.99"
+                }
+              }
+            },
+            "index": "logs-endpoint.events.process-default"
+          },
+          "message": "Endpoint process event",
+          "tags": [
+            "elastic-agent",
+            "input-nodemanager",
+            "beats_input_codec_plain_applied",
+            "events.process"
+          ],
+          "@timestamp": "2026-08-03T13:10:41.482911600Z",
+          "ecs": {
+            "version": "8.10.0"
+          },
+          "data_stream": {
+            "namespace": "default",
+            "type": "logs",
+            "dataset": "endpoint.events.process"
+          },
+          "elastic": {
+            "agent": {
+              "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a"
+            }
+          },
+          "host": {
+            "os": {
+              "type": "windows"
+            },
+            "name": "win-kvkmd51ggkq",
+            "id": "c8fc26bf-dc76-4dba-adbb-bf31640d9c9f"
+          },
+          "@version": "1",
+          "event": {
+            "sequence": 587941,
+            "ingested": "2026-08-03T13:10:46Z",
+            "kind": "event",
+            "created": "2026-08-03T13:10:41.4829116Z",
+            "module": "endpoint",
+            "action": [
+              "end"
+            ],
+            "id": "OZWc9AbxXaKhFKi++++QiEdp",
+            "category": [
+              "process"
+            ],
+            "type": [
+              "end"
+            ],
+            "dataset": "endpoint.events.process",
+            "outcome": "unknown"
+          },
+          "user": {
+            "domain": "NT AUTHORITY",
+            "name": "NETWORK SERVICE",
+            "id": "S-1-5-20"
+          }
+        },
+        "sort": [
+          1785762641482
+        ]
+      }
+    ]
+  }
+}

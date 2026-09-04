@@ -1,0 +1,524 @@
+INFO:     Started server process [937623]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:44234 - "GET /health HTTP/1.1" 200 OK
+2026-08-23 14:47:34,129 INFO     [~57352] nodes.gather: Stage 1 started: rule='Suspicious Invoke-WebRequest Execution' host='win-kvkmd51ggkq' dataset=None
+2026-08-23 14:47:34,349 WARNING  [~57352] tools.opencti: opencti_observable_enrichment failed: Redirect response '301 Moved Permanently' for url 'http://172.20.24.222/graphql'
+Redirect location: 'https://172.20.24.222/graphql'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2026-08-23 14:47:34,729 INFO     [~57352] nodes.gather: Stage 1 completed in 599ms: 2 gaps
+2026-08-23 14:47:34,730 INFO     [~57352] nodes.rag: Stage 2 started
+2026-08-23 14:47:37,738 INFO     [~57352] nodes.rag: Stage 2 completed in 3008ms: 0 mitre, 0 incident, 0 cve matches
+2026-08-23 14:47:37,740 INFO     [~57352] nodes.context: Stage 3 started
+2026-08-23 14:47:37,741 INFO     [~57352] nodes.context: Stage 3 LLM call started (model=foundation-sec-reasoning, timeout=600.0s)
+2026-08-23 14:48:54,112 INFO     [~57352] nodes.context: Stage 3 LLM call completed in 76.4s
+2026-08-23 14:48:54,113 INFO     [~57352] nodes.context: Stage 3 extracted_observables.external_ips value '172.20.24.99' duplicates an existing canonical_alert.observables entry, discarding
+2026-08-23 14:48:54,113 INFO     [~57352] nodes.context: Stage 3 extracted_observables.domains value 'github.com' duplicates an existing canonical_alert.observables entry, discarding
+2026-08-23 14:48:54,113 INFO     [~57352] nodes.context: Stage 3 extracted_observables.urls value 'https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe' duplicates an existing canonical_alert.observables entry, discarding
+2026-08-23 14:48:54,114 INFO     [~57352] nodes.context: Stage 3 extracted_observables.hash value '1c84c8632c5269f24876ed9f49fa810b49f77e1e92e8918fc164c34b020f9a94' duplicates an existing canonical_alert.observables entry, discarding
+2026-08-23 14:48:54,114 INFO     [~57352] nodes.context: Stage 3 completed in 76373ms: confidence=low action=merge modifiers=0
+2026-08-23 14:48:54,114 INFO     [~57352] nodes.analyze: Stage 4 started
+2026-08-23 14:48:54,261 INFO     [~57352] nodes.analyze: Stage 4 LLM call started (model=foundation-sec-reasoning, timeout=600.0s)
+2026-08-23 14:49:32,411 INFO     [~57352] nodes.analyze: Stage 4 LLM call completed in 38.1s
+2026-08-23 14:49:32,412 INFO     [~57352] nodes.analyze: Stage 4 completed in 38297ms: verdict=needs_review recommended_action=merge_quiet
+2026-08-23 14:49:32,412 INFO     [~57352] nodes.score: Stage 5 started
+2026-08-23 14:49:32,412 INFO     [~57352] nodes.score: Stage 5 completed in 0ms: score=84 priority=P1 gate_applied=True
+2026-08-23 14:49:32,412 INFO     [~57352] nodes.case_action: Case action started: correlation_action=merge merge_target=~4464672
+2026-08-23 14:49:35,157 INFO     [~57352] nodes.case_action: Case action completed: merged into case_id=~4464672 comment_added=True observables=2/2
+2026-08-23 14:49:35,157 INFO     [~57352] main: triage completed: alert_id=~57352 priority=P1 case_action.success=True
+INFO:     172.20.24.220:49358 - "POST /triage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53736 - "GET /health HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:52636 - "GET /health HTTP/1.1" 503 Service Unavailable
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [937623]
+INFO:     Started server process [964722]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:50534 - "GET /health HTTP/1.1" 200 OK
+2026-08-23 15:50:23,500 INFO     [~4636880] nodes.gather: Stage 1 started: rule='Suspicious Invoke-WebRequest Execution' host='win-kvkmd51ggkq' dataset='endpoint.events.process'
+2026-08-23 15:50:23,723 WARNING  [~4636880] tools.opencti: opencti_observable_enrichment failed: Redirect response '301 Moved Permanently' for url 'http://172.20.24.222/graphql'
+Redirect location: 'https://172.20.24.222/graphql'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2026-08-23 15:50:24,131 INFO     [~4636880] nodes.gather: Stage 1 completed in 631ms: 1 gaps
+2026-08-23 15:50:24,132 INFO     [~4636880] nodes.rag: Stage 2 started
+2026-08-23 15:50:25,879 INFO     [~4636880] nodes.rag: Stage 2 completed in 1747ms: 5 mitre, 2 incident, 0 cve matches
+2026-08-23 15:50:25,879 INFO     [~4636880] nodes.context: Stage 3 started
+2026-08-23 15:50:25,882 INFO     [~4636880] nodes.context: Stage 3 LLM call started (model=foundation-sec-reasoning, timeout=600.0s)
+2026-08-23 15:50:26,239 WARNING  [~4636880] nodes.context: Stage 3 LLM call/parse failed, using deterministic fallback: Client error '400 Bad Request' for url 'https://coaches-preservation-cathedral-locale.trycloudflare.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-08-23 15:50:26,239 INFO     [~4636880] nodes.context: Stage 3 completed in 359ms: confidence=low action=merge modifiers=0
+2026-08-23 15:50:26,239 INFO     [~4636880] nodes.analyze: Stage 4 started
+2026-08-23 15:50:26,765 INFO     [~4636880] nodes.analyze: Stage 4 LLM call started (model=foundation-sec-reasoning, timeout=600.0s)
+2026-08-23 15:51:16,860 INFO     [~4636880] nodes.analyze: Stage 4 LLM call completed in 50.1s
+2026-08-23 15:51:16,861 INFO     [~4636880] nodes.analyze: Stage 4 completed in 50621ms: verdict=needs_review recommended_action=merge_quiet
+2026-08-23 15:51:16,861 INFO     [~4636880] nodes.score: Stage 5 started
+2026-08-23 15:51:16,861 INFO     [~4636880] nodes.score: Stage 5 completed in 0ms: score=68 priority=P2 gate_applied=False
+2026-08-23 15:51:16,862 INFO     [~4636880] nodes.case_action: Case action started: correlation_action=merge merge_target=~4464672
+2026-08-23 15:51:16,955 WARNING  [~4636880] tools.thehive: merge_alert_into_case failed: Client error '400 Bad Request' for url 'http://172.20.24.228:9000/api/v1/alert/~4636880/merge/~4464672'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-08-23 15:51:16,955 WARNING  [~4636880] nodes.case_action: Case action failed: could not merge into ~4464672: HTTP 400 from TheHive: {"type":"BadRequest","message":"Alert is already imported"}
+2026-08-23 15:51:16,955 INFO     [~4636880] main: triage completed: alert_id=~4636880 priority=P2 case_action.success=False
+INFO:     127.0.0.1:36596 - "POST /triage HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [964722]
+INFO:     Started server process [969464]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:49612 - "GET /health HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [969464]
+INFO:     Started server process [975291]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:43016 - "GET /health HTTP/1.1" 200 OK
+2026-08-23 16:04:36,040 INFO     [~4636880] nodes.gather: Stage 1 started: rule='Suspicious Invoke-WebRequest Execution' host='win-kvkmd51ggkq' dataset='endpoint.events.process'
+2026-08-23 16:04:36,263 WARNING  [~4636880] tools.opencti: opencti_observable_enrichment failed: Redirect response '301 Moved Permanently' for url 'http://172.20.24.222/graphql'
+Redirect location: 'https://172.20.24.222/graphql'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2026-08-23 16:04:36,613 INFO     [~4636880] nodes.gather: Stage 1 completed in 573ms: 1 gaps
+2026-08-23 16:04:36,613 INFO     [~4636880] nodes.rag: Stage 2 started
+2026-08-23 16:04:38,283 INFO     [~4636880] nodes.rag: Stage 2 completed in 1669ms: 5 mitre, 2 incident, 0 cve matches
+2026-08-23 16:04:38,284 INFO     [~4636880] nodes.context: Stage 3 started
+2026-08-23 16:04:38,284 INFO     [~4636880] nodes.context: Stage 3 LLM call started (model=foundation-sec-reasoning, timeout=600.0s, max_tokens=2754)
+2026-08-23 16:06:19,932 INFO     [~4636880] nodes.context: Stage 3 LLM call completed in 101.6s
+2026-08-23 16:06:19,933 INFO     [~4636880] nodes.context: Stage 3 extracted_observables.domains value 'github.com' duplicates an existing canonical_alert.observables entry, discarding
+2026-08-23 16:06:19,934 INFO     [~4636880] nodes.context: Stage 3 extracted_observables.urls value 'https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe' duplicates an existing canonical_alert.observables entry, discarding
+2026-08-23 16:06:19,934 INFO     [~4636880] nodes.context: Stage 3 extracted_observables.hash value '1c84c8632c5269f24876ed9f49fa810b49f77e1e92e8918fc164c34b020f9a94' duplicates an existing canonical_alert.observables entry, discarding
+2026-08-23 16:06:19,934 INFO     [~4636880] nodes.context: Stage 3 completed in 101650ms: confidence=low action=merge modifiers=2
+2026-08-23 16:06:19,934 INFO     [~4636880] nodes.analyze: Stage 4 started
+2026-08-23 16:06:20,276 INFO     [~4636880] nodes.analyze: Stage 4 LLM call started (model=foundation-sec-reasoning, timeout=600.0s, max_tokens=2000)
+2026-08-23 16:07:13,455 INFO     [~4636880] nodes.analyze: Stage 4 LLM call completed in 53.2s
+2026-08-23 16:07:13,456 INFO     [~4636880] nodes.analyze: Stage 4 completed in 53522ms: verdict=false_positive recommended_action=merge_quiet
+2026-08-23 16:07:13,457 INFO     [~4636880] nodes.score: Stage 5 started
+2026-08-23 16:07:13,457 INFO     [~4636880] nodes.score: Stage 5 completed in 0ms: score=70 priority=P2 gate_applied=False
+2026-08-23 16:07:13,457 INFO     [~4636880] nodes.case_action: Case action started: correlation_action=merge merge_target=~4464672
+2026-08-23 16:07:13,549 WARNING  [~4636880] tools.thehive: merge_alert_into_case failed: Client error '400 Bad Request' for url 'http://172.20.24.228:9000/api/v1/alert/~4636880/merge/~4464672'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-08-23 16:07:13,549 WARNING  [~4636880] nodes.case_action: Case action failed: could not merge into ~4464672: HTTP 400 from TheHive: {"type":"BadRequest","message":"Alert is already imported"}
+2026-08-23 16:07:13,550 INFO     [~4636880] main: triage completed: alert_id=~4636880 priority=P2 case_action.success=False
+INFO:     127.0.0.1:43024 - "POST /triage HTTP/1.1" 200 OK
+2026-08-23 16:10:33,971 INFO     [~57352] nodes.gather: Stage 1 started: rule='Suspicious Invoke-WebRequest Execution' host='win-kvkmd51ggkq' dataset=None
+2026-08-23 16:10:34,199 WARNING  [~57352] tools.opencti: opencti_observable_enrichment failed: Redirect response '301 Moved Permanently' for url 'http://172.20.24.222/graphql'
+Redirect location: 'https://172.20.24.222/graphql'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2026-08-23 16:10:34,577 INFO     [~57352] nodes.gather: Stage 1 completed in 605ms: 2 gaps
+2026-08-23 16:10:34,577 INFO     [~57352] nodes.rag: Stage 2 started
+2026-08-23 16:10:36,340 INFO     [~57352] nodes.rag: Stage 2 completed in 1762ms: 5 mitre, 2 incident, 0 cve matches
+2026-08-23 16:10:36,341 INFO     [~57352] nodes.context: Stage 3 started
+2026-08-23 16:10:36,342 INFO     [~57352] nodes.context: Stage 3 LLM call started (model=foundation-sec-reasoning, timeout=600.0s, max_tokens=2717)
+2026-08-23 16:12:41,771 WARNING  [~57352] nodes.context: Stage 3 LLM call/parse failed, using deterministic fallback: Server error '524 <none>' for url 'https://coaches-preservation-cathedral-locale.trycloudflare.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/524
+2026-08-23 16:12:41,771 INFO     [~57352] nodes.context: Stage 3 completed in 125430ms: confidence=low action=merge modifiers=0
+2026-08-23 16:12:41,772 INFO     [~57352] nodes.analyze: Stage 4 started
+2026-08-23 16:12:42,140 INFO     [~57352] nodes.analyze: Stage 4 LLM call started (model=foundation-sec-reasoning, timeout=600.0s, max_tokens=2000)
+2026-08-23 16:13:22,218 INFO     [~57352] nodes.analyze: Stage 4 LLM call completed in 40.1s
+2026-08-23 16:13:22,219 INFO     [~57352] nodes.analyze: Stage 4 completed in 40447ms: verdict=needs_review recommended_action=merge_quiet
+2026-08-23 16:13:22,220 INFO     [~57352] nodes.score: Stage 5 started
+2026-08-23 16:13:22,220 INFO     [~57352] nodes.score: Stage 5 completed in 0ms: score=90 priority=P1 gate_applied=False
+2026-08-23 16:13:22,220 INFO     [~57352] nodes.case_action: Case action started: correlation_action=merge merge_target=~4464672
+2026-08-23 16:13:22,312 WARNING  [~57352] tools.thehive: merge_alert_into_case failed: Client error '400 Bad Request' for url 'http://172.20.24.228:9000/api/v1/alert/~57352/merge/~4464672'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-08-23 16:13:22,312 WARNING  [~57352] nodes.case_action: Case action failed: could not merge into ~4464672: HTTP 400 from TheHive: {"type":"BadRequest","message":"Alert is already imported"}
+2026-08-23 16:13:22,312 INFO     [~57352] main: triage completed: alert_id=~57352 priority=P1 case_action.success=False
+INFO:     172.20.24.220:56798 - "POST /triage HTTP/1.1" 200 OK
+2026-08-23 16:17:14,540 INFO     [~57352] nodes.gather: Stage 1 started: rule='Suspicious Invoke-WebRequest Execution' host='win-kvkmd51ggkq' dataset=None
+2026-08-23 16:17:14,762 WARNING  [~57352] tools.opencti: opencti_observable_enrichment failed: Redirect response '301 Moved Permanently' for url 'http://172.20.24.222/graphql'
+Redirect location: 'https://172.20.24.222/graphql'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2026-08-23 16:17:15,132 INFO     [~57352] nodes.gather: Stage 1 completed in 592ms: 2 gaps
+2026-08-23 16:17:15,132 INFO     [~57352] nodes.rag: Stage 2 started
+2026-08-23 16:17:16,962 INFO     [~57352] nodes.rag: Stage 2 completed in 1829ms: 5 mitre, 2 incident, 0 cve matches
+2026-08-23 16:17:16,962 INFO     [~57352] nodes.context: Stage 3 started
+2026-08-23 16:17:16,963 INFO     [~57352] nodes.context: Stage 3 LLM call started (model=foundation-sec-reasoning, timeout=600.0s, max_tokens=2717)
+2026-08-23 16:19:22,401 WARNING  [~57352] nodes.context: Stage 3 LLM call/parse failed, using deterministic fallback: Server error '524 <none>' for url 'https://coaches-preservation-cathedral-locale.trycloudflare.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/524
+2026-08-23 16:19:22,401 INFO     [~57352] nodes.context: Stage 3 completed in 125439ms: confidence=low action=merge modifiers=0
+2026-08-23 16:19:22,402 INFO     [~57352] nodes.analyze: Stage 4 started
+2026-08-23 16:19:22,829 INFO     [~57352] nodes.analyze: Stage 4 LLM call started (model=foundation-sec-reasoning, timeout=600.0s, max_tokens=2000)
+2026-08-23 16:19:45,080 INFO     [~57352] nodes.analyze: Stage 4 LLM call completed in 22.3s
+2026-08-23 16:19:45,081 INFO     [~57352] nodes.analyze: Stage 4 completed in 22679ms: verdict=needs_review recommended_action=merge_quiet
+2026-08-23 16:19:45,081 INFO     [~57352] nodes.score: Stage 5 started
+2026-08-23 16:19:45,082 INFO     [~57352] nodes.score: Stage 5 completed in 0ms: score=90 priority=P1 gate_applied=False
+2026-08-23 16:19:45,082 INFO     [~57352] nodes.case_action: Case action started: correlation_action=merge merge_target=~4464672
+2026-08-23 16:19:45,182 WARNING  [~57352] tools.thehive: merge_alert_into_case failed: Client error '400 Bad Request' for url 'http://172.20.24.228:9000/api/v1/alert/~57352/merge/~4464672'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-08-23 16:19:45,183 WARNING  [~57352] nodes.case_action: Case action failed: could not merge into ~4464672: HTTP 400 from TheHive: {"type":"BadRequest","message":"Alert is already imported"}
+2026-08-23 16:19:45,183 INFO     [~57352] main: triage completed: alert_id=~57352 priority=P1 case_action.success=False
+INFO:     172.20.24.220:59806 - "POST /triage HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [975291]
+INFO:     Started server process [1006050]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:48906 - "GET /health HTTP/1.1" 503 Service Unavailable
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1006050]
+INFO:     Started server process [1012961]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:57868 - "GET /health HTTP/1.1" 200 OK
+2026-08-23 17:29:32,447 INFO     [~4636880] nodes.gather: Stage 1 started: rule='Suspicious Invoke-WebRequest Execution' host='win-kvkmd51ggkq' dataset='endpoint.events.process'
+2026-08-23 17:29:32,670 WARNING  [~4636880] tools.opencti: opencti_observable_enrichment failed: Redirect response '301 Moved Permanently' for url 'http://172.20.24.222/graphql'
+Redirect location: 'https://172.20.24.222/graphql'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2026-08-23 17:29:33,030 INFO     [~4636880] nodes.gather: Stage 1 completed in 583ms: 1 gaps
+2026-08-23 17:29:33,031 INFO     [~4636880] nodes.rag: Stage 2 started
+2026-08-23 17:29:35,618 INFO     [~4636880] nodes.rag: Stage 2 completed in 2586ms: 5 mitre, 2 incident, 0 cve matches
+2026-08-23 17:29:35,618 INFO     [~4636880] nodes.context: Stage 3 started
+2026-08-23 17:29:35,619 INFO     [~4636880] nodes.context: Stage 3 LLM call started (model=foundation-sec-reasoning, timeout=600.0s, max_tokens=2754)
+2026-08-23 17:30:56,097 INFO     [~4636880] nodes.context: Stage 3 LLM call completed in 80.5s
+2026-08-23 17:30:56,099 INFO     [~4636880] nodes.context: Stage 3 completed in 80480ms: confidence=low action=merge modifiers=0
+2026-08-23 17:30:56,099 INFO     [~4636880] nodes.analyze: Stage 4 started
+2026-08-23 17:30:56,461 INFO     [~4636880] nodes.analyze: Stage 4 LLM call started (model=foundation-sec-reasoning, timeout=600.0s, max_tokens=2000)
+2026-08-23 17:31:51,701 INFO     [~4636880] nodes.analyze: Stage 4 LLM call completed in 55.2s
+2026-08-23 17:31:51,702 INFO     [~4636880] nodes.analyze: Stage 4 completed in 55602ms: verdict=false_positive recommended_action=close_fp
+2026-08-23 17:31:51,702 INFO     [~4636880] nodes.score: Stage 5 started
+2026-08-23 17:31:51,702 INFO     [~4636880] nodes.score: Stage 5 completed in 0ms: score=72 priority=P2 gate_applied=False
+2026-08-23 17:31:51,703 INFO     [~4636880] nodes.case_action: Case action started: correlation_action=merge merge_target=~4464672
+2026-08-23 17:31:51,794 WARNING  [~4636880] tools.thehive: merge_alert_into_case failed: Client error '400 Bad Request' for url 'http://172.20.24.228:9000/api/v1/alert/~4636880/merge/~4464672'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-08-23 17:31:51,795 WARNING  [~4636880] nodes.case_action: Case action failed: could not merge into ~4464672: HTTP 400 from TheHive: {"type":"BadRequest","message":"Alert is already imported"}
+2026-08-23 17:31:51,795 INFO     [~4636880] main: triage completed: alert_id=~4636880 priority=P2 case_action.success=False
+INFO:     127.0.0.1:49428 - "POST /triage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56566 - "GET /health HTTP/1.1" 200 OK
+2026-08-23 17:35:28,385 INFO     [~57352] nodes.gather: Stage 1 started: rule='Suspicious Invoke-WebRequest Execution' host='win-kvkmd51ggkq' dataset=None
+2026-08-23 17:35:28,707 WARNING  [~57352] tools.opencti: opencti_observable_enrichment failed: Redirect response '301 Moved Permanently' for url 'http://172.20.24.222/graphql'
+Redirect location: 'https://172.20.24.222/graphql'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2026-08-23 17:35:28,744 INFO     [~57352] nodes.gather: Stage 1 started: rule='Suspicious Invoke-WebRequest Execution' host='win-kvkmd51ggkq' dataset=None
+2026-08-23 17:35:29,081 WARNING  [~57352] tools.opencti: opencti_observable_enrichment failed: Redirect response '301 Moved Permanently' for url 'http://172.20.24.222/graphql'
+Redirect location: 'https://172.20.24.222/graphql'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2026-08-23 17:35:29,269 INFO     [~57352] nodes.gather: Stage 1 completed in 884ms: 2 gaps
+2026-08-23 17:35:29,270 INFO     [~57352] nodes.rag: Stage 2 started
+2026-08-23 17:35:29,406 INFO     [~57352] nodes.gather: Stage 1 completed in 662ms: 2 gaps
+2026-08-23 17:35:29,407 INFO     [~57352] nodes.rag: Stage 2 started
+2026-08-23 17:35:32,162 INFO     [~57352] nodes.rag: Stage 2 completed in 2892ms: 5 mitre, 2 incident, 0 cve matches
+2026-08-23 17:35:32,163 INFO     [~57352] nodes.context: Stage 3 started
+2026-08-23 17:35:32,164 INFO     [~57352] nodes.context: Stage 3 LLM call started (model=foundation-sec-reasoning, timeout=600.0s, max_tokens=2717)
+2026-08-23 17:35:32,315 INFO     [~57352] nodes.rag: Stage 2 completed in 2908ms: 5 mitre, 2 incident, 0 cve matches
+2026-08-23 17:35:32,315 INFO     [~57352] nodes.context: Stage 3 started
+2026-08-23 17:35:32,316 INFO     [~57352] nodes.context: Stage 3 LLM call started (model=foundation-sec-reasoning, timeout=600.0s, max_tokens=2717)
+2026-08-23 17:37:37,593 WARNING  [~57352] nodes.context: Stage 3 LLM call/parse failed, using deterministic fallback: Server error '524 <none>' for url 'https://automatically-sixth-aviation-courts.trycloudflare.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/524
+2026-08-23 17:37:37,601 INFO     [~57352] nodes.context: Stage 3 completed in 125438ms: confidence=low action=merge modifiers=0
+2026-08-23 17:37:37,601 INFO     [~57352] nodes.analyze: Stage 4 started
+2026-08-23 17:37:37,661 WARNING  [~57352] nodes.context: Stage 3 LLM call/parse failed, using deterministic fallback: Server error '524 <none>' for url 'https://automatically-sixth-aviation-courts.trycloudflare.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/524
+2026-08-23 17:37:37,662 INFO     [~57352] nodes.context: Stage 3 completed in 125346ms: confidence=low action=merge modifiers=0
+2026-08-23 17:37:37,662 INFO     [~57352] nodes.analyze: Stage 4 started
+2026-08-23 17:37:38,345 INFO     [~57352] nodes.analyze: Stage 4 LLM call started (model=foundation-sec-reasoning, timeout=600.0s, max_tokens=2000)
+2026-08-23 17:37:38,397 INFO     [~57352] nodes.analyze: Stage 4 LLM call started (model=foundation-sec-reasoning, timeout=600.0s, max_tokens=2000)
+2026-08-23 17:38:34,673 INFO     [~57352] nodes.analyze: Stage 4 LLM call completed in 56.3s
+2026-08-23 17:38:34,674 INFO     [~57352] nodes.analyze: Stage 4 completed in 57012ms: verdict=false_positive recommended_action=merge_quiet
+2026-08-23 17:38:34,674 INFO     [~57352] nodes.score: Stage 5 started
+2026-08-23 17:38:34,675 INFO     [~57352] nodes.score: Stage 5 completed in 0ms: score=90 priority=P1 gate_applied=False
+2026-08-23 17:38:34,675 INFO     [~57352] nodes.case_action: Case action started: correlation_action=merge merge_target=~4464672
+2026-08-23 17:38:34,770 WARNING  [~57352] tools.thehive: merge_alert_into_case failed: Client error '400 Bad Request' for url 'http://172.20.24.228:9000/api/v1/alert/~57352/merge/~4464672'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-08-23 17:38:34,770 WARNING  [~57352] nodes.case_action: Case action failed: could not merge into ~4464672: HTTP 400 from TheHive: {"type":"BadRequest","message":"Alert is already imported"}
+2026-08-23 17:38:34,770 INFO     [~57352] main: triage completed: alert_id=~57352 priority=P1 case_action.success=False
+INFO:     172.20.24.220:56022 - "POST /triage HTTP/1.1" 200 OK
+2026-08-23 17:39:13,960 INFO     [~57352] nodes.analyze: Stage 4 LLM call completed in 95.6s
+2026-08-23 17:39:13,961 INFO     [~57352] nodes.analyze: Stage 4 completed in 96359ms: verdict=false_positive recommended_action=merge_quiet
+2026-08-23 17:39:13,961 INFO     [~57352] nodes.score: Stage 5 started
+2026-08-23 17:39:13,961 INFO     [~57352] nodes.score: Stage 5 completed in 0ms: score=90 priority=P1 gate_applied=False
+2026-08-23 17:39:13,961 INFO     [~57352] nodes.case_action: Case action started: correlation_action=merge merge_target=~4464672
+2026-08-23 17:39:14,051 WARNING  [~57352] tools.thehive: merge_alert_into_case failed: Client error '400 Bad Request' for url 'http://172.20.24.228:9000/api/v1/alert/~57352/merge/~4464672'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-08-23 17:39:14,051 WARNING  [~57352] nodes.case_action: Case action failed: could not merge into ~4464672: HTTP 400 from TheHive: {"type":"BadRequest","message":"Alert is already imported"}
+2026-08-23 17:39:14,051 INFO     [~57352] main: triage completed: alert_id=~57352 priority=P1 case_action.success=False
+INFO:     172.20.24.220:56012 - "POST /triage HTTP/1.1" 200 OK
+2026-08-23 17:55:29,805 INFO     [~57352] nodes.gather: Stage 1 started: rule='unknown' host=None dataset=None
+2026-08-23 17:55:29,971 WARNING  [~57352] tools.opencti: opencti_observable_enrichment failed: Redirect response '301 Moved Permanently' for url 'http://172.20.24.222/graphql'
+Redirect location: 'https://172.20.24.222/graphql'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2026-08-23 17:55:30,179 INFO     [~57352] nodes.gather: Stage 1 completed in 373ms: 6 gaps
+2026-08-23 17:55:30,179 INFO     [~57352] nodes.rag: Stage 2 started
+2026-08-23 17:55:30,947 INFO     [~57352] nodes.rag: Stage 2 completed in 767ms: 0 mitre, 0 incident, 0 cve matches
+2026-08-23 17:55:30,947 INFO     [~57352] nodes.context: Stage 3 started
+2026-08-23 17:55:30,948 INFO     [~57352] nodes.context: Stage 3 LLM call started (model=foundation-sec-reasoning, timeout=600.0s, max_tokens=4000)
+2026-08-23 17:57:33,426 INFO     [~57352] nodes.context: Stage 3 LLM call completed in 122.5s
+2026-08-23 17:57:33,427 INFO     [~57352] nodes.context: Stage 3 extracted_observables.external_ips value '172.20.24.99' duplicates an existing canonical_alert.observables entry, discarding
+2026-08-23 17:57:33,428 INFO     [~57352] nodes.context: Stage 3 extracted_observables.domains value 'github.com' duplicates an existing canonical_alert.observables entry, discarding
+2026-08-23 17:57:33,428 INFO     [~57352] nodes.context: Stage 3 extracted_observables.urls value 'https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe' duplicates an existing canonical_alert.observables entry, discarding
+2026-08-23 17:57:33,428 INFO     [~57352] nodes.context: Stage 3 extracted_observables.hash value '1c84c8632c5269f24876ed9f49fa810b49f77e1e92e8918fc164c34b020f9a94' duplicates an existing canonical_alert.observables entry, discarding
+2026-08-23 17:57:33,428 INFO     [~57352] nodes.context: Stage 3 completed in 122481ms: confidence=medium action=merge modifiers=2
+2026-08-23 17:57:33,428 INFO     [~57352] nodes.analyze: Stage 4 started
+2026-08-23 17:57:33,937 INFO     [~57352] nodes.analyze: Stage 4 LLM call started (model=foundation-sec-reasoning, timeout=600.0s, max_tokens=2000)
+2026-08-23 17:58:31,389 INFO     [~57352] nodes.analyze: Stage 4 LLM call completed in 57.5s
+2026-08-23 17:58:31,389 INFO     [~57352] nodes.analyze: Stage 4 completed in 57961ms: verdict=needs_review recommended_action=merge_quiet
+2026-08-23 17:58:31,390 INFO     [~57352] nodes.score: Stage 5 started
+2026-08-23 17:58:31,390 INFO     [~57352] nodes.score: Stage 5 completed in 0ms: score=75 priority=P1 gate_applied=True
+2026-08-23 17:58:31,390 INFO     [~57352] nodes.case_action: Case action started: correlation_action=merge merge_target=~4464672
+2026-08-23 17:58:31,497 WARNING  [~57352] tools.thehive: merge_alert_into_case failed: Client error '400 Bad Request' for url 'http://172.20.24.228:9000/api/v1/alert/~57352/merge/~4464672'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-08-23 17:58:31,498 WARNING  [~57352] nodes.case_action: Case action failed: could not merge into ~4464672: HTTP 400 from TheHive: {"type":"BadRequest","message":"Alert is already imported"}
+2026-08-23 17:58:31,498 INFO     [~57352] main: triage completed: alert_id=~57352 priority=P1 case_action.success=False
+INFO:     172.20.24.220:38852 - "POST /triage HTTP/1.1" 200 OK
+2026-08-23 18:07:13,380 INFO     [~57352] nodes.gather: Stage 1 started: rule='Suspicious Invoke-WebRequest Execution' host='win-kvkmd51ggkq' dataset='endpoint.events.process'
+2026-08-23 18:07:13,606 WARNING  [~57352] tools.opencti: opencti_observable_enrichment failed: Redirect response '301 Moved Permanently' for url 'http://172.20.24.222/graphql'
+Redirect location: 'https://172.20.24.222/graphql'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2026-08-23 18:07:14,006 INFO     [~57352] nodes.gather: Stage 1 completed in 626ms: 1 gaps
+2026-08-23 18:07:14,006 INFO     [~57352] nodes.rag: Stage 2 started
+2026-08-23 18:07:15,752 INFO     [~57352] nodes.rag: Stage 2 completed in 1745ms: 5 mitre, 2 incident, 0 cve matches
+2026-08-23 18:07:15,753 INFO     [~57352] nodes.context: Stage 3 started
+2026-08-23 18:07:15,753 INFO     [~57352] nodes.context: Stage 3 LLM call started (model=foundation-sec-reasoning, timeout=600.0s, max_tokens=2403)
+2026-08-23 18:07:16,208 WARNING  [~57352] nodes.context: Stage 3 LLM call/parse failed, using deterministic fallback: Client error '400 Bad Request' for url 'https://automatically-sixth-aviation-courts.trycloudflare.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-08-23 18:07:16,208 INFO     [~57352] nodes.context: Stage 3 completed in 455ms: confidence=low action=merge modifiers=0
+2026-08-23 18:07:16,208 INFO     [~57352] nodes.analyze: Stage 4 started
+2026-08-23 18:07:16,590 INFO     [~57352] nodes.analyze: Stage 4 LLM call started (model=foundation-sec-reasoning, timeout=600.0s, max_tokens=2000)
+2026-08-23 18:07:59,779 INFO     [~57352] nodes.analyze: Stage 4 LLM call completed in 43.2s
+2026-08-23 18:07:59,780 INFO     [~57352] nodes.analyze: Stage 4 completed in 43571ms: verdict=false_positive recommended_action=merge_quiet
+2026-08-23 18:07:59,780 INFO     [~57352] nodes.score: Stage 5 started
+2026-08-23 18:07:59,781 INFO     [~57352] nodes.score: Stage 5 completed in 0ms: score=96 priority=P1 gate_applied=False
+2026-08-23 18:07:59,781 INFO     [~57352] nodes.case_action: Case action started: correlation_action=merge merge_target=~4464672
+2026-08-23 18:07:59,869 WARNING  [~57352] tools.thehive: merge_alert_into_case failed: Client error '400 Bad Request' for url 'http://172.20.24.228:9000/api/v1/alert/~57352/merge/~4464672'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-08-23 18:07:59,870 WARNING  [~57352] nodes.case_action: Case action failed: could not merge into ~4464672: HTTP 400 from TheHive: {"type":"BadRequest","message":"Alert is already imported"}
+2026-08-23 18:07:59,870 INFO     [~57352] main: triage completed: alert_id=~57352 priority=P1 case_action.success=False
+INFO:     172.20.24.220:43326 - "POST /triage HTTP/1.1" 200 OK
+2026-08-23 18:11:18,698 INFO     [~57352] nodes.gather: Stage 1 started: rule='Suspicious Invoke-WebRequest Execution' host='win-kvkmd51ggkq' dataset='endpoint.events.process'
+2026-08-23 18:11:18,925 WARNING  [~57352] tools.opencti: opencti_observable_enrichment failed: Redirect response '301 Moved Permanently' for url 'http://172.20.24.222/graphql'
+Redirect location: 'https://172.20.24.222/graphql'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2026-08-23 18:11:19,304 INFO     [~57352] nodes.gather: Stage 1 completed in 606ms: 1 gaps
+2026-08-23 18:11:19,304 INFO     [~57352] nodes.rag: Stage 2 started
+2026-08-23 18:11:21,560 INFO     [~57352] nodes.rag: Stage 2 completed in 2255ms: 5 mitre, 2 incident, 0 cve matches
+2026-08-23 18:11:21,560 INFO     [~57352] nodes.context: Stage 3 started
+2026-08-23 18:11:21,561 INFO     [~57352] nodes.context: Stage 3 LLM call started (model=foundation-sec-reasoning, timeout=600.0s, max_tokens=2403)
+2026-08-23 18:11:21,990 WARNING  [~57352] nodes.context: Stage 3 LLM call/parse failed, using deterministic fallback: Client error '400 Bad Request' for url 'https://automatically-sixth-aviation-courts.trycloudflare.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-08-23 18:11:21,990 INFO     [~57352] nodes.context: Stage 3 completed in 430ms: confidence=low action=merge modifiers=0
+2026-08-23 18:11:21,991 INFO     [~57352] nodes.analyze: Stage 4 started
+2026-08-23 18:11:22,359 INFO     [~57352] nodes.analyze: Stage 4 LLM call started (model=foundation-sec-reasoning, timeout=600.0s, max_tokens=2000)
+2026-08-23 18:13:27,813 WARNING  [~57352] nodes.analyze: Stage 4 LLM call/parse failed, using deterministic fallback: Server error '524 <none>' for url 'https://automatically-sixth-aviation-courts.trycloudflare.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/524
+2026-08-23 18:13:27,814 INFO     [~57352] nodes.analyze: Stage 4 completed in 125823ms: verdict=needs_review recommended_action=needs_review
+2026-08-23 18:13:27,814 INFO     [~57352] nodes.score: Stage 5 started
+2026-08-23 18:13:27,814 INFO     [~57352] nodes.score: Stage 5 completed in 0ms: score=96 priority=P1 gate_applied=False
+2026-08-23 18:13:27,814 INFO     [~57352] nodes.case_action: Case action started: correlation_action=merge merge_target=~4464672
+2026-08-23 18:13:27,938 WARNING  [~57352] tools.thehive: merge_alert_into_case failed: Client error '400 Bad Request' for url 'http://172.20.24.228:9000/api/v1/alert/~57352/merge/~4464672'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-08-23 18:13:27,939 WARNING  [~57352] nodes.case_action: Case action failed: could not merge into ~4464672: HTTP 400 from TheHive: {"type":"BadRequest","message":"Alert is already imported"}
+2026-08-23 18:13:27,939 INFO     [~57352] main: triage completed: alert_id=~57352 priority=P1 case_action.success=False
+INFO:     172.20.24.220:33668 - "POST /triage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51628 - "GET /health HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1012961]
+INFO:     Started server process [1036423]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:35854 - "GET /health HTTP/1.1" 200 OK
+2026-08-23 18:22:21,779 INFO     [~57352] nodes.gather: Stage 1 started: rule='Suspicious Invoke-WebRequest Execution' host='win-kvkmd51ggkq' dataset='endpoint.events.process'
+2026-08-23 18:22:22,005 WARNING  [~57352] tools.opencti: opencti_observable_enrichment failed: Redirect response '301 Moved Permanently' for url 'http://172.20.24.222/graphql'
+Redirect location: 'https://172.20.24.222/graphql'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2026-08-23 18:22:22,399 INFO     [~57352] nodes.gather: Stage 1 completed in 620ms: 1 gaps
+2026-08-23 18:22:22,399 INFO     [~57352] nodes.rag: Stage 2 started
+2026-08-23 18:22:24,320 INFO     [~57352] nodes.rag: Stage 2 completed in 1920ms: 5 mitre, 2 incident, 0 cve matches
+2026-08-23 18:22:24,320 INFO     [~57352] nodes.context: Stage 3 started
+2026-08-23 18:22:24,321 INFO     [~57352] nodes.context: Stage 3 LLM call started (model=foundation-sec-reasoning, timeout=600.0s, max_tokens=1679)
+2026-08-23 18:24:29,861 WARNING  [~57352] nodes.context: Stage 3 LLM call/parse failed, using deterministic fallback: Server error '524 <none>' for url 'https://thereof-psychiatry-precision-anytime.trycloudflare.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/524
+2026-08-23 18:24:29,861 INFO     [~57352] nodes.context: Stage 3 completed in 125541ms: confidence=low action=merge modifiers=0
+2026-08-23 18:24:29,862 INFO     [~57352] nodes.analyze: Stage 4 started
+2026-08-23 18:24:30,269 INFO     [~57352] nodes.analyze: Stage 4 LLM call started (model=foundation-sec-reasoning, timeout=600.0s, max_tokens=2000)
+2026-08-23 18:26:35,656 WARNING  [~57352] nodes.analyze: Stage 4 LLM call/parse failed, using deterministic fallback: Server error '524 <none>' for url 'https://thereof-psychiatry-precision-anytime.trycloudflare.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/524
+2026-08-23 18:26:35,657 INFO     [~57352] nodes.analyze: Stage 4 completed in 125795ms: verdict=needs_review recommended_action=needs_review
+2026-08-23 18:26:35,657 INFO     [~57352] nodes.score: Stage 5 started
+2026-08-23 18:26:35,657 INFO     [~57352] nodes.score: Stage 5 completed in 0ms: score=96 priority=P1 gate_applied=False
+2026-08-23 18:26:35,658 INFO     [~57352] nodes.case_action: Case action started: correlation_action=merge merge_target=~4464672
+2026-08-23 18:26:35,750 WARNING  [~57352] tools.thehive: merge_alert_into_case failed: Client error '400 Bad Request' for url 'http://172.20.24.228:9000/api/v1/alert/~57352/merge/~4464672'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-08-23 18:26:35,750 WARNING  [~57352] nodes.case_action: Case action failed: could not merge into ~4464672: HTTP 400 from TheHive: {"type":"BadRequest","message":"Alert is already imported"}
+2026-08-23 18:26:35,751 INFO     [~57352] main: triage completed: alert_id=~57352 priority=P1 case_action.success=False
+INFO:     172.20.24.220:33872 - "POST /triage HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1036423]
+INFO:     Started server process [1041439]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:55372 - "GET /health HTTP/1.1" 503 Service Unavailable
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1041439]
+INFO:     Started server process [1042004]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:40348 - "GET /health HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1042004]
+INFO:     Started server process [1051031]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:36696 - "GET /health HTTP/1.1" 200 OK
+2026-08-23 18:47:56,963 INFO     [~4636880] nodes.gather: Stage 1 started: rule='Suspicious Invoke-WebRequest Execution' host='win-kvkmd51ggkq' dataset='endpoint.events.process'
+2026-08-23 18:47:57,189 WARNING  [~4636880] tools.opencti: opencti_observable_enrichment failed: Redirect response '301 Moved Permanently' for url 'http://172.20.24.222/graphql'
+Redirect location: 'https://172.20.24.222/graphql'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2026-08-23 18:47:57,528 INFO     [~4636880] nodes.gather: Stage 1 completed in 564ms: 1 gaps
+2026-08-23 18:47:57,528 INFO     [~4636880] nodes.rag: Stage 2 started
+2026-08-23 18:47:59,597 INFO     [~4636880] nodes.rag: Stage 2 completed in 2068ms: 5 mitre, 2 incident, 0 cve matches
+2026-08-23 18:47:59,597 INFO     [~4636880] nodes.context: Stage 3 started
+2026-08-23 18:47:59,598 INFO     [~4636880] nodes.context: Stage 3 LLM call started (model=gemini-3.6-flash, timeout=600.0s, max_tokens=8000)
+2026-08-23 18:48:21,479 INFO     [~4636880] nodes.context: Stage 3 LLM call completed in 21.9s
+2026-08-23 18:48:21,481 INFO     [~4636880] nodes.context: Stage 3 completed in 21883ms: confidence=high action=merge modifiers=2
+2026-08-23 18:48:21,481 INFO     [~4636880] nodes.analyze: Stage 4 started
+2026-08-23 18:48:22,056 INFO     [~4636880] nodes.analyze: Stage 4 LLM call started (model=gemini-3.6-flash, timeout=600.0s, max_tokens=4000)
+2026-08-23 18:48:47,186 INFO     [~4636880] nodes.analyze: Stage 4 LLM call completed in 25.1s
+2026-08-23 18:48:47,187 WARNING  [~4636880] nodes.analyze: Stage 4 LLM call/parse failed, using deterministic fallback: Unterminated string starting at: line 6 column 14 (char 454)
+2026-08-23 18:48:47,187 INFO     [~4636880] nodes.analyze: Stage 4 completed in 25706ms: verdict=needs_review recommended_action=needs_review
+2026-08-23 18:48:47,187 INFO     [~4636880] nodes.score: Stage 5 started
+2026-08-23 18:48:47,188 INFO     [~4636880] nodes.score: Stage 5 completed in 0ms: score=78 priority=P2 gate_applied=False
+2026-08-23 18:48:47,188 INFO     [~4636880] nodes.case_action: Case action started: correlation_action=merge merge_target=~4464672
+2026-08-23 18:48:47,279 WARNING  [~4636880] tools.thehive: merge_alert_into_case failed: Client error '400 Bad Request' for url 'http://172.20.24.228:9000/api/v1/alert/~4636880/merge/~4464672'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-08-23 18:48:47,280 WARNING  [~4636880] nodes.case_action: Case action failed: could not merge into ~4464672: HTTP 400 from TheHive: {"type":"BadRequest","message":"Alert is already imported"}
+2026-08-23 18:48:47,280 INFO     [~4636880] main: triage completed: alert_id=~4636880 priority=P2 case_action.success=False
+INFO:     127.0.0.1:39574 - "POST /triage HTTP/1.1" 200 OK
+2026-08-23 18:52:22,063 INFO     [~4636880] nodes.gather: Stage 1 started: rule='Suspicious Invoke-WebRequest Execution' host='win-kvkmd51ggkq' dataset='endpoint.events.process'
+2026-08-23 18:52:22,284 WARNING  [~4636880] tools.opencti: opencti_observable_enrichment failed: Redirect response '301 Moved Permanently' for url 'http://172.20.24.222/graphql'
+Redirect location: 'https://172.20.24.222/graphql'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2026-08-23 18:52:22,634 INFO     [~4636880] nodes.gather: Stage 1 completed in 571ms: 1 gaps
+2026-08-23 18:52:22,634 INFO     [~4636880] nodes.rag: Stage 2 started
+2026-08-23 18:52:24,212 INFO     [~4636880] nodes.rag: Stage 2 completed in 1577ms: 5 mitre, 2 incident, 0 cve matches
+2026-08-23 18:52:24,212 INFO     [~4636880] nodes.context: Stage 3 started
+2026-08-23 18:52:24,213 INFO     [~4636880] nodes.context: Stage 3 LLM call started (model=gemini-3.6-flash, timeout=600.0s, max_tokens=8000)
+2026-08-23 18:52:59,624 INFO     [~4636880] nodes.context: Stage 3 LLM call completed in 35.4s
+2026-08-23 18:52:59,626 INFO     [~4636880] nodes.context: Stage 3 completed in 35413ms: confidence=high action=merge modifiers=2
+2026-08-23 18:52:59,626 INFO     [~4636880] nodes.analyze: Stage 4 started
+2026-08-23 18:53:00,124 INFO     [~4636880] nodes.analyze: Stage 4 LLM call started (model=gemini-3.6-flash, timeout=600.0s, max_tokens=4000)
+2026-08-23 18:53:40,856 INFO     [~4636880] nodes.analyze: Stage 4 LLM call completed in 40.7s
+2026-08-23 18:53:40,857 WARNING  [~4636880] nodes.analyze: Stage 4 LLM call/parse failed, using deterministic fallback: Expecting value: line 103 column 33 (char 4033)
+2026-08-23 18:53:40,857 INFO     [~4636880] nodes.analyze: Stage 4 completed in 41231ms: verdict=needs_review recommended_action=needs_review
+2026-08-23 18:53:40,857 INFO     [~4636880] nodes.score: Stage 5 started
+2026-08-23 18:53:40,857 INFO     [~4636880] nodes.score: Stage 5 completed in 0ms: score=78 priority=P2 gate_applied=False
+2026-08-23 18:53:40,858 INFO     [~4636880] nodes.case_action: Case action started: correlation_action=merge merge_target=~4464672
+2026-08-23 18:53:40,946 WARNING  [~4636880] tools.thehive: merge_alert_into_case failed: Client error '400 Bad Request' for url 'http://172.20.24.228:9000/api/v1/alert/~4636880/merge/~4464672'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-08-23 18:53:40,946 WARNING  [~4636880] nodes.case_action: Case action failed: could not merge into ~4464672: HTTP 400 from TheHive: {"type":"BadRequest","message":"Alert is already imported"}
+2026-08-23 18:53:40,946 INFO     [~4636880] main: triage completed: alert_id=~4636880 priority=P2 case_action.success=False
+INFO:     127.0.0.1:41334 - "POST /triage HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1051031]
+INFO:     Started server process [1057280]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:52000 - "GET /health HTTP/1.1" 200 OK
+2026-08-23 18:54:04,453 INFO     [~4636880] nodes.gather: Stage 1 started: rule='Suspicious Invoke-WebRequest Execution' host='win-kvkmd51ggkq' dataset='endpoint.events.process'
+2026-08-23 18:54:04,676 WARNING  [~4636880] tools.opencti: opencti_observable_enrichment failed: Redirect response '301 Moved Permanently' for url 'http://172.20.24.222/graphql'
+Redirect location: 'https://172.20.24.222/graphql'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2026-08-23 18:54:05,019 INFO     [~4636880] nodes.gather: Stage 1 completed in 565ms: 1 gaps
+2026-08-23 18:54:05,019 INFO     [~4636880] nodes.rag: Stage 2 started
+2026-08-23 18:54:06,676 INFO     [~4636880] nodes.rag: Stage 2 completed in 1657ms: 5 mitre, 2 incident, 0 cve matches
+2026-08-23 18:54:06,677 INFO     [~4636880] nodes.context: Stage 3 started
+2026-08-23 18:54:06,678 INFO     [~4636880] nodes.context: Stage 3 LLM call started (model=gemini-3.6-flash, timeout=600.0s, max_tokens=8000)
+2026-08-23 18:54:35,380 INFO     [~4636880] nodes.context: Stage 3 LLM call completed in 28.7s
+2026-08-23 18:54:35,382 INFO     [~4636880] nodes.context: Stage 3 completed in 28704ms: confidence=high action=merge modifiers=2
+2026-08-23 18:54:35,382 INFO     [~4636880] nodes.analyze: Stage 4 started
+2026-08-23 18:54:36,059 INFO     [~4636880] nodes.analyze: Stage 4 LLM call started (model=gemini-3.6-flash, timeout=600.0s, max_tokens=16000)
+2026-08-23 18:55:10,085 INFO     [~4636880] nodes.analyze: Stage 4 LLM call completed in 34.0s
+2026-08-23 18:55:10,086 INFO     [~4636880] nodes.analyze: Stage 4 completed in 34704ms: verdict=true_positive recommended_action=merge_and_retier
+2026-08-23 18:55:10,086 INFO     [~4636880] nodes.score: Stage 5 started
+2026-08-23 18:55:10,087 INFO     [~4636880] nodes.score: Stage 5 completed in 0ms: score=78 priority=P2 gate_applied=False
+2026-08-23 18:55:10,087 INFO     [~4636880] nodes.case_action: Case action started: correlation_action=merge merge_target=~4464672
+2026-08-23 18:55:10,186 WARNING  [~4636880] tools.thehive: merge_alert_into_case failed: Client error '400 Bad Request' for url 'http://172.20.24.228:9000/api/v1/alert/~4636880/merge/~4464672'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-08-23 18:55:10,186 WARNING  [~4636880] nodes.case_action: Case action failed: could not merge into ~4464672: HTTP 400 from TheHive: {"type":"BadRequest","message":"Alert is already imported"}
+2026-08-23 18:55:10,187 INFO     [~4636880] main: triage completed: alert_id=~4636880 priority=P2 case_action.success=False
+INFO:     127.0.0.1:52012 - "POST /triage HTTP/1.1" 200 OK
+2026-08-23 18:59:00,474 INFO     [~241912] nodes.gather: Stage 1 started: rule='Suspicious Invoke-WebRequest Execution' host='win-kvkmd51ggkq' dataset='endpoint.events.process'
+2026-08-23 18:59:00,701 WARNING  [~241912] tools.opencti: opencti_observable_enrichment failed: Redirect response '301 Moved Permanently' for url 'http://172.20.24.222/graphql'
+Redirect location: 'https://172.20.24.222/graphql'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2026-08-23 18:59:01,065 INFO     [~241912] nodes.gather: Stage 1 completed in 591ms: 1 gaps
+2026-08-23 18:59:01,066 INFO     [~241912] nodes.rag: Stage 2 started
+2026-08-23 18:59:03,164 INFO     [~241912] nodes.rag: Stage 2 completed in 2097ms: 5 mitre, 2 incident, 0 cve matches
+2026-08-23 18:59:03,164 INFO     [~241912] nodes.context: Stage 3 started
+2026-08-23 18:59:03,165 INFO     [~241912] nodes.context: Stage 3 LLM call started (model=gemini-3.6-flash, timeout=600.0s, max_tokens=8000)
+2026-08-23 18:59:40,162 INFO     [~241912] nodes.context: Stage 3 LLM call completed in 37.0s
+2026-08-23 18:59:40,163 INFO     [~241912] nodes.context: Stage 3 completed in 36999ms: confidence=high action=merge modifiers=2
+2026-08-23 18:59:40,163 INFO     [~241912] nodes.analyze: Stage 4 started
+2026-08-23 18:59:40,604 INFO     [~241912] nodes.analyze: Stage 4 LLM call started (model=gemini-3.6-flash, timeout=600.0s, max_tokens=16000)
+2026-08-23 19:00:12,805 INFO     [~241912] nodes.analyze: Stage 4 LLM call completed in 32.2s
+2026-08-23 19:00:12,807 INFO     [~241912] nodes.analyze: Stage 4 completed in 32643ms: verdict=true_positive recommended_action=merge_and_retier
+2026-08-23 19:00:12,807 INFO     [~241912] nodes.score: Stage 5 started
+2026-08-23 19:00:12,807 INFO     [~241912] nodes.score: Stage 5 completed in 0ms: score=100 priority=P1 gate_applied=False
+2026-08-23 19:00:12,807 INFO     [~241912] nodes.case_action: Case action started: correlation_action=merge merge_target=~4464672
+2026-08-23 19:00:15,785 INFO     [~241912] nodes.case_action: Case action completed: merged into case_id=~4464672 comment_added=True observables=21/21
+2026-08-23 19:00:15,785 INFO     [~241912] main: triage completed: alert_id=~241912 priority=P1 case_action.success=True
+INFO:     172.20.24.220:36948 - "POST /triage HTTP/1.1" 200 OK
+2026-08-23 19:58:23,595 INFO     [~131208] nodes.gather: Stage 1 started: rule='Suspicious Invoke-WebRequest Execution' host='win-kvkmd51ggkq' dataset='endpoint.events.process'
+2026-08-23 19:58:23,824 WARNING  [~131208] tools.opencti: opencti_observable_enrichment failed: Redirect response '301 Moved Permanently' for url 'http://172.20.24.222/graphql'
+Redirect location: 'https://172.20.24.222/graphql'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2026-08-23 19:58:24,166 INFO     [~131208] nodes.gather: Stage 1 completed in 570ms: 1 gaps
+2026-08-23 19:58:24,166 INFO     [~131208] nodes.rag: Stage 2 started
+2026-08-23 19:58:26,840 INFO     [~131208] nodes.rag: Stage 2 completed in 2673ms: 5 mitre, 2 incident, 0 cve matches
+2026-08-23 19:58:26,840 INFO     [~131208] nodes.context: Stage 3 started
+2026-08-23 19:58:26,841 INFO     [~131208] nodes.context: Stage 3 LLM call started (model=gemini-3.6-flash, timeout=600.0s, max_tokens=8000)
+2026-08-23 19:58:46,185 INFO     [~131208] nodes.context: Stage 3 LLM call completed in 19.3s
+2026-08-23 19:58:46,186 INFO     [~131208] nodes.context: Stage 3 completed in 19346ms: confidence=high action=new modifiers=2
+2026-08-23 19:58:46,186 INFO     [~131208] nodes.analyze: Stage 4 started
+2026-08-23 19:58:46,523 INFO     [~131208] nodes.analyze: Stage 4 LLM call started (model=gemini-3.6-flash, timeout=600.0s, max_tokens=16000)
+2026-08-23 19:58:59,668 INFO     [~131208] nodes.analyze: Stage 4 LLM call completed in 13.1s
+2026-08-23 19:58:59,669 INFO     [~131208] nodes.analyze: Stage 4 completed in 13482ms: verdict=true_positive recommended_action=create_case
+2026-08-23 19:58:59,669 INFO     [~131208] nodes.score: Stage 5 started
+2026-08-23 19:58:59,670 INFO     [~131208] nodes.score: Stage 5 completed in 0ms: score=100 priority=P1 gate_applied=False
+2026-08-23 19:58:59,670 INFO     [~131208] nodes.case_action: Case action started: correlation_action=new merge_target=None
+2026-08-23 19:59:02,577 WARNING  [~131208] nodes.case_action: case_action: could not write actionable observable 'github.com' to case ~291008: TheHive create-observable returned no object: {'success': [], 'failure': [{'type': 'CreateError', 'message': 'Observable already exists', 'object': {'data': 'github.com'}}]}
+2026-08-23 19:59:02,660 WARNING  [~131208] nodes.case_action: case_action: could not write actionable observable 'https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe' to case ~291008: TheHive create-observable returned no object: {'success': [], 'failure': [{'type': 'CreateError', 'message': 'Observable already exists', 'object': {'data': 'https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe'}}]}
+2026-08-23 19:59:02,748 WARNING  [~131208] nodes.case_action: case_action: could not write actionable observable '1c84c8632c5269f24876ed9f49fa810b49f77e1e92e8918fc164c34b020f9a94' to case ~291008: TheHive create-observable returned no object: {'success': [], 'failure': [{'type': 'CreateError', 'message': 'Observable already exists', 'object': {'data': '1c84c8632c5269f24876ed9f49fa810b49f77e1e92e8918fc164c34b020f9a94'}}]}
+2026-08-23 19:59:02,831 WARNING  [~131208] nodes.case_action: case_action: could not write actionable observable 'bf7a6e7a62c3f5b2e8e069438ac1dd3d' to case ~291008: TheHive create-observable returned no object: {'success': [], 'failure': [{'type': 'CreateError', 'message': 'Observable already exists', 'object': {'data': 'bf7a6e7a62c3f5b2e8e069438ac1dd3d'}}]}
+2026-08-23 19:59:03,471 INFO     [~131208] nodes.case_action: Case action completed: created case_id=~291008 severity=4 observables=2/6
+2026-08-23 19:59:03,471 INFO     [~131208] main: triage completed: alert_id=~131208 priority=P1 case_action.success=True
+INFO:     172.20.24.220:47730 - "POST /triage HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1057280]
+INFO:     Started server process [1086343]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:53148 - "GET /health HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1086343]

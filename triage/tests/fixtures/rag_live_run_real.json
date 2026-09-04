@@ -1,0 +1,181 @@
+{
+  "mitre_candidates": [
+    {
+      "technique_id": "T1059.001",
+      "technique_name": "PowerShell",
+      "tactic": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "is_sub_technique": true,
+      "parent_technique_id": "T1059",
+      "x_mitre_version": "1.5",
+      "detection_strategy_id": "DET0455",
+      "analytic_ids": [
+        "AN1252"
+      ],
+      "log_sources": [
+        "WinEventLog:PowerShell",
+        "WinEventLog:Sysmon"
+      ],
+      "score": 0.6798617
+    },
+    {
+      "technique_id": "T1071.001",
+      "technique_name": "Web Protocols",
+      "tactic": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "macOS",
+        "Network Devices",
+        "Windows"
+      ],
+      "is_sub_technique": true,
+      "parent_technique_id": "T1071",
+      "x_mitre_version": "1.5",
+      "detection_strategy_id": "DET0027",
+      "analytic_ids": [
+        "AN0075",
+        "AN0076",
+        "AN0077",
+        "AN0078",
+        "AN0079"
+      ],
+      "log_sources": [
+        "NSM:Flow",
+        "WinEventLog:Sysmon",
+        "auditd:SYSCALL",
+        "esxi:shell",
+        "macos:osquery",
+        "macos:unifiedlog"
+      ],
+      "score": 0.6734153
+    },
+    {
+      "technique_id": "T1218.011",
+      "technique_name": "Rundll32",
+      "tactic": [
+        "stealth"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "is_sub_technique": true,
+      "parent_technique_id": "T1218",
+      "x_mitre_version": "3.0",
+      "detection_strategy_id": "DET0475",
+      "analytic_ids": [
+        "AN1308"
+      ],
+      "log_sources": [
+        "WinEventLog:Sysmon"
+      ],
+      "score": 0.6713631
+    },
+    {
+      "technique_id": "T1053.005",
+      "technique_name": "Scheduled Task",
+      "tactic": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "is_sub_technique": true,
+      "parent_technique_id": "T1053",
+      "x_mitre_version": "1.8",
+      "detection_strategy_id": "DET0441",
+      "analytic_ids": [
+        "AN1221"
+      ],
+      "log_sources": [
+        "WinEventLog:Security",
+        "WinEventLog:Sysmon"
+      ],
+      "score": 0.66793764
+    },
+    {
+      "technique_id": "T1218.007",
+      "technique_name": "Msiexec",
+      "tactic": [
+        "stealth"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "is_sub_technique": true,
+      "parent_technique_id": "T1218",
+      "x_mitre_version": "3.0",
+      "detection_strategy_id": "DET0158",
+      "analytic_ids": [
+        "AN0445"
+      ],
+      "log_sources": [
+        "WinEventLog:Security",
+        "WinEventLog:Sysmon"
+      ],
+      "score": 0.66595703
+    }
+  ],
+  "cve_matches": [],
+  "incident_matches": [
+    {
+      "incident_id": "~8613944",
+      "case_number": 2,
+      "title": "[HIGH] Suspicious Invoke-WebRequest Execution - win-kvkmd51ggkq",
+      "severity": 3,
+      "status": "TruePositive",
+      "stage": "Closed",
+      "attack_type": "Suspicious Invoke-WebRequest Execution",
+      "tags": [
+        "172.20.24.99",
+        "agent-id:1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+        "engine:sigma",
+        "rule:Suspicious Invoke-WebRequest Execution",
+        "security-onion",
+        "win-kvkmd51ggkq"
+      ],
+      "summary": "this closing is only for test",
+      "end_date": "2026-08-13",
+      "engine": "sigma",
+      "score": 0.87617135
+    },
+    {
+      "incident_id": "~4653208",
+      "case_number": 3,
+      "title": "[HIGH] Suspicious Invoke-WebRequest Execution - win-kvkmd51ggkq",
+      "severity": 3,
+      "status": "FalsePositive",
+      "stage": "Closed",
+      "attack_type": "Suspicious Invoke-WebRequest Execution",
+      "tags": [
+        "172.20.24.99",
+        "agent-id:1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+        "engine:sigma",
+        "rule:Suspicious Invoke-WebRequest Execution",
+        "security-onion",
+        "win-kvkmd51ggkq"
+      ],
+      "summary": "this case is for test",
+      "end_date": "2026-08-13",
+      "engine": "sigma",
+      "score": 0.8670113
+    }
+  ],
+  "investigation_gaps": [
+    {
+      "source": "qdrant",
+      "reason": "CVE gate disabled \u2014 no product-identifying field verified against real data yet; see nodes/rag.py::_has_cve_indicators",
+      "tool": "retrieve_cve",
+      "duration_ms": 0
+    }
+  ],
+  "stage_2_duration_ms": 1769
+}

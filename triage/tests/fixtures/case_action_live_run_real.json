@@ -1,0 +1,12 @@
+{
+  "success": false,
+  "case_id": "~8609848",
+  "case_number": null,
+  "is_new_case": false,
+  "severity": null,
+  "stage": null,
+  "status": null,
+  "tags": [],
+  "comment_added": false,
+  "error": "HTTP 400 from TheHive: {\"type\":\"BadRequest\",\"message\":\"Alert is already imported\"}"
+}

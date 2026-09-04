@@ -1,0 +1,57 @@
+{
+  "note": "Live re-run of the exact same real EnrichedEvidence that originally produced the merge_into_case_id bug (open_cases=[], see CLAUDE.md), through the actual fixed nodes.context.context_analysis code path (schema-constrained enum + post-parse validator), captured 2026-08-16. Confirms the fix live, not just via mocks.",
+  "system_prompt": "You are a Tier-2 SOC analyst reviewing an alert investigation package.\nYou have complete evidence \u2014 you do NOT need to call any tools.\nYour outputs must be strictly valid JSON matching the provided schema.\n\nYour job is threefold:\n1. Refine the MITRE mapping \u2014 validate against evidence, add/remove techniques\n2. Judge correlation \u2014 does this alert merge with existing cases, and is it a kill-chain progression?\n3. Identify contextual signals \u2014 factors the deterministic scoring formula cannot see\n\nTwo different kinds of prior-case data are in the evidence, and they mean different things:\n- open_cases: currently open TheHive cases. These are the ONLY valid merge targets for\n  correlation_decision.merge_into_case_id.\n- incident_matches: past incidents retrieved by semantic similarity search. These are\n  reference context for your reasoning \u2014 never a case to merge into, and never something\n  to cite as a currently open case.",
+  "merge_into_case_id_schema_enum": [
+    null
+  ],
+  "action_schema_enum": [
+    "new"
+  ],
+  "parsed_assessment": {
+    "refined_mitre_mapping": [
+      {
+        "technique_id": "T1059.001",
+        "technique_name": "PowerShell",
+        "tactic": "execution",
+        "confidence": "high",
+        "basis": "primary_execution_vector"
+      },
+      {
+        "technique_id": "T1071.001",
+        "technique_name": "Web Protocols",
+        "tactic": "command-and-control",
+        "confidence": "medium",
+        "basis": "command_and_control_channel"
+      }
+    ],
+    "correlation_decision": {
+      "action": "new",
+      "merge_into_case_id": null,
+      "kill_chain_progression_detected": false,
+      "reasoning": "Similarity to previous incidents (same host/IP) but different outcome (TP vs FP). New alert has higher confidence score."
+    },
+    "contextual_modifiers": [
+      {
+        "dimension": "likelihood",
+        "factor_name": "false_positive_history",
+        "direction": "decrease",
+        "strength": "medium",
+        "reasoning": "Previous false positive on same host/IP suggests benign PowerShell usage patterns may exist here"
+      },
+      {
+        "dimension": "impact",
+        "factor_name": "persistence_indicators",
+        "direction": "increase",
+        "strength": "strong",
+        "reasoning": "Downloaded executable likely intended for persistence (scheduled task/registry modification)"
+      }
+    ],
+    "additional_investigation_gaps": [
+      "Investigate why previous false positive occurred (e.g., legitimate PowerShell usage patterns)",
+      "Check if downloaded executable has been executed or accessed",
+      "Verify host's baseline behavior for similar processes"
+    ],
+    "confidence": "medium",
+    "stage_3_duration_ms": 323176
+  }
+}

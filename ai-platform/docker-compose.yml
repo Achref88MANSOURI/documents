@@ -1,0 +1,28 @@
+
+services:
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant
+
+    restart: unless-stopped
+
+    ports:
+      - "6333:6333"
+
+    volumes:
+      - ./qdrant/storage:/qdrant/storage
+
+  embedding-api:
+
+    build: ./embedding-api
+
+    container_name: embedding-api
+
+    restart: unless-stopped
+
+    ports:
+      - "8001:8001"
+
+    depends_on:
+      - qdrant

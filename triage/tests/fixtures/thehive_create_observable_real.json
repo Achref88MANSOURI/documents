@@ -1,0 +1,70 @@
+{
+  "_provenance": "REAL — live-verified 2026-08-21 against http://172.20.24.228:9000 (TheHive 5.7.5-1), disposable test case ~8609848. Two rounds: (1) raw endpoint discovery probes via httpx, (2) the composed production function tools/thehive.py::add_extracted_observables called for real with all 6 ExtractedObservables buckets populated, then read back through this repo's own _fetch_case_observables and _query helpers. Not hand-written, not synthetic.",
+  "_scope": "Covers observable CREATION on an existing case. Says nothing about creating observables on an ALERT (different endpoint, never probed) or about bulk creation.",
+
+  "endpoint": "POST /api/v1/case/{caseId}/observable",
+  "status_code": 201,
+  "response_shape": "A LIST containing the created observable object(s), not a bare object.",
+  "endpoint_note": "This one was right on the first try, unlike /promote (404) and /api/v1/comment/case/{id} (404) in the earlier write-endpoint discovery round.",
+
+  "request_payload_example": {
+    "dataType": "domain",
+    "data": "soc3s-test-observable.fake",
+    "message": "SOC-3s live verification probe",
+    "tags": ["soc3s-test"],
+    "ioc": true
+  },
+  "response_example": [
+    {
+      "_id": "~4632816",
+      "_type": "Observable",
+      "_createdAt": 1787335166365,
+      "_createdBy": "analyst@local.com",
+      "dataType": "domain",
+      "data": "soc3s-test-observable.fake",
+      "message": "SOC-3s live verification probe",
+      "tags": ["soc3s-test"],
+      "ioc": true,
+      "sighted": false,
+      "ignoreSimilarity": false,
+      "external": false,
+      "startDate": 1787335166365,
+      "tlp": 2,
+      "tlpLabel": "AMBER",
+      "pap": 2,
+      "papLabel": "AMBER",
+      "reports": {},
+      "extraData": {}
+    }
+  ],
+
+  "composed_function_live_run": {
+    "function": "tools/thehive.py::add_extracted_observables",
+    "case_id": "~8609848",
+    "input": "ExtractedObservables with all 6 buckets populated, 1 item each",
+    "returned": {"written": 6, "gap_count": 0},
+    "stored_as_read_back_from_thehive": [
+      {"bucket": "domains",      "dataType": "domain",   "data": "soc3s-live-check.example",                    "tags": []},
+      {"bucket": "process",      "dataType": "filename", "data": "C:\\Windows\\Temp\\soc3s-live-check.exe",     "tags": ["malicious", "react"]},
+      {"bucket": "file",         "dataType": "filename", "data": "soc3s-live-check.dll",                        "tags": []},
+      {"bucket": "external_ips", "dataType": "ip",       "data": "203.0.113.77",                               "tags": []},
+      {"bucket": "urls",         "dataType": "url",      "data": "http://soc3s-live-check.example/payload",     "tags": []},
+      {"bucket": "hash",         "dataType": "hash",     "data": "d41d8cd98f00b204e9800998ecf8427e",            "tags": []}
+    ]
+  },
+
+  "datatype_mapping_confirmed_live": {
+    "process": "filename",
+    "file": "filename",
+    "external_ips": "ip",
+    "domains": "domain",
+    "urls": "url",
+    "hash": "hash"
+  },
+
+  "_the_finding_that_matters": "process and file BOTH map to dataType 'filename' — so the react/malicious tag decision can NOT be derived from dataType. The BUCKET is the only discriminator. The live run above proves the production code gets this right: two observables landed with identical dataType 'filename', and only the one from the process bucket carries ['malicious','react']. A future refactor that switches the tag condition to key off data_type instead of bucket_name would silently tag every file observable as malicious, and this fixture is the evidence that would catch it.",
+
+  "tag_behavior": "Tags are stored exactly as sent, but TheHive returns them in a DIFFERENT ORDER than submitted (sent ['react','malicious'], returned ['malicious','react']). Any assertion on tags must sort or use a set — never compare the list positionally.",
+
+  "cleanup_note": "The observables created by these runs are still on test case ~8609848 (values all contain 'soc3s-test' or 'soc3s-live-check', plus 203.0.113.77 which is TEST-NET-3 and non-routable by RFC 5737). Safe to delete; harmless if left."
+}

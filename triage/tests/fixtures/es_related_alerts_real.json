@@ -1,0 +1,934 @@
+{
+  "took": 44,
+  "timed_out": false,
+  "_shards": {
+    "total": 26,
+    "successful": 26,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 592,
+      "relation": "eq"
+    },
+    "max_score": null,
+    "hits": [
+      {
+        "_index": ".ds-logs-detections.alerts-so-2026.08.12-000166",
+        "_id": "i1yF958BiUkBvoTNTXMG",
+        "_score": null,
+        "_source": {
+          "@timestamp": "2026-08-12T19:48:56.000Z",
+          "sigma_level": "high",
+          "rule": {
+            "product": "windows",
+            "name": "Potential System DLL Sideloading From Non System Locations",
+            "category": "image_load",
+            "uuid": "4fc0deee-0057-4998-ab31-d24e46e0aba4"
+          },
+          "event_data": {
+            "agent": {
+              "name": "WIN-KVKMD51GGKQ",
+              "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+              "ephemeral_id": "59b255c0-fd7d-459b-a3cc-d8c864980987",
+              "type": "filebeat",
+              "version": "9.0.8"
+            },
+            "metadata": {
+              "input": {
+                "beats": {
+                  "host": {
+                    "ip": "172.20.24.99"
+                  }
+                }
+              },
+              "raw_index": "logs-windows.sysmon_operational-default",
+              "stream_id": "winlog-windows.sysmon_operational-6e1d3837-52d4-485d-86e4-ced9721191ee",
+              "beat": "filebeat",
+              "type": "_doc",
+              "version": "9.0.8",
+              "input_id": "winlog-windows-6e1d3837-52d4-485d-86e4-ced9721191ee"
+            },
+            "process": {
+              "name": "cleanmgr.exe",
+              "pid": 2544,
+              "entity_id": "{C8FC26BF-CCFE-6A7C-A740-000000000900}",
+              "executable": "C:\\Windows\\system32\\cleanmgr.exe"
+            },
+            "winlog": {
+              "computer_name": "WIN-KVKMD51GGKQ",
+              "record_id": "18930",
+              "process": {
+                "pid": 7664,
+                "thread": {
+                  "id": 8344
+                }
+              },
+              "event_id": "11",
+              "task": "File created (rule: FileCreate)",
+              "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "event_data": {
+                "CreationUtcTime": "2026-08-12 19:44:00.590"
+              },
+              "provider_name": "Microsoft-Windows-Sysmon",
+              "opcode": "Info",
+              "version": 2,
+              "user": {
+                "identifier": "S-1-5-18",
+                "domain": "NT AUTHORITY",
+                "name": "SYSTEM",
+                "type": "User"
+              }
+            },
+            "_index": ".ds-logs-windows.sysmon_operational-default-2026.07.16-000004",
+            "log": {
+              "level": "information"
+            },
+            "elastic_agent": {
+              "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+              "version": "9.0.8",
+              "snapshot": false
+            },
+            "rule": {
+              "name": "DLL"
+            },
+            "message": "File created:\nRuleName: DLL\nUtcTime: 2026-08-12 19:44:00.590\nProcessGuid: {C8FC26BF-CCFE-6A7C-A740-000000000900}\nProcessId: 2544\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\3962732E-0073-40CC-B583-7C05FC2230F1\\DismCore.dll\nCreationUtcTime: 2026-08-12 19:44:00.590\nUser: WIN-KVKMD51GGKQ\\Administrator",
+            "tags": [
+              "elastic-agent",
+              "input-nodemanager",
+              "beats_input_codec_plain_applied",
+              "sysmon_operational"
+            ],
+            "input": {
+              "type": "winlog"
+            },
+            "@timestamp": "2026-08-12T19:44:00.590Z",
+            "file": {
+              "path": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\3962732E-0073-40CC-B583-7C05FC2230F1\\DismCore.dll",
+              "extension": "dll",
+              "name": "DismCore.dll",
+              "directory": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\3962732E-0073-40CC-B583-7C05FC2230F1"
+            },
+            "ecs": {
+              "version": "8.17.0"
+            },
+            "related": {
+              "user": [
+                "Administrator"
+              ]
+            },
+            "data_stream": {
+              "namespace": "default",
+              "type": "logs",
+              "dataset": "windows.sysmon_operational"
+            },
+            "host": {
+              "hostname": "WIN-KVKMD51GGKQ",
+              "os": {
+                "build": "20348.587",
+                "kernel": "10.0.20348.587 (WinBuild.160101.0800)",
+                "name": "Windows Server 2022 Standard Evaluation",
+                "family": "windows",
+                "type": "windows",
+                "version": "10.0",
+                "platform": "windows"
+              },
+              "ip": [
+                "fd7a:115c:a1e0::5e35:8a1d",
+                "fe80::99d0:ec2d:b2e7:536b",
+                "100.106.138.28",
+                "fe80::7026:60df:3765:b872",
+                "172.20.24.99"
+              ],
+              "name": "win-kvkmd51ggkq",
+              "id": "c8fc26bf-dc76-4dba-adbb-bf31640d9c9f",
+              "mac": [
+                "BC-24-11-0A-40-BD"
+              ],
+              "architecture": "x86_64"
+            },
+            "@version": "1",
+            "_id": "Zt-D958BstL_s-ZWVl_m",
+            "event": {
+              "ingested": "2026-08-12T19:46:47Z",
+              "code": "11",
+              "provider": "Microsoft-Windows-Sysmon",
+              "kind": "event",
+              "created": "2026-08-12T19:44:01.816Z",
+              "module": "windows",
+              "action": "FileCreate",
+              "category": [
+                "file"
+              ],
+              "type": [
+                "creation"
+              ],
+              "dataset": "windows.sysmon_operational"
+            },
+            "num_matches": 2,
+            "user": {
+              "domain": "WIN-KVKMD51GGKQ",
+              "name": "Administrator",
+              "id": "S-1-5-18"
+            },
+            "num_hits": 2
+          },
+          "event": {
+            "severity": 4,
+            "module": "sigma",
+            "dataset": "sigma.alert",
+            "severity_label": "high"
+          },
+          "ioc": {
+            "schema_version": "1.0",
+            "source_engine": "sigma",
+            "rule": {
+              "severity": "high",
+              "name": "Potential System DLL Sideloading From Non System Locations",
+              "uuid": "4fc0deee-0057-4998-ab31-d24e46e0aba4"
+            },
+            "dataset": "sigma.alert"
+          },
+          "tags": "alert"
+        },
+        "sort": [
+          1786564136000
+        ]
+      },
+      {
+        "_index": ".ds-logs-detections.alerts-so-2026.08.12-000166",
+        "_id": "d1yF958BiUkBvoTNSnNM",
+        "_score": null,
+        "_source": {
+          "@timestamp": "2026-08-12T19:48:55.000Z",
+          "sigma_level": "high",
+          "rule": {
+            "product": "windows",
+            "name": "Potential System DLL Sideloading From Non System Locations",
+            "category": "image_load",
+            "uuid": "4fc0deee-0057-4998-ab31-d24e46e0aba4"
+          },
+          "event_data": {
+            "agent": {
+              "name": "WIN-KVKMD51GGKQ",
+              "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+              "ephemeral_id": "59b255c0-fd7d-459b-a3cc-d8c864980987",
+              "type": "filebeat",
+              "version": "9.0.8"
+            },
+            "metadata": {
+              "input": {
+                "beats": {
+                  "host": {
+                    "ip": "172.20.24.99"
+                  }
+                }
+              },
+              "raw_index": "logs-windows.sysmon_operational-default",
+              "stream_id": "winlog-windows.sysmon_operational-6e1d3837-52d4-485d-86e4-ced9721191ee",
+              "beat": "filebeat",
+              "type": "_doc",
+              "version": "9.0.8",
+              "input_id": "winlog-windows-6e1d3837-52d4-485d-86e4-ced9721191ee"
+            },
+            "process": {
+              "name": "MsMpEng.exe",
+              "pid": 7512,
+              "entity_id": "{C8FC26BF-8356-6A74-5332-000000000900}",
+              "executable": "C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.26070.9-0\\MsMpEng.exe"
+            },
+            "winlog": {
+              "computer_name": "WIN-KVKMD51GGKQ",
+              "record_id": "18898",
+              "process": {
+                "pid": 7664,
+                "thread": {
+                  "id": 8344
+                }
+              },
+              "event_id": "11",
+              "task": "File created (rule: FileCreate)",
+              "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "event_data": {
+                "CreationUtcTime": "2026-08-12 19:43:58.878"
+              },
+              "provider_name": "Microsoft-Windows-Sysmon",
+              "opcode": "Info",
+              "version": 2,
+              "user": {
+                "identifier": "S-1-5-18",
+                "domain": "NT AUTHORITY",
+                "name": "SYSTEM",
+                "type": "User"
+              }
+            },
+            "_index": ".ds-logs-windows.sysmon_operational-default-2026.07.16-000004",
+            "log": {
+              "level": "information"
+            },
+            "elastic_agent": {
+              "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+              "version": "9.0.8",
+              "snapshot": false
+            },
+            "rule": {
+              "name": "DLL"
+            },
+            "message": "File created:\nRuleName: DLL\nUtcTime: 2026-08-12 19:43:58.878\nProcessGuid: {C8FC26BF-8356-6A74-5332-000000000900}\nProcessId: 7512\nImage: C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.26070.9-0\\MsMpEng.exe\nTargetFilename: C:\\Windows\\Temp\\114AA382-1B08-49CA-96D6-42851047F2BA\\DismCore.dll\nCreationUtcTime: 2026-08-12 19:43:58.878\nUser: NT AUTHORITY\\SYSTEM",
+            "tags": [
+              "elastic-agent",
+              "input-nodemanager",
+              "beats_input_codec_plain_applied",
+              "sysmon_operational"
+            ],
+            "input": {
+              "type": "winlog"
+            },
+            "@timestamp": "2026-08-12T19:43:58.878Z",
+            "file": {
+              "path": "C:\\Windows\\Temp\\114AA382-1B08-49CA-96D6-42851047F2BA\\DismCore.dll",
+              "extension": "dll",
+              "name": "DismCore.dll",
+              "directory": "C:\\Windows\\Temp\\114AA382-1B08-49CA-96D6-42851047F2BA"
+            },
+            "ecs": {
+              "version": "8.17.0"
+            },
+            "related": {
+              "user": [
+                "SYSTEM"
+              ]
+            },
+            "data_stream": {
+              "namespace": "default",
+              "type": "logs",
+              "dataset": "windows.sysmon_operational"
+            },
+            "host": {
+              "hostname": "WIN-KVKMD51GGKQ",
+              "os": {
+                "build": "20348.587",
+                "kernel": "10.0.20348.587 (WinBuild.160101.0800)",
+                "name": "Windows Server 2022 Standard Evaluation",
+                "family": "windows",
+                "type": "windows",
+                "version": "10.0",
+                "platform": "windows"
+              },
+              "ip": [
+                "fd7a:115c:a1e0::5e35:8a1d",
+                "fe80::99d0:ec2d:b2e7:536b",
+                "100.106.138.28",
+                "fe80::7026:60df:3765:b872",
+                "172.20.24.99"
+              ],
+              "name": "win-kvkmd51ggkq",
+              "id": "c8fc26bf-dc76-4dba-adbb-bf31640d9c9f",
+              "mac": [
+                "BC-24-11-0A-40-BD"
+              ],
+              "architecture": "x86_64"
+            },
+            "@version": "1",
+            "_id": "b9-D958BstL_s-ZWVl7e",
+            "event": {
+              "ingested": "2026-08-12T19:46:47Z",
+              "code": "11",
+              "provider": "Microsoft-Windows-Sysmon",
+              "kind": "event",
+              "created": "2026-08-12T19:43:59.799Z",
+              "module": "windows",
+              "action": "FileCreate",
+              "category": [
+                "file"
+              ],
+              "type": [
+                "creation"
+              ],
+              "dataset": "windows.sysmon_operational"
+            },
+            "num_matches": 2,
+            "user": {
+              "domain": "NT AUTHORITY",
+              "name": "SYSTEM",
+              "id": "S-1-5-18"
+            },
+            "num_hits": 2
+          },
+          "event": {
+            "severity": 4,
+            "module": "sigma",
+            "dataset": "sigma.alert",
+            "severity_label": "high"
+          },
+          "ioc": {
+            "schema_version": "1.0",
+            "source_engine": "sigma",
+            "rule": {
+              "severity": "high",
+              "name": "Potential System DLL Sideloading From Non System Locations",
+              "uuid": "4fc0deee-0057-4998-ab31-d24e46e0aba4"
+            },
+            "dataset": "sigma.alert"
+          },
+          "tags": "alert"
+        },
+        "sort": [
+          1786564135000
+        ]
+      },
+      {
+        "_index": ".ds-logs-detections.alerts-so-2026.08.11-000164",
+        "_id": "Mkle8p8BiUkBvoTNGbPh",
+        "_score": null,
+        "_source": {
+          "@timestamp": "2026-08-11T19:48:01.000Z",
+          "sigma_level": "high",
+          "rule": {
+            "product": "windows",
+            "name": "Potential System DLL Sideloading From Non System Locations",
+            "category": "image_load",
+            "uuid": "4fc0deee-0057-4998-ab31-d24e46e0aba4"
+          },
+          "event_data": {
+            "agent": {
+              "name": "WIN-KVKMD51GGKQ",
+              "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+              "ephemeral_id": "59b255c0-fd7d-459b-a3cc-d8c864980987",
+              "type": "filebeat",
+              "version": "9.0.8"
+            },
+            "metadata": {
+              "input": {
+                "beats": {
+                  "host": {
+                    "ip": "172.20.24.99"
+                  }
+                }
+              },
+              "raw_index": "logs-windows.sysmon_operational-default",
+              "stream_id": "winlog-windows.sysmon_operational-6e1d3837-52d4-485d-86e4-ced9721191ee",
+              "beat": "filebeat",
+              "type": "_doc",
+              "version": "9.0.8",
+              "input_id": "winlog-windows-6e1d3837-52d4-485d-86e4-ced9721191ee"
+            },
+            "process": {
+              "name": "MsMpEng.exe",
+              "pid": 7512,
+              "entity_id": "{C8FC26BF-8356-6A74-5332-000000000900}",
+              "executable": "C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.26070.9-0\\MsMpEng.exe"
+            },
+            "winlog": {
+              "computer_name": "WIN-KVKMD51GGKQ",
+              "record_id": "18480",
+              "process": {
+                "pid": 7664,
+                "thread": {
+                  "id": 8344
+                }
+              },
+              "event_id": "11",
+              "task": "File created (rule: FileCreate)",
+              "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "event_data": {
+                "CreationUtcTime": "2026-08-11 19:43:59.120"
+              },
+              "provider_name": "Microsoft-Windows-Sysmon",
+              "opcode": "Info",
+              "version": 2,
+              "user": {
+                "identifier": "S-1-5-18",
+                "domain": "NT AUTHORITY",
+                "name": "SYSTEM",
+                "type": "User"
+              }
+            },
+            "_index": ".ds-logs-windows.sysmon_operational-default-2026.07.16-000004",
+            "log": {
+              "level": "information"
+            },
+            "elastic_agent": {
+              "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+              "version": "9.0.8",
+              "snapshot": false
+            },
+            "rule": {
+              "name": "DLL"
+            },
+            "message": "File created:\nRuleName: DLL\nUtcTime: 2026-08-11 19:43:59.120\nProcessGuid: {C8FC26BF-8356-6A74-5332-000000000900}\nProcessId: 7512\nImage: C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.26070.9-0\\MsMpEng.exe\nTargetFilename: C:\\Windows\\Temp\\6369588B-E4B0-4F44-8AC8-5E31CD6069FE\\DismCore.dll\nCreationUtcTime: 2026-08-11 19:43:59.120\nUser: NT AUTHORITY\\SYSTEM",
+            "tags": [
+              "elastic-agent",
+              "input-nodemanager",
+              "beats_input_codec_plain_applied",
+              "sysmon_operational"
+            ],
+            "input": {
+              "type": "winlog"
+            },
+            "@timestamp": "2026-08-11T19:43:59.120Z",
+            "file": {
+              "path": "C:\\Windows\\Temp\\6369588B-E4B0-4F44-8AC8-5E31CD6069FE\\DismCore.dll",
+              "extension": "dll",
+              "name": "DismCore.dll",
+              "directory": "C:\\Windows\\Temp\\6369588B-E4B0-4F44-8AC8-5E31CD6069FE"
+            },
+            "ecs": {
+              "version": "8.17.0"
+            },
+            "related": {
+              "user": [
+                "SYSTEM"
+              ]
+            },
+            "data_stream": {
+              "namespace": "default",
+              "type": "logs",
+              "dataset": "windows.sysmon_operational"
+            },
+            "host": {
+              "hostname": "WIN-KVKMD51GGKQ",
+              "os": {
+                "build": "20348.587",
+                "kernel": "10.0.20348.587 (WinBuild.160101.0800)",
+                "name": "Windows Server 2022 Standard Evaluation",
+                "family": "windows",
+                "type": "windows",
+                "version": "10.0",
+                "platform": "windows"
+              },
+              "ip": [
+                "fd7a:115c:a1e0::5e35:8a1d",
+                "fe80::99d0:ec2d:b2e7:536b",
+                "100.106.138.28",
+                "fe80::7026:60df:3765:b872",
+                "172.20.24.99"
+              ],
+              "name": "win-kvkmd51ggkq",
+              "id": "c8fc26bf-dc76-4dba-adbb-bf31640d9c9f",
+              "mac": [
+                "BC-24-11-0A-40-BD"
+              ],
+              "architecture": "x86_64"
+            },
+            "@version": "1",
+            "_id": "jqdc8p8BstL_s-ZWUMSN",
+            "event": {
+              "ingested": "2026-08-11T19:46:04Z",
+              "code": "11",
+              "provider": "Microsoft-Windows-Sysmon",
+              "kind": "event",
+              "created": "2026-08-11T19:43:59.261Z",
+              "module": "windows",
+              "action": "FileCreate",
+              "category": [
+                "file"
+              ],
+              "type": [
+                "creation"
+              ],
+              "dataset": "windows.sysmon_operational"
+            },
+            "num_matches": 2,
+            "user": {
+              "domain": "NT AUTHORITY",
+              "name": "SYSTEM",
+              "id": "S-1-5-18"
+            },
+            "num_hits": 2
+          },
+          "event": {
+            "severity": 4,
+            "module": "sigma",
+            "dataset": "sigma.alert",
+            "severity_label": "high"
+          },
+          "ioc": {
+            "schema_version": "1.0",
+            "source_engine": "sigma",
+            "rule": {
+              "severity": "high",
+              "name": "Potential System DLL Sideloading From Non System Locations",
+              "uuid": "4fc0deee-0057-4998-ab31-d24e46e0aba4"
+            },
+            "dataset": "sigma.alert"
+          },
+          "tags": "alert"
+        },
+        "sort": [
+          1786477681000
+        ]
+      },
+      {
+        "_index": ".ds-logs-detections.alerts-so-2026.08.11-000164",
+        "_id": "P0le8p8BiUkBvoTNHLMi",
+        "_score": null,
+        "_source": {
+          "@timestamp": "2026-08-11T19:48:01.000Z",
+          "sigma_level": "high",
+          "rule": {
+            "product": "windows",
+            "name": "Potential System DLL Sideloading From Non System Locations",
+            "category": "image_load",
+            "uuid": "4fc0deee-0057-4998-ab31-d24e46e0aba4"
+          },
+          "event_data": {
+            "agent": {
+              "name": "WIN-KVKMD51GGKQ",
+              "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+              "ephemeral_id": "59b255c0-fd7d-459b-a3cc-d8c864980987",
+              "type": "filebeat",
+              "version": "9.0.8"
+            },
+            "metadata": {
+              "input": {
+                "beats": {
+                  "host": {
+                    "ip": "172.20.24.99"
+                  }
+                }
+              },
+              "raw_index": "logs-windows.sysmon_operational-default",
+              "stream_id": "winlog-windows.sysmon_operational-6e1d3837-52d4-485d-86e4-ced9721191ee",
+              "beat": "filebeat",
+              "type": "_doc",
+              "version": "9.0.8",
+              "input_id": "winlog-windows-6e1d3837-52d4-485d-86e4-ced9721191ee"
+            },
+            "process": {
+              "name": "cleanmgr.exe",
+              "pid": 4384,
+              "entity_id": "{C8FC26BF-7B7E-6A7B-0D3F-000000000900}",
+              "executable": "C:\\Windows\\system32\\cleanmgr.exe"
+            },
+            "winlog": {
+              "computer_name": "WIN-KVKMD51GGKQ",
+              "record_id": "18512",
+              "process": {
+                "pid": 7664,
+                "thread": {
+                  "id": 8344
+                }
+              },
+              "event_id": "11",
+              "task": "File created (rule: FileCreate)",
+              "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "event_data": {
+                "CreationUtcTime": "2026-08-11 19:44:04.417"
+              },
+              "provider_name": "Microsoft-Windows-Sysmon",
+              "opcode": "Info",
+              "version": 2,
+              "user": {
+                "identifier": "S-1-5-18",
+                "domain": "NT AUTHORITY",
+                "name": "SYSTEM",
+                "type": "User"
+              }
+            },
+            "_index": ".ds-logs-windows.sysmon_operational-default-2026.07.16-000004",
+            "log": {
+              "level": "information"
+            },
+            "elastic_agent": {
+              "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+              "version": "9.0.8",
+              "snapshot": false
+            },
+            "rule": {
+              "name": "DLL"
+            },
+            "message": "File created:\nRuleName: DLL\nUtcTime: 2026-08-11 19:44:04.417\nProcessGuid: {C8FC26BF-7B7E-6A7B-0D3F-000000000900}\nProcessId: 4384\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\AF094FAE-5311-4D27-BBC3-069DC02B58B6\\DismCore.dll\nCreationUtcTime: 2026-08-11 19:44:04.417\nUser: WIN-KVKMD51GGKQ\\Administrator",
+            "tags": [
+              "elastic-agent",
+              "input-nodemanager",
+              "beats_input_codec_plain_applied",
+              "sysmon_operational"
+            ],
+            "input": {
+              "type": "winlog"
+            },
+            "@timestamp": "2026-08-11T19:44:04.417Z",
+            "file": {
+              "path": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\AF094FAE-5311-4D27-BBC3-069DC02B58B6\\DismCore.dll",
+              "extension": "dll",
+              "name": "DismCore.dll",
+              "directory": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\AF094FAE-5311-4D27-BBC3-069DC02B58B6"
+            },
+            "ecs": {
+              "version": "8.17.0"
+            },
+            "related": {
+              "user": [
+                "Administrator"
+              ]
+            },
+            "data_stream": {
+              "namespace": "default",
+              "type": "logs",
+              "dataset": "windows.sysmon_operational"
+            },
+            "host": {
+              "hostname": "WIN-KVKMD51GGKQ",
+              "os": {
+                "build": "20348.587",
+                "kernel": "10.0.20348.587 (WinBuild.160101.0800)",
+                "name": "Windows Server 2022 Standard Evaluation",
+                "family": "windows",
+                "type": "windows",
+                "version": "10.0",
+                "platform": "windows"
+              },
+              "ip": [
+                "fd7a:115c:a1e0::5e35:8a1d",
+                "fe80::99d0:ec2d:b2e7:536b",
+                "100.106.138.28",
+                "fe80::7026:60df:3765:b872",
+                "172.20.24.99"
+              ],
+              "name": "win-kvkmd51ggkq",
+              "id": "c8fc26bf-dc76-4dba-adbb-bf31640d9c9f",
+              "mac": [
+                "BC-24-11-0A-40-BD"
+              ],
+              "architecture": "x86_64"
+            },
+            "@version": "1",
+            "_id": "Pqdc8p8BstL_s-ZWUMSF",
+            "event": {
+              "ingested": "2026-08-11T19:46:04Z",
+              "code": "11",
+              "provider": "Microsoft-Windows-Sysmon",
+              "kind": "event",
+              "created": "2026-08-11T19:44:06.290Z",
+              "module": "windows",
+              "action": "FileCreate",
+              "category": [
+                "file"
+              ],
+              "type": [
+                "creation"
+              ],
+              "dataset": "windows.sysmon_operational"
+            },
+            "num_matches": 2,
+            "user": {
+              "domain": "WIN-KVKMD51GGKQ",
+              "name": "Administrator",
+              "id": "S-1-5-18"
+            },
+            "num_hits": 2
+          },
+          "event": {
+            "severity": 4,
+            "module": "sigma",
+            "dataset": "sigma.alert",
+            "severity_label": "high"
+          },
+          "ioc": {
+            "schema_version": "1.0",
+            "source_engine": "sigma",
+            "rule": {
+              "severity": "high",
+              "name": "Potential System DLL Sideloading From Non System Locations",
+              "uuid": "4fc0deee-0057-4998-ab31-d24e46e0aba4"
+            },
+            "dataset": "sigma.alert"
+          },
+          "tags": "alert"
+        },
+        "sort": [
+          1786477681000
+        ]
+      },
+      {
+        "_index": ".ds-logs-detections.alerts-so-2026.08.10-000162",
+        "_id": "FzY57Z8BiUkBvoTNr_6N",
+        "_score": null,
+        "_source": {
+          "@timestamp": "2026-08-10T19:50:08.000Z",
+          "sigma_level": "high",
+          "rule": {
+            "product": "windows",
+            "name": "Potential System DLL Sideloading From Non System Locations",
+            "category": "image_load",
+            "uuid": "4fc0deee-0057-4998-ab31-d24e46e0aba4"
+          },
+          "event_data": {
+            "agent": {
+              "name": "WIN-KVKMD51GGKQ",
+              "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+              "ephemeral_id": "59b255c0-fd7d-459b-a3cc-d8c864980987",
+              "type": "filebeat",
+              "version": "9.0.8"
+            },
+            "metadata": {
+              "input": {
+                "beats": {
+                  "host": {
+                    "ip": "172.20.24.99"
+                  }
+                }
+              },
+              "raw_index": "logs-windows.sysmon_operational-default",
+              "stream_id": "winlog-windows.sysmon_operational-6e1d3837-52d4-485d-86e4-ced9721191ee",
+              "beat": "filebeat",
+              "type": "_doc",
+              "version": "9.0.8",
+              "input_id": "winlog-windows-6e1d3837-52d4-485d-86e4-ced9721191ee"
+            },
+            "process": {
+              "name": "cleanmgr.exe",
+              "pid": 2152,
+              "entity_id": "{C8FC26BF-29FE-6A7A-1E3D-000000000900}",
+              "executable": "C:\\Windows\\system32\\cleanmgr.exe"
+            },
+            "winlog": {
+              "computer_name": "WIN-KVKMD51GGKQ",
+              "record_id": "18171",
+              "process": {
+                "pid": 7664,
+                "thread": {
+                  "id": 8344
+                }
+              },
+              "event_id": "11",
+              "task": "File created (rule: FileCreate)",
+              "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "event_data": {
+                "CreationUtcTime": "2026-08-10 19:44:03.080"
+              },
+              "provider_name": "Microsoft-Windows-Sysmon",
+              "opcode": "Info",
+              "version": 2,
+              "user": {
+                "identifier": "S-1-5-18",
+                "domain": "NT AUTHORITY",
+                "name": "SYSTEM",
+                "type": "User"
+              }
+            },
+            "_index": ".ds-logs-windows.sysmon_operational-default-2026.07.16-000004",
+            "log": {
+              "level": "information"
+            },
+            "elastic_agent": {
+              "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+              "version": "9.0.8",
+              "snapshot": false
+            },
+            "rule": {
+              "name": "DLL"
+            },
+            "message": "File created:\nRuleName: DLL\nUtcTime: 2026-08-10 19:44:03.080\nProcessGuid: {C8FC26BF-29FE-6A7A-1E3D-000000000900}\nProcessId: 2152\nImage: C:\\Windows\\system32\\cleanmgr.exe\nTargetFilename: C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\F5264D16-4BA6-4F79-8E6D-BBF65D287915\\DismCore.dll\nCreationUtcTime: 2026-08-10 19:44:03.080\nUser: WIN-KVKMD51GGKQ\\Administrator",
+            "tags": [
+              "elastic-agent",
+              "input-nodemanager",
+              "beats_input_codec_plain_applied",
+              "sysmon_operational"
+            ],
+            "input": {
+              "type": "winlog"
+            },
+            "@timestamp": "2026-08-10T19:44:03.080Z",
+            "file": {
+              "path": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\F5264D16-4BA6-4F79-8E6D-BBF65D287915\\DismCore.dll",
+              "extension": "dll",
+              "name": "DismCore.dll",
+              "directory": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\F5264D16-4BA6-4F79-8E6D-BBF65D287915"
+            },
+            "ecs": {
+              "version": "8.17.0"
+            },
+            "related": {
+              "user": [
+                "Administrator"
+              ]
+            },
+            "data_stream": {
+              "namespace": "default",
+              "type": "logs",
+              "dataset": "windows.sysmon_operational"
+            },
+            "host": {
+              "hostname": "WIN-KVKMD51GGKQ",
+              "os": {
+                "build": "20348.587",
+                "kernel": "10.0.20348.587 (WinBuild.160101.0800)",
+                "name": "Windows Server 2022 Standard Evaluation",
+                "family": "windows",
+                "type": "windows",
+                "version": "10.0",
+                "platform": "windows"
+              },
+              "ip": [
+                "fd7a:115c:a1e0::5e35:8a1d",
+                "fe80::99d0:ec2d:b2e7:536b",
+                "100.106.138.28",
+                "fe80::7026:60df:3765:b872",
+                "172.20.24.99"
+              ],
+              "name": "win-kvkmd51ggkq",
+              "id": "c8fc26bf-dc76-4dba-adbb-bf31640d9c9f",
+              "mac": [
+                "BC-24-11-0A-40-BD"
+              ],
+              "architecture": "x86_64"
+            },
+            "@version": "1",
+            "_id": "nXI37Z8BstL_s-ZWaRMR",
+            "event": {
+              "ingested": "2026-08-10T19:47:39Z",
+              "code": "11",
+              "provider": "Microsoft-Windows-Sysmon",
+              "kind": "event",
+              "created": "2026-08-10T19:44:05.007Z",
+              "module": "windows",
+              "action": "FileCreate",
+              "category": [
+                "file"
+              ],
+              "type": [
+                "creation"
+              ],
+              "dataset": "windows.sysmon_operational"
+            },
+            "num_matches": 2,
+            "user": {
+              "domain": "WIN-KVKMD51GGKQ",
+              "name": "Administrator",
+              "id": "S-1-5-18"
+            },
+            "num_hits": 2
+          },
+          "event": {
+            "severity": 4,
+            "module": "sigma",
+            "dataset": "sigma.alert",
+            "severity_label": "high"
+          },
+          "ioc": {
+            "schema_version": "1.0",
+            "source_engine": "sigma",
+            "rule": {
+              "severity": "high",
+              "name": "Potential System DLL Sideloading From Non System Locations",
+              "uuid": "4fc0deee-0057-4998-ab31-d24e46e0aba4"
+            },
+            "dataset": "sigma.alert"
+          },
+          "tags": "alert"
+        },
+        "sort": [
+          1786391408000
+        ]
+      }
+    ]
+  }
+}

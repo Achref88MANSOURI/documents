@@ -1,0 +1,53 @@
+{
+  "took": 2,
+  "timed_out": false,
+  "_shards": {
+    "total": 1,
+    "successful": 1,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 1,
+      "relation": "eq"
+    },
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "so-detection",
+        "_id": "202050fa-865c-4cba-b046-298b8d64e826",
+        "_score": null,
+        "_source": {
+          "@timestamp": "2025-09-30T18:54:33.766615864Z",
+          "so_detection": {
+            "createTime": "2025-09-30T18:54:33.766603832Z",
+            "userId": "00000000-0000-0000-0000-000000000000",
+            "publicId": "2001482",
+            "title": "ET ADWARE_PUP thebestsoft4u.com Spyware Install (1)",
+            "severity": "low",
+            "author": "ETOPEN",
+            "category": "ET ADWARE_PUP",
+            "description": "",
+            "content": "alert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"ET ADWARE_PUP thebestsoft4u.com Spyware Install (1)\"; flow:established,to_server; http.uri; content:\"/pa/glx.exe\"; nocase; classtype:pup-activity; sid:2001482; rev:10; metadata:attack_target Client_Endpoint, created_at 2010_07_30, deployment Perimeter, signature_severity Minor, updated_at 2024_03_15, mitre_tactic_id TA0009, mitre_tactic_name Collection, mitre_technique_id T1005, mitre_technique_name Data_from_local_system;)",
+            "isEnabled": false,
+            "isReporting": false,
+            "isCommunity": true,
+            "engine": "suricata",
+            "language": "suricata",
+            "overrides": null,
+            "tags": null,
+            "ruleset": "ETOPEN",
+            "license": "BSD",
+            "sourceCreated": "2010-07-30T00:00:00Z",
+            "sourceUpdated": "2024-03-15T00:00:00Z"
+          },
+          "so_kind": "detection"
+        },
+        "sort": [
+          1759258473766
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "_provenance": {
+    "note": "REAL capture from OpenCTI GraphQL 7.260318.0 at 172.20.24.222:8080, 2026-08-13. Batched query for 4 values: two real threat-feed domains (w8p3k.com, yezi.haoyun.bar) that DO resolve, and two of this deployment's own alert observables (github.com, the alert's own sha256 hash) that do NOT \u2014 this instance's data has no record of this deployment's locally-generated test alert IOCs, which is itself the correct real answer, not a broken query. Confirms batched exact-match filtering: sent 4 values, got back exactly the 2 real matches.",
+    "captured": "2026-08-13",
+    "opencti_version": "7.260318.0",
+    "opencti_url": "http://172.20.24.222:8080",
+    "queried_values": [
+      "w8p3k.com",
+      "yezi.haoyun.bar",
+      "github.com",
+      "1c84c8632c5269f24876ed9f49fa810b49f77e1e92e8918fc164c34b020f9a94"
+    ]
+  },
+  "batched_query_result": {
+    "data": {
+      "stixCyberObservables": {
+        "edges": [
+          {
+            "node": {
+              "observable_value": "yezi.haoyun.bar",
+              "entity_type": "Domain-Name",
+              "x_opencti_score": 60,
+              "objectLabel": [
+                {
+                  "value": "medium-risk"
+                },
+                {
+                  "value": "osint"
+                }
+              ],
+              "objectMarking": [
+                {
+                  "definition": "TLP:CLEAR"
+                }
+              ],
+              "indicators": {
+                "edges": [
+                  {
+                    "node": {
+                      "name": "yezi.haoyun.bar"
+                    }
+                  }
+                ]
+              },
+              "stixCoreRelationships": {
+                "edges": [
+                  {
+                    "node": {
+                      "relationship_type": "based-on",
+                      "to": {}
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "node": {
+              "observable_value": "w8p3k.com",
+              "entity_type": "Domain-Name",
+              "x_opencti_score": 60,
+              "objectLabel": [
+                {
+                  "value": "medium-risk"
+                },
+                {
+                  "value": "osint"
+                }
+              ],
+              "objectMarking": [
+                {
+                  "definition": "TLP:CLEAR"
+                }
+              ],
+              "indicators": {
+                "edges": [
+                  {
+                    "node": {
+                      "name": "w8p3k.com"
+                    }
+                  }
+                ]
+              },
+              "stixCoreRelationships": {
+                "edges": [
+                  {
+                    "node": {
+                      "relationship_type": "based-on",
+                      "to": {}
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

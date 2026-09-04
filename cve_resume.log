@@ -1,0 +1,35 @@
+nohup: ignoring input
+Loading existing CVE IDs from Qdrant...
+Already ingested: 4304 CVEs
+Window 1/7: 2026-04-20 to 2026-08-16 — 656 CVEs
+Window 2/7: 2025-12-23 to 2026-04-20 — 1320 CVEs
+Window 3/7: 2025-08-27 to 2025-12-23 — 1061 CVEs
+Window 4/7: 2025-05-01 to 2025-08-27 — 1416 CVEs
+Window 5/7: 2025-01-03 to 2025-05-01 — 869 CVEs
+Window 6/7: 2024-09-07 to 2025-01-03 — 845 CVEs
+Window 7/7: 2024-08-16 to 2024-09-07 — 248 CVEs
+
+Total collected: 6358 | Already ingested: 4304 | To ingest: 2054
+  100/2054 ingested
+  200/2054 ingested
+  300/2054 ingested
+  400/2054 ingested
+  500/2054 ingested
+  600/2054 ingested
+  700/2054 ingested
+  800/2054 ingested
+  900/2054 ingested
+  1000/2054 ingested
+  1100/2054 ingested
+  1200/2054 ingested
+  1300/2054 ingested
+  1400/2054 ingested
+  1500/2054 ingested
+  1600/2054 ingested
+  1700/2054 ingested
+  1800/2054 ingested
+  1900/2054 ingested
+  2000/2054 ingested
+  2054/2054 ingested
+
+Done. 2054 new CVEs ingested. Total in collection: 6358

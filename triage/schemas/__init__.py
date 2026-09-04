@@ -1,0 +1,123 @@
+"""Typed stage-boundary contracts.
+
+Architecture §12: every stage boundary is a strict Pydantic model. A field
+renamed in one stage and misread in the next must fail loudly at validation
+time, never silently produce an empty value downstream.
+
+`alert.py` (Stage 0), `evidence.py` (Stages 1-2), `assessment.py` (Stage 3),
+`verdict.py` (Stage 4), and `result.py` (the top-level triage result) exist.
+`result.py` no longer represents a distinct Stage 5 — v5 (`newdesign.md`)
+deleted the numeric scoring stage; priority now comes from `verdict.py`.
+"""
+
+from schemas.alert import (
+    AlertWebhookPayload,
+    ApiCall,
+    CanonicalAlert,
+    CodeSignature,
+    CortexResult,
+    File,
+    HashBundle,
+    Host,
+    InvestigationProfile,
+    Library,
+    MalwareVerdict,
+    Network,
+    OSInfo,
+    Observables,
+    Process,
+    RelatedEntities,
+    Registry,
+    Rule,
+    User,
+)
+from schemas.assessment import (
+    ContextualAssessment,
+    CorrelationDecision,
+    EvidenceSituation,
+    EvidenceSource,
+    ExtractedObservable,
+    ExtractedObservables,
+    MitreMapping,
+)
+from schemas.evidence import (
+    CASE_STATUS_FALSE_POSITIVE,
+    CASE_STATUS_TRUE_POSITIVE,
+    AlertSummary,
+    AssetContext,
+    ClosedCasesSummary,
+    CveMatch,
+    EnrichedEvidence,
+    FPSignal,
+    Gap,
+    IncidentMatch,
+    LogSource,
+    MitreCandidate,
+    OpenCTIEnrichment,
+    OpenCTIRelation,
+    PlaybookMatch,
+    ProcessEvent,
+    RawEvidence,
+    RuleContext,
+    ShallowCase,
+    has_known_falsepositives,
+    has_reliable_status,
+)
+from schemas.case_action import CaseActionResult
+from schemas.result import TriageResponse, TriageResult
+from schemas.verdict import ActionableObservable, TriageVerdict
+
+__all__ = [
+    "CASE_STATUS_FALSE_POSITIVE",
+    "CASE_STATUS_TRUE_POSITIVE",
+    "ActionableObservable",
+    "AlertSummary",
+    "AlertWebhookPayload",
+    "ApiCall",
+    "AssetContext",
+    "CanonicalAlert",
+    "CaseActionResult",
+    "CodeSignature",
+    "ClosedCasesSummary",
+    "ContextualAssessment",
+    "CorrelationDecision",
+    "CortexResult",
+    "CveMatch",
+    "EnrichedEvidence",
+    "EvidenceSituation",
+    "EvidenceSource",
+    "ExtractedObservable",
+    "ExtractedObservables",
+    "FPSignal",
+    "File",
+    "Gap",
+    "HashBundle",
+    "Host",
+    "IncidentMatch",
+    "InvestigationProfile",
+    "Library",
+    "LogSource",
+    "MalwareVerdict",
+    "MitreCandidate",
+    "MitreMapping",
+    "Network",
+    "OSInfo",
+    "Observables",
+    "OpenCTIEnrichment",
+    "OpenCTIRelation",
+    "PlaybookMatch",
+    "Process",
+    "ProcessEvent",
+    "RawEvidence",
+    "RelatedEntities",
+    "Registry",
+    "Rule",
+    "RuleContext",
+    "ShallowCase",
+    "TriageResponse",
+    "TriageResult",
+    "TriageVerdict",
+    "User",
+    "has_known_falsepositives",
+    "has_reliable_status",
+]

@@ -1,0 +1,45 @@
+{
+  "mcpServers": {
+    "thehive": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "THEHIVE_URL=http://172.20.24.228:9000",
+        "-e",
+        "THEHIVE_API_KEY=XS5v1JbcWvC/qCX+3m3XFWEVpFt+yodq",
+        "-e",
+        "THEHIVE_ORGANISATION=Trustshield",
+        "-e",
+        "PERMISSIONS_CONFIG=read_only",
+        "ghcr.io/strangebeecorp/thehivemcp/thehivemcp:latest",
+        "/app/server",
+        "--transport",
+        "stdio"
+      ]
+    },
+    "security-onion-hunter": {
+       "command": "npx",
+       "args": ["-y", "@awesome-ai/elasticsearch-mcp"],
+       "env": {
+         "ES_HOST": "https://172.20.24.58:9200",
+         "ES_USERNAME": "manager@trustshield.com",
+         "ES_PASSWORD": "Soc2025*",
+         "NODE_TLS_REJECT_UNAUTHORIZED": "0"
+       }
+    },
+    "opencti": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "pycti-mcp@latest"
+      ],
+      "env": {
+        "OPENCTI_URL": "http://172.20.24.222:8080",
+        "OPENCTI_TOKEN": "flgrn_octi_tkn_kPT3_lbRxRqEMysc9QHFpNH5ooUe96z32vpzGHZtavenD43Wvq9aDa_t0Bic3URV"
+      }
+    }
+  }
+}

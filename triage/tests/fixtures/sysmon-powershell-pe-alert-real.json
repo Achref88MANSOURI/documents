@@ -1,0 +1,222 @@
+{
+  "_index": ".ds-logs-detections.alerts-so-2026.08.09-000160",
+  "_id": "7i8y658BiUkBvoTNw51s",
+  "_score": null,
+  "_source": {
+    "@timestamp": "2026-08-10T10:23:20.000Z",
+    "sigma_level": "medium",
+    "rule": {
+      "product": "windows",
+      "name": "Potentially Suspicious Powershell Script Execution From Temp Folder",
+      "category": "process_creation",
+      "uuid": "a6a39bdb-935c-4f0a-ab77-35f4bbf44d33"
+    },
+    "event_data": {
+      "agent": {
+        "name": "WIN-KVKMD51GGKQ",
+        "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+        "ephemeral_id": "59b255c0-fd7d-459b-a3cc-d8c864980987",
+        "type": "filebeat",
+        "version": "9.0.8"
+      },
+      "metadata": {
+        "input": {
+          "beats": {
+            "host": {
+              "ip": "172.20.24.99"
+            }
+          }
+        },
+        "raw_index": "logs-windows.sysmon_operational-default",
+        "stream_id": "winlog-windows.sysmon_operational-6e1d3837-52d4-485d-86e4-ced9721191ee",
+        "beat": "filebeat",
+        "type": "_doc",
+        "version": "9.0.8",
+        "input_id": "winlog-windows-6e1d3837-52d4-485d-86e4-ced9721191ee"
+      },
+      "process": {
+        "args": [
+          "powershell.exe",
+          "&",
+          "{C:\\Windows\\Temp\\xordump.exe",
+          "-out",
+          "C:\\Windows\\Temp\\lsass-xordump.t1003.001.dmp",
+          "-x",
+          "0x41}"
+        ],
+        "parent": {
+          "args": [
+            "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+          ],
+          "name": "powershell.exe",
+          "pid": 4332,
+          "args_count": 1,
+          "entity_id": "{C8FC26BF-9B66-6A79-ED38-000000000900}",
+          "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+          "command_line": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" "
+        },
+        "pe": {
+          "file_version": "10.0.20348.1 (WinBuild.160101.0800)",
+          "product": "Microsoft\u00ae Windows\u00ae Operating System",
+          "imphash": "bf7a6e7a62c3f5b2e8e069438ac1dd3d",
+          "description": "Windows PowerShell",
+          "original_file_name": "PowerShell.EXE",
+          "company": "Microsoft Corporation"
+        },
+        "name": "powershell.exe",
+        "pid": 7784,
+        "working_directory": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\",
+        "args_count": 7,
+        "entity_id": "{C8FC26BF-A602-6A79-573C-000000000900}",
+        "hash": {
+          "sha256": "1c84c8632c5269f24876ed9f49fa810b49f77e1e92e8918fc164c34b020f9a94",
+          "md5": "2e0ccb27064856e3d55017fa2d33a7b9"
+        },
+        "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "command_line": "\"powershell.exe\" & {C:\\Windows\\Temp\\xordump.exe -out C:\\Windows\\Temp\\lsass-xordump.t1003.001.dmp -x 0x41}"
+      },
+      "winlog": {
+        "computer_name": "WIN-KVKMD51GGKQ",
+        "record_id": "17962",
+        "process": {
+          "pid": 7664,
+          "thread": {
+            "id": 8344
+          }
+        },
+        "event_id": "1",
+        "task": "Process Create (rule: ProcessCreate)",
+        "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+        "channel": "Microsoft-Windows-Sysmon/Operational",
+        "event_data": {
+          "Company": "Microsoft Corporation",
+          "LogonGuid": "{C8FC26BF-E5B3-6A57-3880-050000000000}",
+          "Description": "Windows PowerShell",
+          "TerminalSessionId": "1",
+          "IntegrityLevel": "High",
+          "FileVersion": "10.0.20348.1 (WinBuild.160101.0800)",
+          "ParentUser": "WIN-KVKMD51GGKQ\\Administrator",
+          "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+          "LogonId": "0x58038"
+        },
+        "provider_name": "Microsoft-Windows-Sysmon",
+        "opcode": "Info",
+        "version": 5,
+        "user": {
+          "identifier": "S-1-5-18",
+          "domain": "NT AUTHORITY",
+          "name": "SYSTEM",
+          "type": "User"
+        }
+      },
+      "_index": ".ds-logs-windows.sysmon_operational-default-2026.07.16-000004",
+      "log": {
+        "level": "information"
+      },
+      "elastic_agent": {
+        "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+        "version": "9.0.8",
+        "snapshot": false
+      },
+      "message": "Process Create:\nRuleName: -\nUtcTime: 2026-08-10 10:20:50.831\nProcessGuid: {C8FC26BF-A602-6A79-573C-000000000900}\nProcessId: 7784\nImage: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\nFileVersion: 10.0.20348.1 (WinBuild.160101.0800)\nDescription: Windows PowerShell\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: PowerShell.EXE\nCommandLine: \"powershell.exe\" & {C:\\Windows\\Temp\\xordump.exe -out C:\\Windows\\Temp\\lsass-xordump.t1003.001.dmp -x 0x41}\nCurrentDirectory: C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\\nUser: WIN-KVKMD51GGKQ\\Administrator\nLogonGuid: {C8FC26BF-E5B3-6A57-3880-050000000000}\nLogonId: 0x58038\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=2E0CCB27064856E3D55017FA2D33A7B9,SHA256=1C84C8632C5269F24876ED9F49FA810B49F77E1E92E8918FC164C34B020F9A94,IMPHASH=BF7A6E7A62C3F5B2E8E069438AC1DD3D\nParentProcessGuid: {C8FC26BF-9B66-6A79-ED38-000000000900}\nParentProcessId: 4332\nParentImage: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\nParentCommandLine: \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" \nParentUser: WIN-KVKMD51GGKQ\\Administrator",
+      "tags": [
+        "elastic-agent",
+        "input-nodemanager",
+        "beats_input_codec_plain_applied",
+        "sysmon_operational"
+      ],
+      "input": {
+        "type": "winlog"
+      },
+      "@timestamp": "2026-08-10T10:20:50.831Z",
+      "ecs": {
+        "version": "8.17.0"
+      },
+      "related": {
+        "user": [
+          "Administrator"
+        ],
+        "hash": [
+          "1c84c8632c5269f24876ed9f49fa810b49f77e1e92e8918fc164c34b020f9a94",
+          "2e0ccb27064856e3d55017fa2d33a7b9",
+          "bf7a6e7a62c3f5b2e8e069438ac1dd3d"
+        ]
+      },
+      "data_stream": {
+        "namespace": "default",
+        "type": "logs",
+        "dataset": "windows.sysmon_operational"
+      },
+      "host": {
+        "hostname": "WIN-KVKMD51GGKQ",
+        "os": {
+          "build": "20348.587",
+          "kernel": "10.0.20348.587 (WinBuild.160101.0800)",
+          "name": "Windows Server 2022 Standard Evaluation",
+          "family": "windows",
+          "type": "windows",
+          "version": "10.0",
+          "platform": "windows"
+        },
+        "ip": [
+          "fd7a:115c:a1e0::5e35:8a1d",
+          "fe80::99d0:ec2d:b2e7:536b",
+          "100.106.138.28",
+          "fe80::7026:60df:3765:b872",
+          "172.20.24.99"
+        ],
+        "name": "win-kvkmd51ggkq",
+        "id": "c8fc26bf-dc76-4dba-adbb-bf31640d9c9f",
+        "mac": [
+          "BC-24-11-0A-40-BD"
+        ],
+        "architecture": "x86_64"
+      },
+      "@version": "1",
+      "_id": "rVwy658BstL_s-ZWfm9_",
+      "event": {
+        "ingested": "2026-08-10T10:23:02Z",
+        "code": "1",
+        "provider": "Microsoft-Windows-Sysmon",
+        "kind": "event",
+        "created": "2026-08-10T10:20:51.537Z",
+        "module": "windows",
+        "action": "Process creation",
+        "category": [
+          "process"
+        ],
+        "type": [
+          "start"
+        ],
+        "dataset": "windows.sysmon_operational"
+      },
+      "num_matches": 3,
+      "user": {
+        "domain": "WIN-KVKMD51GGKQ",
+        "name": "Administrator",
+        "id": "S-1-5-18"
+      },
+      "num_hits": 8
+    },
+    "event": {
+      "severity": 3,
+      "module": "sigma",
+      "dataset": "sigma.alert",
+      "severity_label": "medium"
+    },
+    "ioc": {
+      "schema_version": "1.0",
+      "source_engine": "sigma",
+      "rule": {
+        "severity": "medium",
+        "name": "Potentially Suspicious Powershell Script Execution From Temp Folder",
+        "uuid": "a6a39bdb-935c-4f0a-ab77-35f4bbf44d33"
+      },
+      "dataset": "sigma.alert"
+    },
+    "tags": "alert"
+  },
+  "sort": [
+    1786357400000
+  ]
+}

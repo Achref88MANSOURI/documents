@@ -1,0 +1,110 @@
+{
+  "note": "REAL -- direct live call to nodes.case_action._write_actionable_observables against disposable test case ~8609848, 2026-08-23, verifying the create+ID-capture path and (if an existing observable was found) the dedup-reuse path, both against the real TheHive backend, no mocking.",
+  "existing_before": [
+    {
+      "observable_id": "~4632816",
+      "data_type": "domain",
+      "value": "soc3s-test-observable.fake",
+      "tags": [
+        "soc3s-test"
+      ]
+    },
+    {
+      "observable_id": "~4718744",
+      "data_type": "filename",
+      "value": "C:\\Windows\\Temp\\malware.exe",
+      "tags": [
+        "malicious",
+        "react"
+      ]
+    },
+    {
+      "observable_id": "~4567216",
+      "data_type": "filename",
+      "value": "C:\\Windows\\Temp\\soc3s-live-check.exe",
+      "tags": [
+        "malicious",
+        "react"
+      ]
+    },
+    {
+      "observable_id": "~8982528",
+      "data_type": "filename",
+      "value": "soc3s-live-check.dll",
+      "tags": []
+    },
+    {
+      "observable_id": "~4554928",
+      "data_type": "ip",
+      "value": "203.0.113.77",
+      "tags": []
+    },
+    {
+      "observable_id": "~4722840",
+      "data_type": "hash",
+      "value": "d41d8cd98f00b204e9800998ecf8427e",
+      "tags": []
+    },
+    {
+      "observable_id": "~4550832",
+      "data_type": "url",
+      "value": "http://soc3s-live-check.example/payload",
+      "tags": []
+    },
+    {
+      "observable_id": "~4391056",
+      "data_type": "domain",
+      "value": "soc3s-live-check.example",
+      "tags": []
+    }
+  ],
+  "items_requested": [
+    {
+      "observable_type": "domain",
+      "value": "soc3s-test-observable.fake",
+      "recommended_disposition": "monitor",
+      "confidence": "medium",
+      "reasoning": "live verification: should REUSE this existing observable's id",
+      "observable_id": "~4632816"
+    },
+    {
+      "observable_type": "domain",
+      "value": "soc3s-verify-1787502771.example",
+      "recommended_disposition": "block",
+      "confidence": "high",
+      "reasoning": "live verification: should CREATE a new observable and return a real id",
+      "observable_id": "~237816"
+    }
+  ],
+  "enriched_result": [
+    {
+      "observable_type": "domain",
+      "value": "soc3s-test-observable.fake",
+      "recommended_disposition": "monitor",
+      "confidence": "medium",
+      "reasoning": "live verification: should REUSE this existing observable's id",
+      "observable_id": "~4632816"
+    },
+    {
+      "observable_type": "domain",
+      "value": "soc3s-verify-1787502771.example",
+      "recommended_disposition": "block",
+      "confidence": "high",
+      "reasoning": "live verification: should CREATE a new observable and return a real id",
+      "observable_id": "~237816"
+    }
+  ],
+  "written": 2,
+  "failed": 0,
+  "read_back_confirms_new_observable": [
+    {
+      "observable_id": "~237816",
+      "data_type": "domain",
+      "value": "soc3s-verify-1787502771.example",
+      "tags": [
+        "confidence:high",
+        "disposition:block"
+      ]
+    }
+  ]
+}

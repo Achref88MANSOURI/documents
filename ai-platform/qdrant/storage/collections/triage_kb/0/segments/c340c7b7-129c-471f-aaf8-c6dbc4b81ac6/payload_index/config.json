@@ -1,0 +1,1 @@
+{"indexed_fields":{"collection":{"type":"keyword"}},"indexed_types":{"collection":[{"index_type":"keyword_index","mutability":"mutable","storage_type":"gridstore"},{"index_type":"null_index","mutability":"mutable","storage_type":{"mmap":{"is_on_disk":false}}}]}}

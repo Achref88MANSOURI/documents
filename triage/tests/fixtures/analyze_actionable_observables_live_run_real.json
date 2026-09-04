@@ -1,0 +1,33 @@
+{
+  "note": "REAL \u2014 live nodes.analyze.analyst_verdict run with the 2026-08-23 actionable-observables addition, against the xordump alert, real Stage 1/2/3 chain, captured for Part A's required live-verification step.",
+  "correlation_decision": {
+    "action": "new",
+    "merge_into_case_id": null,
+    "kill_chain_progression_detected": false,
+    "reasoning": "The alert lacks sufficient behavioral context to correlate with existing cases. No related entities, observables, or Cortex results indicate a known attack chain."
+  },
+  "extracted_observables": {
+    "process": [],
+    "file": [],
+    "external_ips": [],
+    "domains": [],
+    "urls": [],
+    "hash": []
+  },
+  "verdict": {
+    "likelihood": "unlikely",
+    "impact_if_true": "moderate",
+    "verdict": "needs_review",
+    "reasoning": "The alert is based on a Sigma rule for suspicious PowerShell execution, but the threat_intel array is empty, indicating no confirmed malicious activity. The contextual_modifier for likelihood shows a weak decrease due to empty Cortex results, while the modifier for impact shows a medium increase because the host is a high criticality asset. However, the historical context shows an average severity of 3.0, suggesting some past alerts, but the current alert lacks direct evidence of compromise. The investigation gaps indicate that LLM-extracted values like IPs, domains, URLs, hashes, and files were not found in the evidence fields, reinforcing the lack of concrete indicators. Given the absence of confirmed malicious activity and the presence of hallucinated observables, a definitive verdict cannot be made.",
+    "summary": "This alert triggers on a suspicious PowerShell command, but without corroborating evidence such as network connections, file writes, or known malicious artifacts, it remains inconclusive. The asset is critical, increasing potential impact, but the lack of intelligence confirms the suspicion.",
+    "recommended_action": "needs_review",
+    "evidence_citations": [
+      "rule_context.severity=high",
+      "threat_intel[].verdict=[]",
+      "contextual_modifiers[0].reasoning=cortex_verdict",
+      "contextual_modifiers[1].reasoning=asset_criticality"
+    ],
+    "actionable_observables": [],
+    "stage_4_duration_ms": 45508
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "_index": ".ds-logs-detections.alerts-so-2026.08.09-000160",
+  "_id": "ii8y658BiUkBvoTNpJ0q",
+  "_score": null,
+  "_source": {
+    "@timestamp": "2026-08-10T10:23:12.000Z",
+    "sigma_level": "high",
+    "rule": {
+      "product": "windows",
+      "name": "Potential Persistence Via GlobalFlags",
+      "category": "registry_set",
+      "uuid": "36803969-5421-41ec-b92f-8500f79c23b0"
+    },
+    "event_data": {
+      "registry": {
+        "hive": "HKLM",
+        "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\lsass.exe\\GlobalFlag",
+        "data": {
+          "strings": [
+            "512"
+          ],
+          "type": "SZ_DWORD"
+        },
+        "value": "GlobalFlag",
+        "key": "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\lsass.exe\\GlobalFlag"
+      },
+      "agent": {
+        "name": "WIN-KVKMD51GGKQ",
+        "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+        "ephemeral_id": "59b255c0-fd7d-459b-a3cc-d8c864980987",
+        "type": "filebeat",
+        "version": "9.0.8"
+      },
+      "metadata": {
+        "input": {
+          "beats": {
+            "host": {
+              "ip": "172.20.24.99"
+            }
+          }
+        },
+        "raw_index": "logs-windows.sysmon_operational-default",
+        "stream_id": "winlog-windows.sysmon_operational-6e1d3837-52d4-485d-86e4-ced9721191ee",
+        "beat": "filebeat",
+        "type": "_doc",
+        "version": "9.0.8",
+        "input_id": "winlog-windows-6e1d3837-52d4-485d-86e4-ced9721191ee"
+      },
+      "process": {
+        "name": "nanodump.x64.exe",
+        "pid": 1324,
+        "entity_id": "{C8FC26BF-A603-6A79-5F3C-000000000900}",
+        "executable": "C:\\AtomicRedTeam\\atomics-repo\\ExternalPayloads\\nanodump.x64.exe"
+      },
+      "winlog": {
+        "computer_name": "WIN-KVKMD51GGKQ",
+        "record_id": "17971",
+        "process": {
+          "pid": 7664,
+          "thread": {
+            "id": 8344
+          }
+        },
+        "event_id": "13",
+        "task": "Registry value set (rule: RegistryEvent)",
+        "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+        "channel": "Microsoft-Windows-Sysmon/Operational",
+        "event_data": {
+          "EventType": "SetValue"
+        },
+        "provider_name": "Microsoft-Windows-Sysmon",
+        "opcode": "Info",
+        "version": 2,
+        "user": {
+          "identifier": "S-1-5-18",
+          "domain": "NT AUTHORITY",
+          "name": "SYSTEM",
+          "type": "User"
+        }
+      },
+      "_index": ".ds-logs-windows.sysmon_operational-default-2026.07.16-000004",
+      "log": {
+        "level": "information"
+      },
+      "elastic_agent": {
+        "id": "1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+        "version": "9.0.8",
+        "snapshot": false
+      },
+      "rule": {
+        "name": "T1183,IFEO"
+      },
+      "message": "Registry value set:\nRuleName: T1183,IFEO\nEventType: SetValue\nUtcTime: 2026-08-10 10:20:51.817\nProcessGuid: {C8FC26BF-A603-6A79-5F3C-000000000900}\nProcessId: 1324\nImage: C:\\AtomicRedTeam\\atomics-repo\\ExternalPayloads\\nanodump.x64.exe\nTargetObject: HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\lsass.exe\\GlobalFlag\nDetails: DWORD (0x00000200)\nUser: WIN-KVKMD51GGKQ\\Administrator",
+      "tags": [
+        "elastic-agent",
+        "input-nodemanager",
+        "beats_input_codec_plain_applied",
+        "sysmon_operational"
+      ],
+      "input": {
+        "type": "winlog"
+      },
+      "@timestamp": "2026-08-10T10:20:51.817Z",
+      "ecs": {
+        "version": "8.17.0"
+      },
+      "related": {
+        "user": [
+          "Administrator"
+        ]
+      },
+      "data_stream": {
+        "namespace": "default",
+        "type": "logs",
+        "dataset": "windows.sysmon_operational"
+      },
+      "host": {
+        "hostname": "WIN-KVKMD51GGKQ",
+        "os": {
+          "build": "20348.587",
+          "kernel": "10.0.20348.587 (WinBuild.160101.0800)",
+          "name": "Windows Server 2022 Standard Evaluation",
+          "family": "windows",
+          "type": "windows",
+          "version": "10.0",
+          "platform": "windows"
+        },
+        "ip": [
+          "fd7a:115c:a1e0::5e35:8a1d",
+          "fe80::99d0:ec2d:b2e7:536b",
+          "100.106.138.28",
+          "fe80::7026:60df:3765:b872",
+          "172.20.24.99"
+        ],
+        "name": "win-kvkmd51ggkq",
+        "id": "c8fc26bf-dc76-4dba-adbb-bf31640d9c9f",
+        "mac": [
+          "BC-24-11-0A-40-BD"
+        ],
+        "architecture": "x86_64"
+      },
+      "@version": "1",
+      "_id": "klwy658BstL_s-ZWfm9-",
+      "event": {
+        "ingested": "2026-08-10T10:23:02Z",
+        "code": "13",
+        "provider": "Microsoft-Windows-Sysmon",
+        "kind": "event",
+        "created": "2026-08-10T10:20:53.542Z",
+        "module": "windows",
+        "action": "RegistryEvent (Value Set)",
+        "category": [
+          "configuration",
+          "registry"
+        ],
+        "type": [
+          "change"
+        ],
+        "dataset": "windows.sysmon_operational"
+      },
+      "num_matches": 1,
+      "user": {
+        "domain": "WIN-KVKMD51GGKQ",
+        "name": "Administrator",
+        "id": "S-1-5-18"
+      },
+      "num_hits": 2
+    },
+    "event": {
+      "severity": 4,
+      "module": "sigma",
+      "dataset": "sigma.alert",
+      "severity_label": "high"
+    },
+    "ioc": {
+      "schema_version": "1.0",
+      "source_engine": "sigma",
+      "rule": {
+        "severity": "high",
+        "name": "Potential Persistence Via GlobalFlags",
+        "uuid": "36803969-5421-41ec-b92f-8500f79c23b0"
+      },
+      "dataset": "sigma.alert"
+    },
+    "tags": "alert"
+  },
+  "sort": [
+    1786357392000
+  ]
+}

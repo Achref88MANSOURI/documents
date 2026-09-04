@@ -1,0 +1,51 @@
+{
+  "alert_id": "6qS9fp8BiUkBvoTNPeON",
+  "verdict": "needs_review",
+  "recommended_action": "needs_review",
+  "summary": "The alert has high severity and affects a critical asset, but the contextual modifiers indicate that previous false positives on this host/IP suggest benign PowerShell usage patterns may exist here, decreasing likelihood. The presence of potential persistence indicators increases the impact if true. This requires review to determine if it's a legitimate activity or malicious.",
+  "reasoning": "The rule context has a high severity, but the asset is critical. The contextual modifiers indicate that previous false positives on this host/IP suggest benign PowerShell usage patterns may exist here, decreasing likelihood. However, there's a strong increase in impact due to potential persistence indicators.",
+  "priority": {
+    "score": 69,
+    "priority": "P1",
+    "base_likelihood": 60,
+    "adjusted_likelihood": 50,
+    "likelihood_modifiers_applied": [
+      {
+        "factor": "false_positive_history",
+        "adjustment": -10
+      }
+    ],
+    "base_impact": 100,
+    "adjusted_impact": 100,
+    "impact_modifiers_applied": [
+      {
+        "factor": "persistence_indicators",
+        "adjustment": 15
+      }
+    ],
+    "base_confidence": 25,
+    "confidence_gate_applied": true,
+    "velocity_multiplier": 1.15,
+    "llm_criticality_score": 50,
+    "final_score_calculation": "(0.40\u00d750 + 0.35\u00d7100 + 0.25\u00d725 + 0.15\u00d750) / 1.15 \u00d7 1.15 = 69",
+    "components": {
+      "base_likelihood": 60.0,
+      "base_impact": 100.0,
+      "base_confidence": 25.0,
+      "rule_severity_score": 70.0,
+      "threat_intel_adjustment": 0.0,
+      "fp_rate_penalty": -0.0,
+      "rule_status_penalty": -10.0,
+      "historical_pattern_adjustment": 0.0,
+      "asset_criticality_score": 95.0,
+      "mitre_technique_severity": 65.0,
+      "blast_radius_score": 0.0,
+      "data_sensitivity_bonus": 0.0,
+      "evidence_completeness_pct": 50.0,
+      "gap_count": 4.0,
+      "verdict_consistency_bonus": 0.0,
+      "source_reliability_bonus": 15.0
+    }
+  },
+  "stage_5_duration_ms": 0
+}

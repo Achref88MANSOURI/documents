@@ -1,0 +1,454 @@
+{
+  "took": 89,
+  "timed_out": false,
+  "_shards": {
+    "total": 4,
+    "successful": 4,
+    "skipped": 2,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 10000,
+      "relation": "gte"
+    },
+    "max_score": null,
+    "hits": [
+      {
+        "_index": ".ds-logs-suricata.alerts-so-2026.08.20-000004",
+        "_id": "z5eNIaABstL_s-ZWDak3",
+        "_score": null,
+        "_source": {
+          "metadata": {
+            "pipeline": "suricata.common",
+            "input": {
+              "beats": {
+                "host": {
+                  "ip": "172.20.24.40"
+                }
+              }
+            },
+            "raw_index": "logs-suricata-so",
+            "stream_id": "filestream-filestream.generic-c11c4a6d-1c2f-42dd-8b5f-052008a3d46a",
+            "beat": "filebeat",
+            "type": "_doc",
+            "version": "9.0.8",
+            "input_id": "filestream-filestream-c11c4a6d-1c2f-42dd-8b5f-052008a3d46a"
+          },
+          "log": {
+            "file": {
+              "inode": "201326728",
+              "path": "/nsm/suricata/eve-2026-08-20-23:04.json",
+              "device_id": "64514"
+            },
+            "offset": 8347129246,
+            "id": {
+              "uid": "1821210283337721"
+            }
+          },
+          "elastic_agent": {
+            "id": "7e56d4aa-ca00-44e1-be79-65c131c9073f",
+            "version": "9.0.8",
+            "snapshot": false
+          },
+          "destination": {
+            "port": 6802,
+            "ip": "172.20.24.103"
+          },
+          "dns": {
+            "query_name": "aqlKZ7wjzg0iKM00E1WB/jq9_RA46w91EKl9A02Dv/nbNdZiLsB1ci8Ph0fb64/9Ks1YxAE86iz9A0dUiDl"
+          },
+          "rule": {
+            "severity": 1,
+            "reference": "https://community.emergingthreats.net",
+            "rev": 1,
+            "metadata": {
+              "affected_product": [
+                "Windows_XP_Vista_7_8_10_Server_32_64_Bit"
+              ],
+              "attack_target": [
+                "Client_Endpoint"
+              ],
+              "updated_at": [
+                "2020_12_08"
+              ],
+              "confidence": [
+                "High"
+              ],
+              "created_at": [
+                "2020_12_08"
+              ],
+              "tag": [
+                "Description_Generated_By_Proofpoint_Nexus"
+              ],
+              "signature_severity": [
+                "Major"
+              ],
+              "deployment": [
+                "Perimeter"
+              ]
+            },
+            "gid": 1,
+            "name": "ET CURRENT_EVENTS [Fireeye] Backdoor.HTTP.GORAT.[Build ID]",
+            "ruleset": "Emerging Threats",
+            "action": "allowed",
+            "rule": "alert tcp any any -> any any (msg:\"ET CURRENT_EVENTS [Fireeye] Backdoor.HTTP.GORAT.[Build ID]\"; content:\"aqlKZ7wjzg0iKM00E1WB/jq9_RA46w91EKl9A02Dv/nbNdZiLsB1ci8Ph0fb64/9Ks1YxAE86iz9A0dUiDl\"; reference:url,github.com/fireeye/red_team_tool_countermeasures; classtype:trojan-activity; sid:2031297; rev:1; metadata:affected_product Windows_XP_Vista_7_8_10_Server_32_64_Bit, attack_target Client_Endpoint, created_at 2020_12_08, deployment Perimeter, confidence High, signature_severity Major, tag Description_Generated_By_Proofpoint_Nexus, updated_at 2020_12_08;)",
+            "category": "A Network Trojan was detected",
+            "uuid": "2031297"
+          },
+          "source": {
+            "port": 34258,
+            "ip": "172.20.24.101"
+          },
+          "tags": [
+            "alert",
+            "alert"
+          ],
+          "network": {
+            "community_id": "1:YmmfOSv1+KGtYq6hlJ/OQT+Nz9c=",
+            "vlan": {
+              "id": [
+                2024
+              ]
+            },
+            "transport": "TCP",
+            "packet_source": "wire/pcap",
+            "private_ip": [
+              "172.20.24.101",
+              "172.20.24.103"
+            ]
+          },
+          "input": {
+            "type": "filestream"
+          },
+          "observer": {
+            "ingress": {
+              "interface": {
+                "name": "bond0"
+              }
+            },
+            "name": "sensor"
+          },
+          "@timestamp": "2026-08-20T23:20:33.610Z",
+          "ecs": {
+            "version": "8.0.0"
+          },
+          "related": {
+            "ip": [
+              "172.20.24.101",
+              "172.20.24.103"
+            ]
+          },
+          "data_stream": {
+            "namespace": "so",
+            "type": "logs",
+            "dataset": "suricata"
+          },
+          "@version": "1",
+          "event": {
+            "severity": 3,
+            "agent_id_status": "missing",
+            "ingested": "2026-08-20T23:41:27Z",
+            "module": "suricata",
+            "category": "network",
+            "dataset": "suricata.alert",
+            "severity_label": "high"
+          }
+        },
+        "sort": [
+          1787268033610
+        ]
+      },
+      {
+        "_index": ".ds-logs-suricata.alerts-so-2026.08.20-000004",
+        "_id": "4JeNIaABstL_s-ZWEKkQ",
+        "_score": null,
+        "_source": {
+          "metadata": {
+            "pipeline": "suricata.common",
+            "input": {
+              "beats": {
+                "host": {
+                  "ip": "172.20.24.40"
+                }
+              }
+            },
+            "raw_index": "logs-suricata-so",
+            "stream_id": "filestream-filestream.generic-c11c4a6d-1c2f-42dd-8b5f-052008a3d46a",
+            "beat": "filebeat",
+            "type": "_doc",
+            "version": "9.0.8",
+            "input_id": "filestream-filestream-c11c4a6d-1c2f-42dd-8b5f-052008a3d46a"
+          },
+          "log": {
+            "file": {
+              "inode": "201326728",
+              "path": "/nsm/suricata/eve-2026-08-20-23:04.json",
+              "device_id": "64514"
+            },
+            "offset": 8344008195,
+            "id": {
+              "uid": "58914062890524"
+            }
+          },
+          "elastic_agent": {
+            "id": "7e56d4aa-ca00-44e1-be79-65c131c9073f",
+            "version": "9.0.8",
+            "snapshot": false
+          },
+          "destination": {
+            "port": 47034,
+            "ip": "172.20.24.103"
+          },
+          "dns": {
+            "query_name": "aqlKZ7wjzg0iKM00E1WB/jq9_RA46w91EKl9A02Dv/nbNdZiLsB1ci8Ph0fb64/9Ks1YxAE86iz9A0dUiDl"
+          },
+          "rule": {
+            "severity": 1,
+            "reference": "https://community.emergingthreats.net",
+            "rev": 1,
+            "metadata": {
+              "affected_product": [
+                "Windows_XP_Vista_7_8_10_Server_32_64_Bit"
+              ],
+              "attack_target": [
+                "Client_Endpoint"
+              ],
+              "updated_at": [
+                "2020_12_08"
+              ],
+              "confidence": [
+                "High"
+              ],
+              "created_at": [
+                "2020_12_08"
+              ],
+              "tag": [
+                "Description_Generated_By_Proofpoint_Nexus"
+              ],
+              "signature_severity": [
+                "Major"
+              ],
+              "deployment": [
+                "Perimeter"
+              ]
+            },
+            "gid": 1,
+            "name": "ET CURRENT_EVENTS [Fireeye] Backdoor.HTTP.GORAT.[Build ID]",
+            "ruleset": "Emerging Threats",
+            "action": "allowed",
+            "rule": "alert tcp any any -> any any (msg:\"ET CURRENT_EVENTS [Fireeye] Backdoor.HTTP.GORAT.[Build ID]\"; content:\"aqlKZ7wjzg0iKM00E1WB/jq9_RA46w91EKl9A02Dv/nbNdZiLsB1ci8Ph0fb64/9Ks1YxAE86iz9A0dUiDl\"; reference:url,github.com/fireeye/red_team_tool_countermeasures; classtype:trojan-activity; sid:2031297; rev:1; metadata:affected_product Windows_XP_Vista_7_8_10_Server_32_64_Bit, attack_target Client_Endpoint, created_at 2020_12_08, deployment Perimeter, confidence High, signature_severity Major, tag Description_Generated_By_Proofpoint_Nexus, updated_at 2020_12_08;)",
+            "category": "A Network Trojan was detected",
+            "uuid": "2031297"
+          },
+          "source": {
+            "port": 6812,
+            "ip": "172.20.24.101"
+          },
+          "tags": [
+            "alert",
+            "alert"
+          ],
+          "network": {
+            "community_id": "1:rEc+ZDEGmWxlgK/Xd/Eq6AlGhdc=",
+            "vlan": {
+              "id": [
+                2024
+              ]
+            },
+            "transport": "TCP",
+            "packet_source": "wire/pcap",
+            "private_ip": [
+              "172.20.24.101",
+              "172.20.24.103"
+            ]
+          },
+          "input": {
+            "type": "filestream"
+          },
+          "observer": {
+            "ingress": {
+              "interface": {
+                "name": "bond0"
+              }
+            },
+            "name": "sensor"
+          },
+          "@timestamp": "2026-08-20T23:20:33.572Z",
+          "ecs": {
+            "version": "8.0.0"
+          },
+          "related": {
+            "ip": [
+              "172.20.24.101",
+              "172.20.24.103"
+            ]
+          },
+          "data_stream": {
+            "namespace": "so",
+            "type": "logs",
+            "dataset": "suricata"
+          },
+          "@version": "1",
+          "event": {
+            "severity": 3,
+            "agent_id_status": "missing",
+            "ingested": "2026-08-20T23:41:27Z",
+            "module": "suricata",
+            "category": "network",
+            "dataset": "suricata.alert",
+            "severity_label": "high"
+          }
+        },
+        "sort": [
+          1787268033572
+        ]
+      },
+      {
+        "_index": ".ds-logs-suricata.alerts-so-2026.08.20-000004",
+        "_id": "7ZeNIaABstL_s-ZWEKkq",
+        "_score": null,
+        "_source": {
+          "metadata": {
+            "pipeline": "suricata.common",
+            "input": {
+              "beats": {
+                "host": {
+                  "ip": "172.20.24.40"
+                }
+              }
+            },
+            "raw_index": "logs-suricata-so",
+            "stream_id": "filestream-filestream.generic-c11c4a6d-1c2f-42dd-8b5f-052008a3d46a",
+            "beat": "filebeat",
+            "type": "_doc",
+            "version": "9.0.8",
+            "input_id": "filestream-filestream-c11c4a6d-1c2f-42dd-8b5f-052008a3d46a"
+          },
+          "log": {
+            "file": {
+              "inode": "201326728",
+              "path": "/nsm/suricata/eve-2026-08-20-23:04.json",
+              "device_id": "64514"
+            },
+            "offset": 8340785233,
+            "id": {
+              "uid": "168403730405855"
+            }
+          },
+          "elastic_agent": {
+            "id": "7e56d4aa-ca00-44e1-be79-65c131c9073f",
+            "version": "9.0.8",
+            "snapshot": false
+          },
+          "destination": {
+            "port": 53202,
+            "ip": "172.20.24.102"
+          },
+          "dns": {
+            "query_name": "aqlKZ7wjzg0iKM00E1WB/jq9_RA46w91EKl9A02Dv/nbNdZiLsB1ci8Ph0fb64/9Ks1YxAE86iz9A0dUiDl"
+          },
+          "rule": {
+            "severity": 1,
+            "reference": "https://community.emergingthreats.net",
+            "rev": 1,
+            "metadata": {
+              "affected_product": [
+                "Windows_XP_Vista_7_8_10_Server_32_64_Bit"
+              ],
+              "attack_target": [
+                "Client_Endpoint"
+              ],
+              "updated_at": [
+                "2020_12_08"
+              ],
+              "confidence": [
+                "High"
+              ],
+              "created_at": [
+                "2020_12_08"
+              ],
+              "tag": [
+                "Description_Generated_By_Proofpoint_Nexus"
+              ],
+              "signature_severity": [
+                "Major"
+              ],
+              "deployment": [
+                "Perimeter"
+              ]
+            },
+            "gid": 1,
+            "name": "ET CURRENT_EVENTS [Fireeye] Backdoor.HTTP.GORAT.[Build ID]",
+            "ruleset": "Emerging Threats",
+            "action": "allowed",
+            "rule": "alert tcp any any -> any any (msg:\"ET CURRENT_EVENTS [Fireeye] Backdoor.HTTP.GORAT.[Build ID]\"; content:\"aqlKZ7wjzg0iKM00E1WB/jq9_RA46w91EKl9A02Dv/nbNdZiLsB1ci8Ph0fb64/9Ks1YxAE86iz9A0dUiDl\"; reference:url,github.com/fireeye/red_team_tool_countermeasures; classtype:trojan-activity; sid:2031297; rev:1; metadata:affected_product Windows_XP_Vista_7_8_10_Server_32_64_Bit, attack_target Client_Endpoint, created_at 2020_12_08, deployment Perimeter, confidence High, signature_severity Major, tag Description_Generated_By_Proofpoint_Nexus, updated_at 2020_12_08;)",
+            "category": "A Network Trojan was detected",
+            "uuid": "2031297"
+          },
+          "source": {
+            "port": 6802,
+            "ip": "172.20.24.101"
+          },
+          "tags": [
+            "alert",
+            "alert"
+          ],
+          "network": {
+            "community_id": "1:f/Ds+BgfFxbT28B75vibvYsWPXI=",
+            "vlan": {
+              "id": [
+                2024
+              ]
+            },
+            "transport": "TCP",
+            "packet_source": "wire/pcap",
+            "private_ip": [
+              "172.20.24.101",
+              "172.20.24.102"
+            ]
+          },
+          "input": {
+            "type": "filestream"
+          },
+          "observer": {
+            "ingress": {
+              "interface": {
+                "name": "bond0"
+              }
+            },
+            "name": "sensor"
+          },
+          "@timestamp": "2026-08-20T23:20:33.544Z",
+          "ecs": {
+            "version": "8.0.0"
+          },
+          "related": {
+            "ip": [
+              "172.20.24.101",
+              "172.20.24.102"
+            ]
+          },
+          "data_stream": {
+            "namespace": "so",
+            "type": "logs",
+            "dataset": "suricata"
+          },
+          "@version": "1",
+          "event": {
+            "severity": 3,
+            "agent_id_status": "missing",
+            "ingested": "2026-08-20T23:41:27Z",
+            "module": "suricata",
+            "category": "network",
+            "dataset": "suricata.alert",
+            "severity_label": "high"
+          }
+        },
+        "sort": [
+          1787268033544
+        ]
+      }
+    ]
+  }
+}
